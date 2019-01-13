@@ -1,0 +1,38 @@
+[
+  {
+    "path": "posts/2018-12-31-first-r-post/",
+    "title": "First Focus on R post",
+    "description": "A short description of the post.",
+    "author": [
+      {
+        "name": "rgt",
+        "url": "https://inferenceX.com"
+      }
+    ],
+    "date": "2018-12-31",
+    "categories": [],
+    "preview": "posts/2018-12-31-first-r-post/first-r-post_files/figure-html5/unnamed-chunk-1-1.png",
+    "last_modified": "2019-01-12T18:38:50-08:00",
+    "preview_width": 1248,
+    "preview_height": 768
+  },
+  {
+    "path": "posts/2018-12-31-start-the-blog/",
+    "title": "Taking a good look at modern R",
+    "description": "In this post we take a closer look the latest developments in the R programming world, particularly the tidyverse, and data.table.",
+    "author": [
+      {
+        "name": "rgt",
+        "url": "https://github.com/rgt47/"
+      }
+    ],
+    "date": "2018-12-31",
+    "categories": [
+      "tables",
+      "plots",
+      "pipes"
+    ],
+    "preview": {},
+    "last_modified": "2018-12-31T20:45:07-08:00"
+  }
+]
