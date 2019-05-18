@@ -1,7 +1,7 @@
 [
   {
     "path": "posts/2018-12-31-first-r-post/",
-    "title": "First Focus on R post",
+    "title": "New First Focus on R post",
     "description": "A short description of the post.",
     "author": [
       {
@@ -12,7 +12,7 @@
     "date": "2018-12-31",
     "categories": [],
     "preview": "posts/2018-12-31-first-r-post/first-r-post_files/figure-html5/unnamed-chunk-1-1.png",
-    "last_modified": "2019-01-12T18:38:50-08:00",
+    "last_modified": "2019-05-17T18:36:06-07:00",
     "preview_width": 1248,
     "preview_height": 768
   },
