@@ -1,0 +1,58 @@
+
+---
+title: "Template analysis"
+author: "R.G. Thomas"
+date: "`r Sys.Date()`"
+output:
+    output: html_document 
+header-includes:
+   - \usepackage{xcolor, graphicx, verbatim, fancyvrb, colortbl,
+     longtable, caption, float}
+   - \usepackage{lipsum, xargs}
+   - \usepackage[colorinlistoftodos,prependcaption,textsize=tiny]{todonotes}
+   - \usepackage[export]{adjustbox}
+bibliography: /Users/zenn/p/library.bib
+---
+
+```{r setup, include=FALSE}
+options(dplyr.print_max = 1e9)
+library(pacman)
+p_load(data.table,colorout, conflicted, purrr,ztable, hrbrthemes,readr, dplyr,
+       magrittr, pipecleaner, lubridate, zoo, mi, survival, ggplot2, printr,
+       lsmeans, ggthemes,  knitr, xtable, doBy, nlme,
+       reshape2,  pander, pwr, tufte)
+
+opts_chunk$set(warning = F, message = F, echo=F, fig.width=3.2,
+	       fig.height=3,  results='asis', dev='pdf',
+	       opts_chunk$set(cache.path = "cache/"))
+source('~/projects/reports/templates/zz.tools.R')
+options(scipen = 1, digits = 2)
+options(ztable.type="latex")
+```
+
+# Introduction
+```{r}
+plot(iris)
+```
+
+\lipsum[2]
+\todo[inline, color=cyan]{The original todo note withouth changed colours.\newline Here's another line.}
+\lipsum[2]
+Sample marginal reference. \cite{Pocock1975a}
+
+Sample reference section reference. @Pocock1975a
+
+# Methods
+
+# Results
+My most common usage of the todonotes package, is to insert an uncustomized
+todonotes somewhere in a latex document. An example of this usage is the command
+\todo{Make a cake \ldots},
+\lipsum[1]
+\todo[color=green]{Make a pie \ldots},
+\lipsum[1] 
+\todo{Make a joke \ldots},
+\listoftodos
+# References
+
+
