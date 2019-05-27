@@ -2,6 +2,12 @@ name: "Focus-on-R"
 title: "Focus on R"
 description: |
   A blog focused on the R programming language.
+base_url: https://focusonr.org  
+collections:
+  posts:
+    disqus: Focus-on-R
+    share: [twitter]
+    subscribe: _subscribe.html
 output_dir: "."
 navbar:
   logo:  images/UCSD.png        

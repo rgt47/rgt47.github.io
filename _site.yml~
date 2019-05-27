@@ -1,12 +1,22 @@
-name: "a107"
-title: "blog"
+name: "Focus-on-R"
+title: "Focus on R"
 description: |
-  blog
+  A blog focused on the R programming language.
+base_url: https://focusonr.org  
+collections:
+  posts:
+    disqus: Focus-on-R
+    share: [twitter]
 output_dir: "."
 navbar:
+  logo:  images/UCSD.png        
   right:
     - text: "Home"
       href: index.html
     - text: "About"
       href: about.html
+    - text: "Contributors"
+      href: contributors.html
+    - icon: fa fa-rss
+      href: index.xml
 output: distill::distill_article
