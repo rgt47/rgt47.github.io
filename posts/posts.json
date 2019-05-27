@@ -1,38 +1,107 @@
 [
   {
-    "path": "posts/2018-12-31-first-r-post/",
-    "title": "New First Focus on R post",
+    "path": "posts/2019-05-26-looking-good/",
+    "title": "looking good",
+    "description": "short description of the post.",
+    "author": [
+      {
+        "name": "Nora Jones",
+        "url": "https://example.com/norajones"
+      }
+    ],
+    "date": "2019-05-26",
+    "categories": [],
+    "preview": {},
+    "last_modified": "2019-05-26T14:03:32-07:00"
+  },
+  {
+    "path": "posts/2019-05-26-new-new-post/",
+    "title": "new new post",
     "description": "A short description of the post.",
     "author": [
       {
-        "name": "rgt",
-        "url": "https://inferenceX.com"
+        "name": "Nora Jones",
+        "url": "https://example.com/norajones"
       }
     ],
-    "date": "2018-12-31",
+    "date": "2019-05-26",
     "categories": [],
-    "preview": "posts/2018-12-31-first-r-post/first-r-post_files/figure-html5/unnamed-chunk-1-1.png",
-    "last_modified": "2019-05-17T18:36:06-07:00",
-    "preview_width": 1248,
-    "preview_height": 768
+    "preview": {},
+    "last_modified": "2019-05-26T13:16:29-07:00"
   },
   {
-    "path": "posts/2018-12-31-start-the-blog/",
-    "title": "Taking a good look at modern R",
-    "description": "In this post we take a closer look the latest developments in the R programming world, particularly the tidyverse, and data.table.",
+    "path": "posts/2019-05-26-the-sharpe-ratio-3/",
+    "title": "The Sharpe Ratio 3",
+    "description": "A short description of the post.",
     "author": [
       {
-        "name": "rgt",
-        "url": "https://github.com/rgt47/"
+        "name": "Nora Jones",
+        "url": "https://example.com/norajones"
       }
     ],
-    "date": "2018-12-31",
-    "categories": [
-      "tables",
-      "plots",
-      "pipes"
-    ],
+    "date": "2019-05-26",
+    "categories": [],
     "preview": {},
-    "last_modified": "2018-12-31T20:45:07-08:00"
+    "last_modified": "2019-05-26T17:58:24-07:00"
+  },
+  {
+    "path": "posts/2019-05-26-third-try/",
+    "title": "third try",
+    "description": "A short description of the post.",
+    "author": [
+      {
+        "name": "Nora Jones",
+        "url": "https://example.com/norajones"
+      }
+    ],
+    "date": "2019-05-26",
+    "categories": [],
+    "preview": {},
+    "last_modified": "2019-05-26T14:35:46-07:00"
+  },
+  {
+    "path": "posts/2019-05-26-try-again/",
+    "title": "try again",
+    "description": "A short description of the post.",
+    "author": [
+      {
+        "name": "Nora Jones",
+        "url": "https://example.com/norajones"
+      }
+    ],
+    "date": "2019-05-26",
+    "categories": [],
+    "preview": {},
+    "last_modified": "2019-05-26T14:07:12-07:00"
+  },
+  {
+    "path": "posts/2019-05-24-the-sharpe-ratio/",
+    "title": "The Sharpe Ratio",
+    "description": "A short description of the post.",
+    "author": [
+      {
+        "name": "Nora Jones",
+        "url": "https://example.com/norajones"
+      }
+    ],
+    "date": "2019-05-24",
+    "categories": [],
+    "preview": {},
+    "last_modified": "2019-05-24T19:19:33-07:00"
+  },
+  {
+    "path": "posts/welcome/",
+    "title": "Welcome to blog",
+    "description": "Welcome to our new blog, blog. We hope you enjoy \nreading what we have to say!",
+    "author": [
+      {
+        "name": "Nora Jones",
+        "url": "https://example.com/norajones"
+      }
+    ],
+    "date": "2019-05-24",
+    "categories": [],
+    "preview": {},
+    "last_modified": "2019-05-24T19:00:32-07:00"
   }
 ]
