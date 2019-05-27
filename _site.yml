@@ -10,7 +10,7 @@ collections:
     subscribe: _subscribe.html
 output_dir: "."
 navbar:
-  logo:  images/UCSD.png        
+  logo:  images/cube.png        
   right:
     - text: "Home"
       href: index.html

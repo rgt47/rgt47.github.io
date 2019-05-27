@@ -7,6 +7,7 @@ collections:
   posts:
     disqus: Focus-on-R
     share: [twitter]
+    subscribe: _subscribe.html
 output_dir: "."
 navbar:
   logo:  images/UCSD.png        
