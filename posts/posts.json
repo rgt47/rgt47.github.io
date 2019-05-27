@@ -57,7 +57,7 @@
     "date": "2019-05-26",
     "categories": [],
     "preview": {},
-    "last_modified": "2019-05-26T17:58:24-07:00"
+    "last_modified": "2019-05-26T18:54:45-07:00"
   },
   {
     "path": "posts/2019-05-26-third-try/",
@@ -103,6 +103,21 @@
     "categories": [],
     "preview": {},
     "last_modified": "2019-05-24T19:19:33-07:00"
+  },
+  {
+    "path": "posts/2019-05-26-maybe/",
+    "title": "this is the maybe post",
+    "description": "Welcome to our new blog, blog. We hope you enjoy \nreading what we have to say!",
+    "author": [
+      {
+        "name": "Nora Jones",
+        "url": "https://example.com/norajones"
+      }
+    ],
+    "date": "2019-05-24",
+    "categories": [],
+    "preview": {},
+    "last_modified": "2019-05-26T18:57:50-07:00"
   },
   {
     "path": "posts/welcome/",
