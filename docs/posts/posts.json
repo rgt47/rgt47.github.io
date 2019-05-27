@@ -1,0 +1,107 @@
+[
+  {
+    "path": "posts/2019-05-26-looking-good/",
+    "title": "looking good",
+    "description": "short description of the post.",
+    "author": [
+      {
+        "name": "Nora Jones",
+        "url": "https://example.com/norajones"
+      }
+    ],
+    "date": "2019-05-26",
+    "categories": [],
+    "preview": {},
+    "last_modified": "2019-05-26T14:03:32-07:00"
+  },
+  {
+    "path": "posts/2019-05-26-new-new-post/",
+    "title": "new new post",
+    "description": "A short description of the post.",
+    "author": [
+      {
+        "name": "Nora Jones",
+        "url": "https://example.com/norajones"
+      }
+    ],
+    "date": "2019-05-26",
+    "categories": [],
+    "preview": {},
+    "last_modified": "2019-05-26T13:16:29-07:00"
+  },
+  {
+    "path": "posts/2019-05-26-the-sharpe-ratio-3/",
+    "title": "The Sharpe Ratio 3",
+    "description": "A short description of the post.",
+    "author": [
+      {
+        "name": "Nora Jones",
+        "url": "https://example.com/norajones"
+      }
+    ],
+    "date": "2019-05-26",
+    "categories": [],
+    "preview": {},
+    "last_modified": "2019-05-26T17:58:24-07:00"
+  },
+  {
+    "path": "posts/2019-05-26-third-try/",
+    "title": "third try",
+    "description": "A short description of the post.",
+    "author": [
+      {
+        "name": "Nora Jones",
+        "url": "https://example.com/norajones"
+      }
+    ],
+    "date": "2019-05-26",
+    "categories": [],
+    "preview": {},
+    "last_modified": "2019-05-26T14:35:46-07:00"
+  },
+  {
+    "path": "posts/2019-05-26-try-again/",
+    "title": "try again",
+    "description": "A short description of the post.",
+    "author": [
+      {
+        "name": "Nora Jones",
+        "url": "https://example.com/norajones"
+      }
+    ],
+    "date": "2019-05-26",
+    "categories": [],
+    "preview": {},
+    "last_modified": "2019-05-26T14:07:12-07:00"
+  },
+  {
+    "path": "posts/2019-05-24-the-sharpe-ratio/",
+    "title": "The Sharpe Ratio",
+    "description": "A short description of the post.",
+    "author": [
+      {
+        "name": "Nora Jones",
+        "url": "https://example.com/norajones"
+      }
+    ],
+    "date": "2019-05-24",
+    "categories": [],
+    "preview": {},
+    "last_modified": "2019-05-24T19:19:33-07:00"
+  },
+  {
+    "path": "posts/welcome/",
+    "title": "Welcome to blog",
+    "description": "Welcome to our new blog, blog. We hope you enjoy \nreading what we have to say!",
+    "author": [
+      {
+        "name": "Nora Jones",
+        "url": "https://example.com/norajones"
+      }
+    ],
+    "date": "2019-05-24",
+    "categories": [],
+    "preview": {},
+    "last_modified": "2019-05-24T19:00:32-07:00"
+  }
+]
