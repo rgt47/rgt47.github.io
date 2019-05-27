@@ -2,7 +2,7 @@ name: "a107"
 title: "blog"
 description: |
   blog
-output_dir: "docs"
+output_dir: "."
 navbar:
   right:
     - text: "Home"
