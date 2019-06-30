@@ -7,6 +7,15 @@
     <description>A blog focused on the R programming language.
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Mon, 27 May 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 29 Jun 2019 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Test post</title>
+      <dc:creator>zenn</dc:creator>
+      <link>https://focusonr.org/posts/2019-06-29-test-post</link>
+      <description>A short description of the post.</description>
+      <guid>https://focusonr.org/posts/2019-06-29-test-post</guid>
+      <pubDate>Sat, 29 Jun 2019 00:00:00 +0000</pubDate>
+      <media:content url="https://focusonr.org/posts/2019-06-29-test-post/test-post_files/figure-html5/unnamed-chunk-1-1.png" medium="image" type="image/png" width="1248" height="768"/>
+    </item>
   </channel>
 </rss>
