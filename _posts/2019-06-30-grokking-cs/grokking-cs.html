@@ -19,37 +19,37 @@
  <!--/radix_placeholder_import_source-->
 
   <!--radix_placeholder_meta_tags-->
-  <title>Grokkking Cs()</title>
+  <title>How does the Cs() function in Hmisc work; and some alternatives</title>
   
-  <meta property="description" itemprop="description" content="Grokking Welcome to our new blog, blog. We hope you enjoy &#10;reading what we have to say!"/>
+  <meta property="description" itemprop="description" content="Have used the Cs() function for years, but how does it work?"/>
   
   
   <!--  https://schema.org/Article -->
-  <meta property="article:published" itemprop="datePublished" content="2019-05-24"/>
-  <meta property="article:created" itemprop="dateCreated" content="2019-05-24"/>
-  <meta name="article:author" content="Nora Jones"/>
+  <meta property="article:published" itemprop="datePublished" content="2019-06-30"/>
+  <meta property="article:created" itemprop="dateCreated" content="2019-06-30"/>
+  <meta name="article:author" content="Ronald G. Thomas"/>
   
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="Grokkking Cs()"/>
+  <meta property="og:title" content="How does the Cs() function in Hmisc work; and some alternatives"/>
   <meta property="og:type" content="article"/>
-  <meta property="og:description" content="Grokking Welcome to our new blog, blog. We hope you enjoy &#10;reading what we have to say!"/>
+  <meta property="og:description" content="Have used the Cs() function for years, but how does it work?"/>
   <meta property="og:locale" content="en_US"/>
   
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
-  <meta property="twitter:title" content="Grokkking Cs()"/>
-  <meta property="twitter:description" content="Grokking Welcome to our new blog, blog. We hope you enjoy &#10;reading what we have to say!"/>
+  <meta property="twitter:title" content="How does the Cs() function in Hmisc work; and some alternatives"/>
+  <meta property="twitter:description" content="Have used the Cs() function for years, but how does it work?"/>
   
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Grokkking Cs()"]},{"type":"character","attributes":{},"value":["Grokking Welcome to our new blog, blog. We hope you enjoy \nreading what we have to say!\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url","affiliation","affiliation_url"]}},"value":[{"type":"character","attributes":{},"value":["Nora Jones"]},{"type":"character","attributes":{},"value":["https://example.com/norajones"]},{"type":"character","attributes":{},"value":["Spacely Sprockets"]},{"type":"character","attributes":{},"value":["https://example.com/spacelysprokets"]}]}]},{"type":"character","attributes":{},"value":["05-24-2019"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","draft"]}},"value":[{"type":"character","attributes":{},"value":["How does the Cs() function in Hmisc work; and some alternatives"]},{"type":"character","attributes":{},"value":["Have used the Cs() function for years, but how does it work? "]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url","affiliation","affiliation_url"]}},"value":[{"type":"character","attributes":{},"value":["Ronald G. Thomas"]},{"type":"character","attributes":{},"value":["https://inferenceX.com/rgthomas"]},{"type":"character","attributes":{},"value":["UCSD and InferenceX.com"]},{"type":"character","attributes":{},"value":["https://InferenceX.com/"]}]}]},{"type":"character","attributes":{},"value":["06-30-2019"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"logical","attributes":{},"value":[true]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["grokking-cs-function.Rmd~"]}
+  {"type":"character","attributes":{},"value":["grokking-cs_files/bowser-1.9.3/bowser.min.js","grokking-cs_files/distill-2.2.21/template.v2.js","grokking-cs_files/jquery-1.11.3/jquery.min.js","grokking-cs_files/webcomponents-2.0.0/webcomponents.js","grokking-cs.Rmd~"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
   <!--/radix_placeholder_navigation_in_header-->
@@ -927,10 +927,10 @@
   </script>
   
   <!--/radix_placeholder_distill-->
-  <script src="grokking-cs-function_files/jquery-1.11.3/jquery.min.js"></script>
-  <script src="grokking-cs-function_files/bowser-1.9.3/bowser.min.js"></script>
-  <script src="grokking-cs-function_files/webcomponents-2.0.0/webcomponents.js"></script>
-  <script src="grokking-cs-function_files/distill-2.2.21/template.v2.js"></script>
+  <script src="grokking-cs_files/jquery-1.11.3/jquery.min.js"></script>
+  <script src="grokking-cs_files/bowser-1.9.3/bowser.min.js"></script>
+  <script src="grokking-cs_files/webcomponents-2.0.0/webcomponents.js"></script>
+  <script src="grokking-cs_files/distill-2.2.21/template.v2.js"></script>
   <!--radix_placeholder_site_in_header-->
   <!--/radix_placeholder_site_in_header-->
 
@@ -942,7 +942,7 @@
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Grokkking Cs()","description":"Grokking Welcome to our new blog, blog. We hope you enjoy \nreading what we have to say!","authors":[{"author":"Nora Jones","authorURL":"https://example.com/norajones","affiliation":"Spacely Sprockets","affiliationURL":"https://example.com/spacelysprokets"}],"publishedDate":"2019-05-24T00:00:00.000-07:00","citationText":"Jones, 2019"}
+{"title":"How does the Cs() function in Hmisc work; and some alternatives","description":"Have used the Cs() function for years, but how does it work?","authors":[{"author":"Ronald G. Thomas","authorURL":"https://inferenceX.com/rgthomas","affiliation":"UCSD and InferenceX.com","affiliationURL":"https://InferenceX.com/"}],"publishedDate":"2019-06-30T00:00:00.000-07:00","citationText":"Thomas, 2019"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -952,24 +952,18 @@
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>Grokkking Cs()</h1>
-<p><p>Grokking Welcome to our new blog, blog. We hope you enjoy reading what we have to say!</p></p>
+<h1>How does the Cs() function in Hmisc work; and some alternatives</h1>
+<p>Have used the Cs() function for years, but how does it work?</p>
 </div>
 
 <div class="d-byline">
-  Nora Jones <a href="https://example.com/norajones" class="uri">https://example.com/norajones</a> (Spacely Sprockets)<a href="https://example.com/spacelysprokets" class="uri">https://example.com/spacelysprokets</a>
+  Ronald G. Thomas <a href="https://inferenceX.com/rgthomas" class="uri">https://inferenceX.com/rgthomas</a> (UCSD and InferenceX.com)<a href="https://InferenceX.com/" class="uri">https://InferenceX.com/</a>
   
-<br/>05-24-2019
+<br/>06-30-2019
 </div>
 
 <div class="d-article">
-<div class="layout-chunk" data-layout="l-body">
-<pre><code>
-function (...) 
-as.character(sys.call())[-1]
-&lt;bytecode: 0x7fa36297a890&gt;
-&lt;environment: namespace:Hmisc&gt;</code></pre>
-</div>
+<h1 id="introduction">Introduction</h1>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>

@@ -1,14 +1,12 @@
 ---
-title: "blog post template"
-description: |
-  Welcome to our new blog, blog. We hope you enjoy 
-  reading what we have to say!
+title: "How does the Cs() function in Hmisc work; and some alternatives"
+description: "Have used the Cs() function for years, but how does it work? "
 author:
   - name: Ronald G. Thomas 
     url: https://inferenceX.com/rgthomas
     affiliation: UCSD and InferenceX.com
     affiliation_url: https://InferenceX.com/
-date: '`r format(Sys.time(), "%d %B, %Y")`'
+date: 06-30-2019
 output:
   distill::distill_article:
     self_contained: false
@@ -26,11 +24,8 @@ opts_chunk$set(warning = F, message = F, echo=F, fig.width=5.2,
 	       fig.height=5,results='asis', dev='pdf',
 	       opts_chunk$set(cache.path = "cache/"))
 source('~/projects/reports/templates/zz.tools.R')
-source("../R_rainclouds.R")
 options(scipen = 1, digits = 2, warn=-1)
-pd <- position_dodge(0.1)
 cbPalette <- c( "#8A3324","#848482", "#0072BB", "#009E73")
-ctrl <- lmeControl(opt='optim')
 ```
 
 #Introduction

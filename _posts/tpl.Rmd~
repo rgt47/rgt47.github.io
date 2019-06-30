@@ -8,7 +8,7 @@ author:
     url: https://inferenceX.com/rgthomas
     affiliation: UCSD and InferenceX.com
     affiliation_url: https://InferenceX.com/
-date: '`r format(Sys.time(), "%d %B, %Y")`'
+date: today
 output:
   distill::distill_article:
     self_contained: false
