@@ -1,5 +1,20 @@
 [
   {
+    "path": "posts/2019-12-15-one/",
+    "title": "one",
+    "description": "A short description of the post.",
+    "author": [
+      {
+        "name": "Nora Jones",
+        "url": "https://example.com/norajones"
+      }
+    ],
+    "date": "2019-12-15",
+    "categories": [],
+    "preview": {},
+    "last_modified": "2019-12-15T15:41:07-08:00"
+  },
+  {
     "path": "posts/welcome/",
     "title": "Welcome to Focus",
     "description": "Welcome to our new blog, Focus. We hope you enjoy \nreading what we have to say!",
