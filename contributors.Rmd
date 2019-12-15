@@ -1,9 +1,0 @@
----
-title: "Contributors"
----
-
-Below is a list of contributors to this blog.
-
-Name | Bio
-----------------------|-------------------------------------------------
-**RG Thomas** | Data Scientist and rookie blogger. 
