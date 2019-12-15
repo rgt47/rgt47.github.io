@@ -1,23 +1,12 @@
-name: "Focus-on-R"
-title: "Focus on R"
+name: "."
+title: "Focus"
 description: |
-  A blog focused on the R programming language.
-base_url: https://focusonr.org  
-collections:
-  posts:
-    disqus: Focus-on-R
-    share: [twitter]
-    subscribe: _subscribe.html
-output_dir: "."
+  Focus
+output_dir: "docs"
 navbar:
-  logo:  images/UCSD.png        
   right:
     - text: "Home"
       href: index.html
     - text: "About"
       href: about.html
-    - text: "Contributors"
-      href: contributors.html
-    - icon: fa fa-rss
-      href: index.xml
 output: distill::distill_article
