@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
+  <channel>
+    <title>Focus</title>
+    <link>https://www.focusonr.org/</link>
+    <atom:link href="https://www.focusonr.org/index.xml" rel="self" type="application/rss+xml"/>
+    <description>Focus
+</description>
+    <generator>Distill</generator>
+    <lastBuildDate>Sun, 15 Dec 2019 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>one</title>
+      <dc:creator>Nora Jones</dc:creator>
+      <link>https://www.focusonr.org/posts/2019-12-15-one</link>
+      <description>A short description of the post.</description>
+      <guid>https://www.focusonr.org/posts/2019-12-15-one</guid>
+      <pubDate>Sun, 15 Dec 2019 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Welcome to Focus</title>
+      <dc:creator>Nora Jones</dc:creator>
+      <link>https://www.focusonr.org/posts/welcome</link>
+      <description>Welcome to our new blog, Focus. We hope you enjoy 
+reading what we have to say!</description>
+      <guid>https://www.focusonr.org/posts/welcome</guid>
+      <pubDate>Sun, 15 Dec 2019 00:00:00 +0000</pubDate>
+    </item>
+  </channel>
+</rss>

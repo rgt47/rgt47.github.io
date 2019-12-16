@@ -2,7 +2,7 @@ name: "."
 title: "Focus"
 description: |
   Focus
-output_dir: "docs"
+output_dir: "_site"
 navbar:
   right:
     - text: "Home"
@@ -10,3 +10,7 @@ navbar:
     - text: "About"
       href: about.html
 output: distill::distill_article
+collections:
+  posts:
+    share: [twitter, linkedin]
+base_url: https://www.focusonr.org/
