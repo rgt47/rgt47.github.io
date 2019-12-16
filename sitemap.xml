@@ -1,19 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" version="1.0">
   <url>
-    <loc>https://www.focusonr.org/about.html</loc>
-    <lastmod>2019-12-15T15:25:43-08:00</lastmod>
+    <loc>https://focusonR.org/about.html</loc>
+    <lastmod>2019-12-15T19:34:00-08:00</lastmod>
   </url>
   <url>
-    <loc>https://www.focusonr.org/</loc>
-    <lastmod>2019-12-15T15:21:16-08:00</lastmod>
+    <loc>https://focusonR.org/contributors.html</loc>
+    <lastmod>2019-12-15T19:35:07-08:00</lastmod>
   </url>
   <url>
-    <loc>https://www.focusonr.org/posts/2019-12-15-one/</loc>
-    <lastmod>2019-12-15T15:41:07-08:00</lastmod>
+    <loc>https://focusonR.org/four.html</loc>
+    <lastmod>2019-12-15T20:11:22-08:00</lastmod>
   </url>
   <url>
-    <loc>https://www.focusonr.org/posts/welcome/</loc>
-    <lastmod>2019-12-15T15:21:16-08:00</lastmod>
+    <loc>https://focusonR.org/</loc>
+    <lastmod>2019-12-15T20:03:31-08:00</lastmod>
+  </url>
+  <url>
+    <loc>https://focusonR.org/posts/2019-12-15-five/</loc>
+    <lastmod>2019-12-15T20:24:12-08:00</lastmod>
+  </url>
+  <url>
+    <loc>https://focusonR.org/posts/2019-12-15-one/</loc>
+    <lastmod>2019-12-15T19:13:36-08:00</lastmod>
+  </url>
+  <url>
+    <loc>https://focusonR.org/posts/2019-12-15-two/</loc>
+    <lastmod>2019-12-15T19:45:53-08:00</lastmod>
+  </url>
+  <url>
+    <loc>https://focusonR.org/posts/welcome/</loc>
+    <lastmod>2019-12-15T19:15:56-08:00</lastmod>
   </url>
 </urlset>

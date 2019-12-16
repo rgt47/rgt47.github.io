@@ -1,28 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
   <channel>
-    <title>Focus</title>
-    <link>https://www.focusonr.org/</link>
-    <atom:link href="https://www.focusonr.org/index.xml" rel="self" type="application/rss+xml"/>
-    <description>Focus
+    <title>Focus on R</title>
+    <link>https://focusonR.org/</link>
+    <atom:link href="https://focusonR.org/index.xml" rel="self" type="application/rss+xml"/>
+    <description>The primary goal is to Focus on R and its underpinnings. 
 </description>
     <generator>Distill</generator>
     <lastBuildDate>Sun, 15 Dec 2019 00:00:00 +0000</lastBuildDate>
     <item>
+      <title>five</title>
+      <dc:creator>Ronald Glenn Thomas</dc:creator>
+      <link>https://focusonR.org/posts/2019-12-15-five</link>
+      <description>A new article created using the Distill format.</description>
+      <guid>https://focusonR.org/posts/2019-12-15-five</guid>
+      <pubDate>Sun, 15 Dec 2019 00:00:00 +0000</pubDate>
+    </item>
+    <item>
       <title>one</title>
       <dc:creator>Nora Jones</dc:creator>
-      <link>https://www.focusonr.org/posts/2019-12-15-one</link>
+      <link>https://focusonR.org/posts/2019-12-15-one</link>
       <description>A short description of the post.</description>
-      <guid>https://www.focusonr.org/posts/2019-12-15-one</guid>
+      <guid>https://focusonR.org/posts/2019-12-15-one</guid>
       <pubDate>Sun, 15 Dec 2019 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>two</title>
+      <dc:creator>Nora Jones</dc:creator>
+      <link>https://focusonR.org/posts/2019-12-15-two</link>
+      <description>A new article created using the Distill format.</description>
+      <guid>https://focusonR.org/posts/2019-12-15-two</guid>
+      <pubDate>Sun, 15 Dec 2019 00:00:00 +0000</pubDate>
+      <media:content url="https://focusonR.org/posts/2019-12-15-two/distill-preview.png" medium="image" type="image/png" width="1248" height="768"/>
     </item>
     <item>
       <title>Welcome to Focus</title>
       <dc:creator>Nora Jones</dc:creator>
-      <link>https://www.focusonr.org/posts/welcome</link>
+      <link>https://focusonR.org/posts/welcome</link>
       <description>Welcome to our new blog, Focus. We hope you enjoy 
 reading what we have to say!</description>
-      <guid>https://www.focusonr.org/posts/welcome</guid>
+      <guid>https://focusonR.org/posts/welcome</guid>
       <pubDate>Sun, 15 Dec 2019 00:00:00 +0000</pubDate>
     </item>
   </channel>

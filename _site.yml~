@@ -1,12 +1,22 @@
 name: "."
-title: "Focus"
+title: "Focus on R"
 description: |
-  Focus
+  The primary goal is to Focus on R and its underpinnings. 
 output_dir: "."
 navbar:
+  logo: images/cube.png
   right:
     - text: "Home"
       href: index.html
     - text: "About"
       href: about.html
+    - text: "Contributors"
+      href: contributors.html
+    - icon: fa fa-rss
+      href: index.xml
+collections:
+  posts:
+    disqus: focusonR
+    share: [twitter]
+base_url: https://focusonR.org/
 output: distill::distill_article

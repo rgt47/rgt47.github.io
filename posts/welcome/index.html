@@ -23,6 +23,7 @@
 
 <meta property="description" itemprop="description" content="Welcome to our new blog, Focus. We hope you enjoy &#10;reading what we have to say!"/>
 
+<link rel="canonical" href="https://focusonR.org/posts/welcome/"/>
 
 <!--  https://schema.org/Article -->
 <meta property="article:published" itemprop="datePublished" content="2019-12-15"/>
@@ -33,6 +34,7 @@
 <meta property="og:title" content="Focus on R: Welcome to Focus"/>
 <meta property="og:type" content="article"/>
 <meta property="og:description" content="Welcome to our new blog, Focus. We hope you enjoy &#10;reading what we have to say!"/>
+<meta property="og:url" content="https://focusonR.org/posts/welcome/"/>
 <meta property="og:locale" content="en_US"/>
 <meta property="og:site_name" content="Focus on R"/>
 
@@ -40,12 +42,20 @@
 <meta property="twitter:card" content="summary"/>
 <meta property="twitter:title" content="Focus on R: Welcome to Focus"/>
 <meta property="twitter:description" content="Welcome to our new blog, Focus. We hope you enjoy &#10;reading what we have to say!"/>
+<meta property="twitter:url" content="https://focusonR.org/posts/welcome/"/>
 
+<!--  https://scholar.google.com/intl/en/scholar/inclusion.html#indexing -->
+<meta name="citation_title" content="Focus on R: Welcome to Focus"/>
+<meta name="citation_fulltext_html_url" content="https://focusonR.org/posts/welcome/"/>
+<meta name="citation_online_date" content="2019/12/15"/>
+<meta name="citation_publication_date" content="2019/12/15"/>
+<meta name="citation_author" content="Nora Jones"/>
+<meta name="citation_author_institution" content="Spacely Sprockets"/>
 <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
 <script type="text/json" id="radix-rmarkdown-metadata">
-{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Welcome to Focus"]},{"type":"character","attributes":{},"value":["Welcome to our new blog, Focus. We hope you enjoy \nreading what we have to say!"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url","affiliation","affiliation_url"]}},"value":[{"type":"character","attributes":{},"value":["Nora Jones"]},{"type":"character","attributes":{},"value":["https://example.com/norajones"]},{"type":"character","attributes":{},"value":["Spacely Sprockets"]},{"type":"character","attributes":{},"value":["https://example.com/spacelysprokets"]}]}]},{"type":"character","attributes":{},"value":["12-15-2019"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]}]}
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","citation_url","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["Welcome to Focus"]},{"type":"character","attributes":{},"value":["Welcome to our new blog, Focus. We hope you enjoy \nreading what we have to say!"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url","affiliation","affiliation_url"]}},"value":[{"type":"character","attributes":{},"value":["Nora Jones"]},{"type":"character","attributes":{},"value":["https://example.com/norajones"]},{"type":"character","attributes":{},"value":["Spacely Sprockets"]},{"type":"character","attributes":{},"value":["https://example.com/spacelysprokets"]}]}]},{"type":"character","attributes":{},"value":["12-15-2019"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"character","attributes":{},"value":["https://focusonR.org/posts/welcome/"]},{"type":"character","attributes":{},"value":["https://focusonR.org/posts/welcome/"]}]}
 </script>
 <!--/radix_placeholder_rmarkdown_metadata-->
   
@@ -1289,11 +1299,18 @@ document.addEventListener('DOMContentLoaded', function() {
 <header class="header header--fixed" role="banner">
 <nav class="distill-site-nav distill-site-header">
 <div class="nav-left">
+<span class="logo">
+<img src="../../images/cube.png"/>
+</span>
 <a href="../../index.html" class="title">Focus on R</a>
 </div>
 <div class="nav-right">
 <a href="../../index.html">Home</a>
 <a href="../../about.html">About</a>
+<a href="../../contributors.html">Contributors</a>
+<a href="../../index.xml">
+<i class="fa fa-rss"></i>
+</a>
 <a href="javascript:void(0);" class="nav-toggle">&#9776;</a>
 </div>
 </nav>
@@ -1316,6 +1333,46 @@ document.addEventListener('DOMContentLoaded', function() {
 <div class="d-article">
 
 <!--radix_placeholder_article_footer-->
+<div class="article-footer">
+  <p class="social_footer">
+    <span class="disqus-comments">
+      <i class="fas fa-comments"></i>
+      &nbsp;
+      <span class="disqus-comment-count" data-disqus-identifier="posts/welcome/">Comment on this article</span>
+    </span>
+    <span class="article-sharing">
+      Share: &nbsp;
+      <a href="https://twitter.com/share?text=Welcome%20to%20Focus&amp;url=https%3A%2F%2FfocusonR.org%2Fposts%2Fwelcome%2F">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </span>
+  </p>
+  <script id="dsq-count-scr" src="https://focusonR.disqus.com/count.js" async></script>
+  <div id="disqus_thread" class="hidden"></div>
+  <script>
+var disqus_config = function () {
+  this.page.url = 'https://focusonR.org/posts/welcome/';
+  this.page.identifier = 'posts/welcome/';
+};
+(function() {
+  var d = document, s = d.createElement('script');
+  s.src = 'https://focusonR.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+})();
+</script>
+  <p>
+    <div class="subscribe"><form method='post' action='https://blogtrottr.com'>
+  <p>Enjoy this blog? Get notified of new posts via email:</p>
+  <input type='text' name='btr_email' />
+  <input type='hidden' name='btr_url'
+         value='https://focusonR.org/index.xml'/>
+  <input type='hidden' name='schedule_type' value='0' />
+  <input type='submit' value='Subscribe' />
+</form>
+</div>
+  </p>
+</div>
 <!--/radix_placeholder_article_footer-->
 </div>
 
@@ -1326,7 +1383,18 @@ document.addEventListener('DOMContentLoaded', function() {
 <!--radix_placeholder_site_after_body-->
 <!--/radix_placeholder_site_after_body-->
 <!--radix_placeholder_appendices-->
-<div class="appendix-bottom"></div>
+<div class="appendix-bottom">
+  <h3 id="citation">Citation</h3>
+  <p>For attribution, please cite this work as</p>
+  <pre class="citation-appendix short">Jones (2019, Dec. 15). Focus on R: Welcome to Focus. Retrieved from https://focusonR.org/posts/welcome/</pre>
+  <p>BibTeX citation</p>
+  <pre class="citation-appendix long">@misc{jones2019welcome,
+  author = {Jones, Nora},
+  title = {Focus on R: Welcome to Focus},
+  url = {https://focusonR.org/posts/welcome/},
+  year = {2019}
+}</pre>
+</div>
 <!--/radix_placeholder_appendices-->
 <!--radix_placeholder_navigation_after_body-->
 <!--/radix_placeholder_navigation_after_body-->
