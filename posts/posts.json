@@ -15,6 +15,21 @@
     "last_modified": "2019-12-15T19:13:36-08:00"
   },
   {
+    "path": "posts/2019-12-15-two/",
+    "title": "two",
+    "description": "A new article created using the Distill format.",
+    "author": [
+      {
+        "name": "Nora Jones",
+        "url": "https://example.com/norajones"
+      }
+    ],
+    "date": "2019-12-15",
+    "categories": [],
+    "preview": "posts/2019-12-15-two/distill-preview.png",
+    "last_modified": "2019-12-15T19:45:53-08:00"
+  },
+  {
     "path": "posts/welcome/",
     "title": "Welcome to Focus",
     "description": "Welcome to our new blog, Focus. We hope you enjoy \nreading what we have to say!",
