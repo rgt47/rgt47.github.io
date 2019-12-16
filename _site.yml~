@@ -10,7 +10,3 @@ navbar:
     - text: "About"
       href: about.html
 output: distill::distill_article
-collections:
-  posts:
-    share: [twitter, linkedin]
-base_url: https://www.focusonr.org/
