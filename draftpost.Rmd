@@ -1,8 +1,8 @@
 ---
-title: "Chapter 2 of advanced R problems discussion"
+title: "five"
 categories:
+  - vim
   - R 
-  - AdvR answers
 description: |
   A new article created using the Distill format.
 author:
@@ -12,7 +12,6 @@ author:
     affiliation_url: https://inferenceX.com
 date: "`r Sys.Date()`"
 output: distill::distill_article
-bibliography: library.bib
 ---
 
 ```{r setup, include=FALSE}
@@ -36,17 +35,13 @@ knitr::opts_chunk$set(echo = FALSE)
 
 # Introduction
 
-My most common usage of the todonotes package, is to insert an uncustomized
-todonotes somewhere in a latex document. An example of this usage is the command
-Sample reference section reference. [@Pocock2005].
+Sample reference section reference. @Pocock1975a
 
 # Methods
-A careful reading of the chapter. Reference additional references
-including: 
 
 # Results
-Notes and offered solutions. 
-
+My most common usage of the todonotes package, is to insert an uncustomized
+todonotes somewhere in a latex document. An example of this usage is the command
 
 # References
 

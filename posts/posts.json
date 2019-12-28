@@ -1,5 +1,23 @@
 [
   {
+    "path": "posts/2019-12-27-chapter-2-of-advanced-r-problems-discussion/",
+    "title": "Chapter 2 of advanced R problems discussion",
+    "description": "A new article created using the Distill format.",
+    "author": [
+      {
+        "name": "Ronald Glenn Thomas",
+        "url": "https://focusonR.org"
+      }
+    ],
+    "date": "2019-12-28",
+    "categories": [
+      "R",
+      "AdvR answers"
+    ],
+    "preview": {},
+    "last_modified": "2019-12-28T13:15:51-08:00"
+  },
+  {
     "path": "posts/2019-12-15-five/",
     "title": "five",
     "description": "A new article created using the Distill format.",
