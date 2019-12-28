@@ -16,40 +16,5 @@
     ],
     "preview": {},
     "last_modified": "2019-12-28T13:15:51-08:00"
-  },
-  {
-    "path": "posts/2019-12-15-five/",
-    "title": "five",
-    "description": "A new article created using the Distill format.",
-    "author": [
-      {
-        "name": "Ronald Glenn Thomas",
-        "url": "https://focusonR.org"
-      }
-    ],
-    "date": "2019-12-15",
-    "categories": [
-      "vim",
-      "R"
-    ],
-    "preview": {},
-    "last_modified": "2019-12-15T20:24:12-08:00"
-  },
-  {
-    "path": "posts/2019-12-15-two/",
-    "title": "two",
-    "description": "A new article created using the Distill format.",
-    "author": [
-      {
-        "name": "Nora Jones",
-        "url": "https://example.com/norajones"
-      }
-    ],
-    "date": "2019-12-15",
-    "categories": [],
-    "preview": "posts/2019-12-15-two/distill-preview.png",
-    "last_modified": "2019-12-15T19:45:53-08:00",
-    "preview_width": 1248,
-    "preview_height": 768
   }
 ]

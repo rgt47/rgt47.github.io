@@ -16,22 +16,5 @@
       <guid>https://focusonR.org/posts/2019-12-27-chapter-2-of-advanced-r-problems-discussion</guid>
       <pubDate>Sat, 28 Dec 2019 00:00:00 +0000</pubDate>
     </item>
-    <item>
-      <title>five</title>
-      <dc:creator>Ronald Glenn Thomas</dc:creator>
-      <link>https://focusonR.org/posts/2019-12-15-five</link>
-      <description>A new article created using the Distill format.</description>
-      <guid>https://focusonR.org/posts/2019-12-15-five</guid>
-      <pubDate>Sun, 15 Dec 2019 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>two</title>
-      <dc:creator>Nora Jones</dc:creator>
-      <link>https://focusonR.org/posts/2019-12-15-two</link>
-      <description>A new article created using the Distill format.</description>
-      <guid>https://focusonR.org/posts/2019-12-15-two</guid>
-      <pubDate>Sun, 15 Dec 2019 00:00:00 +0000</pubDate>
-      <media:content url="https://focusonR.org/posts/2019-12-15-two/distill-preview.png" medium="image" type="image/png" width="1248" height="768"/>
-    </item>
   </channel>
 </rss>
