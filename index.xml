@@ -7,7 +7,16 @@
     <description>The primary goal is to Focus on R and its underpinnings. 
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Sat, 28 Dec 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 01 Jan 2020 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>programming ggplot timeseries function options</title>
+      <dc:creator>Ronald Glenn Thomas</dc:creator>
+      <link>https://focusonR.org/posts/2020-01-01-programming-ggplot-timeseries-function-options</link>
+      <description>A chronicle of the evolution of a ggplot programming exploration.</description>
+      <guid>https://focusonR.org/posts/2020-01-01-programming-ggplot-timeseries-function-options</guid>
+      <pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate>
+      <media:content url="https://focusonR.org/posts/2020-01-01-programming-ggplot-timeseries-function-options/distill-preview.png" medium="image" type="image/png" width="614" height="576"/>
+    </item>
     <item>
       <title>Chapter 2 of advanced R problems discussion</title>
       <dc:creator>Ronald Glenn Thomas</dc:creator>

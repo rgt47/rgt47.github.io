@@ -1,0 +1,125 @@
+---
+title: "programming ggplot timeseries function options"
+categories:
+  - vim
+  - R 
+description: |
+  A chronicle of the evolution of a ggplot programming exploration. 
+author:
+  - name: Ronald Glenn Thomas
+    url: https://focusonR.org
+    affiliation: InferenceX
+    affiliation_url: https://inferenceX.com
+date: "`r Sys.Date()`"
+output: distill::distill_article
+bibliography: [library.bib]
+---
+
+```{r setup, include=FALSE}
+options(dplyr.print_max = 1e9)
+library(pacman)
+p_load(quantmod, tibble, broom, snakecase, tidyr, png, colorout, conflicted,
+       purrr,ztable, hrbrthemes,readr, dplyr, magrittr, 
+       lubridate, zoo, mi, survival, ggplot2, printr,
+       lsmeans, ggthemes,  knitr, xtable, doBy, nlme,
+       reshape2,  pander, pwr, tufte)
+
+opts_chunk$set(warning = F, message = F, echo=F, fig.width=3.2,
+	       fig.height=3,  results='asis', dev='png',
+	       opts_chunk$set(cache.path = "cache/"))
+source('~/projects/reports/templates/zz.tools.R')
+options(scipen = 1, digits = 2)
+knitr::opts_chunk$set(echo = FALSE)
+```
+``` {r bibsetup, echo=FALSE, message=FALSE, warning=FALSE}
+    ## Load knitcitations with a clean bibliography
+    library('knitcitations')
+    cleanbib()
+    cite_options(hyperlink = 'to.doc', citation_format = 'text', style = 'html')
+    
+    bib <- c('knitcitations' = citation('knitcitations'),
+             'blogdown' = citation('blogdown')[2])
+```
+# Introduction
+
+Programming with ggplot or tidyverse tools has been a challenge for me
+until recently. After reading a number of blog posts and the chapter
+on tidyverse programming in Wickham's Advanced R text [@Wickham2014] I
+have a better idea of how to build the ggplot call. 
+
+# Methods
+```{r}
+ahist1 <-  read_csv("~/p/c107/data/ahist1.csv")
+```
+
+```{r echo=T}
+# Get quantmod
+
+start <- as.Date("2019-01-01")
+end <- as.Date("2019-12-31")
+#getSymbols(c("TSLA", "GOOG"), src = "yahoo", from = start, to = end)
+#tesla2019  = TSLA[,"TSLA.Close"] %>%  as.data.frame %>%
+	#rownames_to_column(var="date") %>%  
+	#data.frame(stock="tesla",.) %>%  
+	#setNames(c("stock", "date", "value"))
+#dat1  = GOOG[,"GOOG.Close"]%>%  as.data.frame %>%  
+	#rownames_to_column(var="date") %>%  
+	#data.frame(stock="google",.) %>%  
+	#setNames(c("stock", "date", "value")) %>%  
+       #rbind(tesla2019)	 %>% 
+      #mut(date = ymd(date)) 
+write_csv(dat1, "stocks_time_series.csv")
+dat1 = read_csv("stocks_time_series.csv")
+
+explore = function(data, stocks, xlim=NULL, ylim=NULL){
+stocks = enquo(stocks)
+xlim = enquo(xlim)
+ylim = enquo(ylim)
+#rids = !!rids[!!rids %in% unique(data$rid)]
+dat1 = data  %>% fil(stock %in% !! stocks  ) 
+stocks = dat1 %>%  pull(stock) %>%  unique
+browser()
+dat2 = tibble(stock=c("tesla","google"), start=start, end=end)
+gg=    ggplot()+
+geom_rect(data=dat2, mapping=aes(xmin=start, xmax=start+90,ymin=-Inf, 
+	  ymax=Inf), alpha=0.5,fill="grey85")+
+geom_rect(data=dat2, mapping=aes(xmin=start+120, xmax=start+210,ymin=-Inf, 
+	  ymax=Inf), alpha=0.5,fill="grey85")+
+    geom_vline(data=dat2, xintercept=start, 
+	       linetype="dotted", colour="black", alpha=.25) +
+    geom_vline(data=dat2, xintercept=start+60, 
+	       linetype="dotted", colour="black", alpha=.25) +
+    geom_vline(data=dat2, aes(xintercept=start+90), 
+	       linetype="dotted", colour="black", alpha=.25) +
+    geom_vline(data=dat2, aes(xintercept=start+120), 
+	       linetype="dotted", colour="black", alpha=.25) +
+    geom_hline(data=dat2, yintercept=250, size = .2, 
+	       linetype="solid", colour="red", alpha=.5) +
+  scale_color_manual(values = c("#00AFBB", "#E7B800")) + xlab("date")+
+    facet_wrap( ~ stock)+theme_bw() +
+geom_line(data=dat1, aes(x = date, y = value), size=.2)  +
+theme(axis.text.x = element_text(angle = 90,hjust = 0, vjust = .5))+
+theme(legend.position="bottom")+
+  scale_color_manual(values = c("#00AFBB", "#E7B800")) +
+theme(strip.background = element_blank(),
+   strip.text.y = element_blank())
+gg
+}
+gg = dat1 %>% explore(stocks = c("tesla","google"))
+gg
+#works but how to set ylim and xlim, and the size of the red horiz
+#line. 
+
+```
+
+
+# Results
+My most common usage of the todonotes package, is to insert an uncustomized
+todonotes somewhere in a latex document. An example of this usage is the command
+
+# References
+
+
+
+
+

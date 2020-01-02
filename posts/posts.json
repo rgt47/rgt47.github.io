@@ -1,5 +1,25 @@
 [
   {
+    "path": "posts/2020-01-01-programming-ggplot-timeseries-function-options/",
+    "title": "programming ggplot timeseries function options",
+    "description": "A chronicle of the evolution of a ggplot programming exploration.",
+    "author": [
+      {
+        "name": "Ronald Glenn Thomas",
+        "url": "https://focusonR.org"
+      }
+    ],
+    "date": "2020-01-01",
+    "categories": [
+      "vim",
+      "R"
+    ],
+    "preview": "posts/2020-01-01-programming-ggplot-timeseries-function-options/distill-preview.png",
+    "last_modified": "2020-01-01T20:18:18-08:00",
+    "preview_width": 614,
+    "preview_height": 576
+  },
+  {
     "path": "posts/2019-12-27-chapter-2-of-advanced-r-problems-discussion/",
     "title": "Chapter 2 of advanced R problems discussion",
     "description": "A new article created using the Distill format.",
