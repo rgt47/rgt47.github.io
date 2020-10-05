@@ -13,6 +13,8 @@
       <dc:creator>Ronald Glenn Thomas</dc:creator>
       <link>https://focusonR.org/posts/2020-01-01-programming-ggplot-timeseries-function-options</link>
       <description>A chronicle of the evolution of a ggplot programming exploration.</description>
+      <category>vim</category>
+      <category>R</category>
       <guid>https://focusonR.org/posts/2020-01-01-programming-ggplot-timeseries-function-options</guid>
       <pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate>
       <media:content url="https://focusonR.org/posts/2020-01-01-programming-ggplot-timeseries-function-options/distill-preview.png" medium="image" type="image/png" width="614" height="576"/>
@@ -22,6 +24,8 @@
       <dc:creator>Ronald Glenn Thomas</dc:creator>
       <link>https://focusonR.org/posts/2019-12-27-chapter-2-of-advanced-r-problems-discussion</link>
       <description>A new article created using the Distill format.</description>
+      <category>R</category>
+      <category>AdvR answers</category>
       <guid>https://focusonR.org/posts/2019-12-27-chapter-2-of-advanced-r-problems-discussion</guid>
       <pubDate>Sat, 28 Dec 2019 00:00:00 +0000</pubDate>
     </item>

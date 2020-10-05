@@ -1,4 +1,34 @@
 ---
+title: "Setting up a Data Science Workflow in Arch Linux on Macbook Pro"
+categories:
+  - vim
+  - R 
+description: |
+  A new article created using the Distill format.
+author:
+  - name: Ronald Glenn Thomas
+    url: https://focusonR.org
+    affiliation: InferenceX
+    affiliation_url: https://inferenceX.com
+date: "`r Sys.Date()`"
+output: distill::distill_article
+---
+
+
+
+# Introduction
+
+Sample reference section reference. @Pocock1975a
+
+# Methods
+
+# Results
+My most common usage of the todonotes package, is to insert an uncustomized
+todonotes somewhere in a latex document. An example of this usage is the command
+
+# References
+
+---
 title: "Chapter 2 of advanced R problems discussion"
 categories:
   - R 
