@@ -1,5 +1,24 @@
 [
   {
+    "path": "posts/2020-10-05-setup-data-science-workflow-in-arch-linux-on-macbook-pro/",
+    "title": "Setting up a Data Science Workflow in Arch Linux on Macbook Pro",
+    "description": "A new article created using the Distill format.",
+    "author": [
+      {
+        "name": "Ronald Glenn Thomas",
+        "url": "https://focusonR.org"
+      }
+    ],
+    "date": "2020-10-05",
+    "categories": [
+      "vim",
+      "R"
+    ],
+    "preview": {},
+    "last_modified": "2020-10-05T17:05:05-07:00",
+    "input_file": {}
+  },
+  {
     "path": "posts/2020-01-01-programming-ggplot-timeseries-function-options/",
     "title": "programming ggplot timeseries function options",
     "description": "A chronicle of the evolution of a ggplot programming exploration.",
