@@ -1,5 +1,24 @@
 [
   {
+    "path": "posts/2020-11-01-test-post-title/",
+    "title": "test post",
+    "description": "A new article: test post.",
+    "author": [
+      {
+        "name": "Ronald Glenn Thomas",
+        "url": "https://focusonR.org"
+      }
+    ],
+    "date": "2020-11-01",
+    "categories": [
+      "vim",
+      "R"
+    ],
+    "preview": {},
+    "last_modified": "2020-11-01T16:54:16-08:00",
+    "input_file": {}
+  },
+  {
     "path": "posts/2020-10-05-setup-data-science-workflow-in-arch-linux-on-macbook-pro/",
     "title": "Setting up a Data Science Workflow in Arch Linux on Macbook Pro",
     "description": "A new article created using the Distill format.",
@@ -15,7 +34,7 @@
       "R"
     ],
     "preview": {},
-    "last_modified": "2020-10-05T17:05:05-07:00",
+    "last_modified": "2020-10-05T18:01:36-07:00",
     "input_file": {}
   },
   {
