@@ -1,5 +1,24 @@
 [
   {
+    "path": "posts/2021-01-16-advanced-r-notes/",
+    "title": "four",
+    "description": "A new article created using the Distill format.",
+    "author": [
+      {
+        "name": "Ronald Glenn Thomas",
+        "url": "https://focusonR.org"
+      }
+    ],
+    "date": "2021-01-16",
+    "categories": [
+      "vim",
+      "R"
+    ],
+    "preview": {},
+    "last_modified": "2021-01-16T18:47:21-08:00",
+    "input_file": {}
+  },
+  {
     "path": "posts/2020-11-01-test-post-title/",
     "title": "test post",
     "description": "A new article: test post.",

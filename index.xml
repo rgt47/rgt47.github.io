@@ -7,7 +7,17 @@
     <description>The primary goal is to Focus on R and its underpinnings. 
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Sun, 01 Nov 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 16 Jan 2021 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>four</title>
+      <dc:creator>Ronald Glenn Thomas</dc:creator>
+      <link>https://focusonR.org/posts/2021-01-16-advanced-r-notes</link>
+      <description>A new article created using the Distill format.</description>
+      <category>vim</category>
+      <category>R</category>
+      <guid>https://focusonR.org/posts/2021-01-16-advanced-r-notes</guid>
+      <pubDate>Sat, 16 Jan 2021 00:00:00 +0000</pubDate>
+    </item>
     <item>
       <title>test post</title>
       <dc:creator>Ronald Glenn Thomas</dc:creator>
