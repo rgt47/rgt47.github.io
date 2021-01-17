@@ -19,6 +19,25 @@
     "input_file": {}
   },
   {
+    "path": "posts/2021-01-16-test2/",
+    "title": "test2",
+    "description": "A new article created using the Distill format.",
+    "author": [
+      {
+        "name": "Ronald Glenn Thomas",
+        "url": "https://focusonR.org"
+      }
+    ],
+    "date": "2021-01-16",
+    "categories": [
+      "R",
+      "AdvR answers"
+    ],
+    "preview": {},
+    "last_modified": "2021-01-16T19:42:17-08:00",
+    "input_file": {}
+  },
+  {
     "path": "posts/2020-11-01-test-post-title/",
     "title": "test post",
     "description": "A new article: test post.",
