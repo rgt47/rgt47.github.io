@@ -2,54 +2,58 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" version="1.0">
   <url>
     <loc>https://focusonR.org/about.html</loc>
-    <lastmod>2020-05-13T08:50:48-07:00</lastmod>
+    <lastmod>2021-07-05T21:01:18-07:00</lastmod>
   </url>
   <url>
     <loc>https://focusonR.org/contributors.html</loc>
-    <lastmod>2020-05-13T08:50:46-07:00</lastmod>
+    <lastmod>2021-07-05T21:01:18-07:00</lastmod>
   </url>
   <url>
     <loc>https://focusonR.org/draftpost.html</loc>
-    <lastmod>2020-11-01T17:09:54-08:00</lastmod>
+    <lastmod>2021-07-05T21:01:18-07:00</lastmod>
   </url>
   <url>
     <loc>https://focusonR.org/four.html</loc>
-    <lastmod>2020-11-01T17:10:13-08:00</lastmod>
+    <lastmod>2021-07-05T21:01:18-07:00</lastmod>
   </url>
   <url>
     <loc>https://focusonR.org/</loc>
-    <lastmod>2020-05-13T08:50:44-07:00</lastmod>
+    <lastmod>2021-07-05T21:01:18-07:00</lastmod>
   </url>
   <url>
     <loc>https://focusonR.org/template.html</loc>
-    <lastmod>2021-01-16T19:50:03-08:00</lastmod>
+    <lastmod>2021-07-05T21:01:18-07:00</lastmod>
+  </url>
+  <url>
+    <loc>https://focusonR.org/posts/2021-07-05-unix-tools-for-ds-developers/</loc>
+    <lastmod>2021-07-05T21:06:04-07:00</lastmod>
   </url>
   <url>
     <loc>https://focusonR.org/posts/2021-03-26-using-pass/</loc>
-    <lastmod>2021-03-26T18:28:07-07:00</lastmod>
+    <lastmod>2021-07-05T21:01:18-07:00</lastmod>
   </url>
   <url>
     <loc>https://focusonR.org/posts/2021-01-16-advanced-r-notes/</loc>
-    <lastmod>2021-01-16T18:47:21-08:00</lastmod>
+    <lastmod>2021-07-05T21:01:18-07:00</lastmod>
   </url>
   <url>
     <loc>https://focusonR.org/posts/2021-01-16-test2/</loc>
-    <lastmod>2021-01-16T19:42:17-08:00</lastmod>
+    <lastmod>2021-07-05T21:01:18-07:00</lastmod>
   </url>
   <url>
     <loc>https://focusonR.org/posts/2020-11-01-test-post-title/</loc>
-    <lastmod>2020-11-01T16:54:16-08:00</lastmod>
+    <lastmod>2021-07-05T21:01:18-07:00</lastmod>
   </url>
   <url>
     <loc>https://focusonR.org/posts/2020-10-05-setup-data-science-workflow-in-arch-linux-on-macbook-pro/</loc>
-    <lastmod>2020-10-05T18:01:36-07:00</lastmod>
+    <lastmod>2021-07-05T21:01:18-07:00</lastmod>
   </url>
   <url>
     <loc>https://focusonR.org/posts/2020-01-01-programming-ggplot-timeseries-function-options/</loc>
-    <lastmod>2020-05-13T08:50:44-07:00</lastmod>
+    <lastmod>2021-07-05T21:01:18-07:00</lastmod>
   </url>
   <url>
     <loc>https://focusonR.org/posts/2019-12-27-chapter-2-of-advanced-r-problems-discussion/</loc>
-    <lastmod>2020-05-13T08:50:44-07:00</lastmod>
+    <lastmod>2021-07-05T21:01:18-07:00</lastmod>
   </url>
 </urlset>

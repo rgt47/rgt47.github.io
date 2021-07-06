@@ -1,5 +1,25 @@
 [
   {
+    "path": "posts/2021-07-05-unix-tools-for-ds-developers/",
+    "title": "unix tools for DS developers",
+    "description": "A new article created using the Distill format.",
+    "author": [
+      {
+        "name": "Ronald Glenn Thomas",
+        "url": "https://focusonR.org"
+      }
+    ],
+    "date": "2021-07-05",
+    "categories": [
+      "R",
+      "AdvR answers"
+    ],
+    "contents": "\nIntroduction This is the first of hopefully a number of posts\ndescribing the setup of a number of essential tools for working with data.table in a unix environment. My most common usage of the todonotes package, is to insert an uncustomized todonotes somewhere in a latex document. An example of this usage is the command Sample reference section reference. (Pocock 2005).\nMethods\nA careful reading of the chapter. Reference additional references including:\nResults\nNotes and offered solutions.\nReferences\nDistill is a publication format for scientific and technical writing, native to the web.\nLearn more about using Distill at https://rstudio.github.io/distill.\n\n\n\nPocock, SJ. 2005. “when (not) to stop a clinical trial for Benefit.” JAMA: The Journal of the American Medical Association 294 (17): 2228–30. http://jama.ama-assn.org/content/294/17/2228.short.\n\n\n\n\n",
+    "preview": {},
+    "last_modified": "2021-07-05T21:06:04-07:00",
+    "input_file": {}
+  },
+  {
     "path": "posts/2021-03-26-using-pass/",
     "title": "Pass for managing passwords",
     "description": "A new article created using the Distill format.",
@@ -16,8 +36,8 @@
     ],
     "contents": "\nIntroduction\nMy most common usage of the todonotes package, is to insert an uncustomized todonotes somewhere in a latex document. An example of this usage is the command Sample reference section reference. (Pocock 2005).\nMethods\nA careful reading of the chapter. Reference additional references including:\nResults\nNotes and offered solutions.\nReferences\n\n\n\nPocock, SJ. 2005. “when (not) to stop a clinical trial for Benefit.” JAMA: The Journal of the American Medical Association 294 (17): 2228–30. http://jama.ama-assn.org/content/294/17/2228.short.\n\n\n\n\n",
     "preview": {},
-    "last_modified": "2021-03-26T18:28:07-07:00",
-    "input_file": "using-pass.utf8.md"
+    "last_modified": "2021-07-05T21:01:18-07:00",
+    "input_file": {}
   },
   {
     "path": "posts/2021-01-16-advanced-r-notes/",
@@ -34,8 +54,9 @@
       "vim",
       "R"
     ],
+    "contents": "\nIntroduction\nSample reference section reference. @Pocock1975a\nMethods\nResults\nMy most common usage of the todonotes package, is to insert an uncustomized todonotes somewhere in a latex document. An example of this usage is the command\nReferences\n\n\n",
     "preview": {},
-    "last_modified": "2021-01-16T18:47:21-08:00",
+    "last_modified": "2021-07-05T21:01:18-07:00",
     "input_file": {}
   },
   {
@@ -53,8 +74,9 @@
       "R",
       "AdvR answers"
     ],
+    "contents": "\nIntroduction\nMy most common usage of the todonotes package, is to insert an uncustomized todonotes somewhere in a latex document. An example of this usage is the command Sample reference section reference. (Pocock 2005).\nMethods\nA careful reading of the chapter. Reference additional references including:\nResults\nNotes and offered solutions.\nReferences\n\n\nPocock, SJ. 2005. “when (not) to stop a clinical trial for Benefit.” JAMA: The Journal of the American Medical Association 294 (17): 2228–30. http://jama.ama-assn.org/content/294/17/2228.short.\n\n\n\n\n",
     "preview": {},
-    "last_modified": "2021-01-16T19:42:17-08:00",
+    "last_modified": "2021-07-05T21:01:18-07:00",
     "input_file": {}
   },
   {
@@ -72,8 +94,9 @@
       "vim",
       "R"
     ],
+    "contents": "\nIntroduction\nSample reference section reference. @Pocock1975a\nMethods\nResults\ntest post\nReferences\n\n\n",
     "preview": {},
-    "last_modified": "2020-11-01T16:54:16-08:00",
+    "last_modified": "2021-07-05T21:01:18-07:00",
     "input_file": {}
   },
   {
@@ -91,8 +114,9 @@
       "vim",
       "R"
     ],
+    "contents": "\nIntroduction\nSample reference section reference. @Pocock1975a\nMethods\nResults\nMy most common usage of the todonotes package, is to insert an uncustomized todonotes somewhere in a latex document. An example of this usage is the command\nReferences\nIntroduction\nMy most common usage of the todonotes package, is to insert an uncustomized todonotes somewhere in a latex document. An example of this usage is the command Sample reference section reference. [@Pocock2005].\nMethods\nA careful reading of the chapter. Reference additional references including:\nResults\nNotes and offered solutions.\nReferences\n\n\n",
     "preview": {},
-    "last_modified": "2020-10-05T18:01:36-07:00",
+    "last_modified": "2021-07-05T21:01:18-07:00",
     "input_file": {}
   },
   {
@@ -110,8 +134,9 @@
       "vim",
       "R"
     ],
+    "contents": "\n\n\n\nIntroduction\nProgramming with ggplot or tidyverse tools has been a challenge for me until recently. After reading a number of blog posts and the chapter on tidyverse programming in Wickham’s Advanced R text (Wickham 2014) I have a better idea of how to build the ggplot call.\nMethods\n\n\n\n\n\n# Get quantmod\n\nstart <- as.Date(\"2019-01-01\")\nend <- as.Date(\"2019-12-31\")\n#getSymbols(c(\"TSLA\", \"GOOG\"), src = \"yahoo\", from = start, to = end)\n#tesla2019  = TSLA[,\"TSLA.Close\"] %>%  as.data.frame %>%\n    #rownames_to_column(var=\"date\") %>%  \n    #data.frame(stock=\"tesla\",.) %>%  \n    #setNames(c(\"stock\", \"date\", \"value\"))\n#dat1  = GOOG[,\"GOOG.Close\"]%>%  as.data.frame %>%  \n    #rownames_to_column(var=\"date\") %>%  \n    #data.frame(stock=\"google\",.) %>%  \n    #setNames(c(\"stock\", \"date\", \"value\")) %>%  \n       #rbind(tesla2019)     %>% \n      #mut(date = ymd(date)) \nwrite_csv(dat1, \"stocks_time_series.csv\")\ndat1 = read_csv(\"stocks_time_series.csv\")\n\nexplore = function(data, stocks, xlim=NULL, ylim=NULL){\nstocks = enquo(stocks)\nxlim = enquo(xlim)\nylim = enquo(ylim)\n#rids = !!rids[!!rids %in% unique(data$rid)]\ndat1 = data  %>% fil(stock %in% !! stocks  ) \nstocks = dat1 %>%  pull(stock) %>%  unique\nbrowser()\ndat2 = tibble(stock=c(\"tesla\",\"google\"), start=start, end=end)\ngg=    ggplot()+\ngeom_rect(data=dat2, mapping=aes(xmin=start, xmax=start+90,ymin=-Inf, \n      ymax=Inf), alpha=0.5,fill=\"grey85\")+\ngeom_rect(data=dat2, mapping=aes(xmin=start+120, xmax=start+210,ymin=-Inf, \n      ymax=Inf), alpha=0.5,fill=\"grey85\")+\n    geom_vline(data=dat2, xintercept=start, \n           linetype=\"dotted\", colour=\"black\", alpha=.25) +\n    geom_vline(data=dat2, xintercept=start+60, \n           linetype=\"dotted\", colour=\"black\", alpha=.25) +\n    geom_vline(data=dat2, aes(xintercept=start+90), \n           linetype=\"dotted\", colour=\"black\", alpha=.25) +\n    geom_vline(data=dat2, aes(xintercept=start+120), \n           linetype=\"dotted\", colour=\"black\", alpha=.25) +\n    geom_hline(data=dat2, yintercept=250, size = .2, \n           linetype=\"solid\", colour=\"red\", alpha=.5) +\n  scale_color_manual(values = c(\"#00AFBB\", \"#E7B800\")) + xlab(\"date\")+\n    facet_wrap( ~ stock)+theme_bw() +\ngeom_line(data=dat1, aes(x = date, y = value), size=.2)  +\ntheme(axis.text.x = element_text(angle = 90,hjust = 0, vjust = .5))+\ntheme(legend.position=\"bottom\")+\n  scale_color_manual(values = c(\"#00AFBB\", \"#E7B800\")) +\ntheme(strip.background = element_blank(),\n   strip.text.y = element_blank())\ngg\n}\ngg = dat1 %>% explore(stocks = c(\"tesla\",\"google\"))\nCalled from: explore(., stocks = c(“tesla”, “google”))\n\ngg\n\n\n#works but how to set ylim and xlim, and the size of the red horiz\n#line. \n\nResults\nMy most common usage of the todonotes package, is to insert an uncustomized todonotes somewhere in a latex document. An example of this usage is the command\nReferences\n\n\nWickham, H. 2014. Advanced r. https://content.taylorfrancis.com/books/download?dac=C2012-0-14807-0{\\&}isbn=9781466586970{\\&}format=googlePreviewPdf.\n\n\n\n\n",
     "preview": "posts/2020-01-01-programming-ggplot-timeseries-function-options/distill-preview.png",
-    "last_modified": "2020-05-13T08:50:44-07:00",
+    "last_modified": "2021-07-05T21:01:18-07:00",
     "input_file": {},
     "preview_width": 614,
     "preview_height": 576
@@ -131,8 +156,9 @@
       "R",
       "AdvR answers"
     ],
+    "contents": "\nIntroduction\nMy most common usage of the todonotes package, is to insert an uncustomized todonotes somewhere in a latex document. An example of this usage is the command Sample reference section reference. (Pocock 2005).\nMethods\nA careful reading of the chapter. Reference additional references including:\nResults\nNotes and offered solutions.\nReferences\n\n\nPocock, SJ. 2005. “when (not) to stop a clinical trial for Benefit.” JAMA: The Journal of the American Medical Association 294 (17): 2228–30. http://jama.ama-assn.org/content/294/17/2228.short.\n\n\n\n\n",
     "preview": {},
-    "last_modified": "2020-05-13T08:50:44-07:00",
+    "last_modified": "2021-07-05T21:01:18-07:00",
     "input_file": {}
   }
 ]

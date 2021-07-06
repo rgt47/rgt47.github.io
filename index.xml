@@ -7,7 +7,17 @@
     <description>The primary goal is to Focus on R and its underpinnings. 
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Fri, 26 Mar 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 05 Jul 2021 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>unix tools for DS developers</title>
+      <dc:creator>Ronald Glenn Thomas</dc:creator>
+      <link>https://focusonR.org/posts/2021-07-05-unix-tools-for-ds-developers</link>
+      <description>A new article created using the Distill format.</description>
+      <category>R</category>
+      <category>AdvR answers</category>
+      <guid>https://focusonR.org/posts/2021-07-05-unix-tools-for-ds-developers</guid>
+      <pubDate>Mon, 05 Jul 2021 00:00:00 +0000</pubDate>
+    </item>
     <item>
       <title>Pass for managing passwords</title>
       <dc:creator>Ronald Glenn Thomas</dc:creator>
