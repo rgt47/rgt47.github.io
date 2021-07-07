@@ -1,5 +1,65 @@
 [
   {
+    "path": "posts/2019-12-27-chapter-2-of-advanced-r-problems-discussion/",
+    "title": "Chapter 2 of advanced R problems discussion",
+    "description": "A new article created using the Distill format.",
+    "author": [
+      {
+        "name": "Ronald Glenn Thomas",
+        "url": "https://focusonR.org"
+      }
+    ],
+    "date": "2021-07-07",
+    "categories": [
+      "R",
+      "AdvR answers"
+    ],
+    "contents": "\n```{r setup, include=FALSE} options(dplyr.print_max = 1e9) library(pacman) p_load(tibble, broom, snakecase, tidyr, data.table,colorout, conflicted, purrr,ztable, hrbrthemes,readr, dplyr, magrittr, lubridate, zoo, mi, survival, ggplot2, printr, lsmeans, ggthemes, knitr, xtable, doBy, nlme, reshape2, pander, pwr, tufte)\nopts_chunk\\(set(warning = F, message = F, echo=F, fig.width=3.2,  fig.height=3, results='asis', dev='pdf',  opts_chunk\\)set(cache.path = “cache/”)) source(‘~/work/reports/templates/zz.tools.R’) options(scipen = 1, digits = 2) knitr::opts_chunk$set(echo = FALSE) ```\nIntroduction\nMy most common usage of the todonotes package, is to insert an uncustomized todonotes somewhere in a latex document. An example of this usage is the command Sample reference section reference. (Pocock 2005).\nMethods\nA careful reading of the chapter. Reference additional references including:\nResults\nNotes and offered solutions.\nReferences\n\n\nPocock, SJ. 2005. “when (not) to stop a clinical trial for Benefit.” JAMA: The Journal of the American Medical Association 294 (17): 2228–30. http://jama.ama-assn.org/content/294/17/2228.short.\n\n\n\n\n",
+    "preview": {},
+    "last_modified": "2021-07-07T12:13:16-07:00",
+    "input_file": {}
+  },
+  {
+    "path": "posts/2021-03-26-using-pass/",
+    "title": "Pass for managing passwords",
+    "description": "A new article created using the Distill format.",
+    "author": [
+      {
+        "name": "Ronald Glenn Thomas",
+        "url": "https://focusonR.org"
+      }
+    ],
+    "date": "2021-07-07",
+    "categories": [
+      "R",
+      "AdvR answers"
+    ],
+    "contents": "\nIntroduction\nMy most common usage of the todonotes package, is to insert an uncustomized todonotes somewhere in a latex document. An example of this usage is the command Sample reference section reference. (Pocock 2005).\nMethods\nA careful reading of the chapter. Reference additional references including:\nResults\nNotes and offered solutions.\nReferences\n\n\n\nPocock, SJ. 2005. “when (not) to stop a clinical trial for Benefit.” JAMA: The Journal of the American Medical Association 294 (17): 2228–30. http://jama.ama-assn.org/content/294/17/2228.short.\n\n\n\n\n",
+    "preview": {},
+    "last_modified": "2021-07-07T11:40:04-07:00",
+    "input_file": {}
+  },
+  {
+    "path": "posts/2021-07-07-ch-2-ar/",
+    "title": "ch 2",
+    "description": "A new article created using the Distill format.",
+    "author": [
+      {
+        "name": "Ronald Glenn Thomas",
+        "url": "https://focusonR.org"
+      }
+    ],
+    "date": "2021-07-07",
+    "categories": [
+      "R",
+      "AdvR answers"
+    ],
+    "contents": "\nIntroduction\nAdvanced R notes.\nMy most common usage of the todonotes package, is to insert an uncustomized todonotes somewhere in a latex document. An example of this usage is the command Sample reference section reference. (Pocock 2005).\nMethods\nA careful reading of the chapter. Reference additional references including:\nResults\nNotes and offered solutions.\nReferences\n\n\n\nPocock, SJ. 2005. “when (not) to stop a clinical trial for Benefit.” JAMA: The Journal of the American Medical Association 294 (17): 2228–30. http://jama.ama-assn.org/content/294/17/2228.short.\n\n\n\n\n",
+    "preview": {},
+    "last_modified": "2021-07-07T12:17:46-07:00",
+    "input_file": {}
+  },
+  {
     "path": "posts/2021-07-07-new-post/",
     "title": "new post",
     "description": "A new article created using the Distill format.",
@@ -17,6 +77,26 @@
     "contents": "\nIntroduction\nMy most common usage of the todonotes package, is to insert an uncustomized todonotes somewhere in a latex document. An example of this usage is the command Sample reference section reference. (Pocock 2005).\nMethods\nA careful reading of the chapter. Reference additional references including:\nResults\nNotes and offered solutions.\nReferences\n\n\n\nPocock, SJ. 2005. “when (not) to stop a clinical trial for Benefit.” JAMA: The Journal of the American Medical Association 294 (17): 2228–30. http://jama.ama-assn.org/content/294/17/2228.short.\n\n\n\n\n",
     "preview": {},
     "last_modified": "2021-07-07T11:07:16-07:00",
+    "input_file": {}
+  },
+  {
+    "path": "posts/2021-07-07-newidea/",
+    "title": "new idea",
+    "description": "A new article created using the Distill format.",
+    "author": [
+      {
+        "name": "Ronald Glenn Thomas",
+        "url": "https://focusonR.org"
+      }
+    ],
+    "date": "2021-07-07",
+    "categories": [
+      "R",
+      "AdvR answers"
+    ],
+    "contents": "\nIntroduction\nMy most common usage of the todonotes package, is to insert an uncustomized todonotes somewhere in a latex document. An example of this usage is the command Sample reference section reference. (Pocock 2005).\nMethods\nA careful reading of the chapter. Reference additional references including:\nResults\nNotes and offered solutions.\nReferences\n\n\n\nPocock, SJ. 2005. “when (not) to stop a clinical trial for Benefit.” JAMA: The Journal of the American Medical Association 294 (17): 2228–30. http://jama.ama-assn.org/content/294/17/2228.short.\n\n\n\n\n",
+    "preview": {},
+    "last_modified": "2021-07-07T13:09:53-07:00",
     "input_file": {}
   },
   {
@@ -40,26 +120,6 @@
     "input_file": {}
   },
   {
-    "path": "posts/2021-03-26-using-pass/",
-    "title": "Pass for managing passwords",
-    "description": "A new article created using the Distill format.",
-    "author": [
-      {
-        "name": "Ronald Glenn Thomas",
-        "url": "https://focusonR.org"
-      }
-    ],
-    "date": "2021-03-26",
-    "categories": [
-      "R",
-      "AdvR answers"
-    ],
-    "contents": "\nIntroduction\nMy most common usage of the todonotes package, is to insert an uncustomized todonotes somewhere in a latex document. An example of this usage is the command Sample reference section reference. (Pocock 2005).\nMethods\nA careful reading of the chapter. Reference additional references including:\nResults\nNotes and offered solutions.\nReferences\n\n\n\nPocock, SJ. 2005. “when (not) to stop a clinical trial for Benefit.” JAMA: The Journal of the American Medical Association 294 (17): 2228–30. http://jama.ama-assn.org/content/294/17/2228.short.\n\n\n\n\n",
-    "preview": {},
-    "last_modified": "2021-07-07T10:55:13-07:00",
-    "input_file": {}
-  },
-  {
     "path": "posts/2021-01-16-advanced-r-notes/",
     "title": "four",
     "description": "A new article created using the Distill format.",
@@ -75,26 +135,6 @@
       "R"
     ],
     "contents": "\nIntroduction\nSample reference section reference. @Pocock1975a\nMethods\nResults\nMy most common usage of the todonotes package, is to insert an uncustomized todonotes somewhere in a latex document. An example of this usage is the command\nReferences\n\n\n",
-    "preview": {},
-    "last_modified": "2021-07-07T10:55:13-07:00",
-    "input_file": {}
-  },
-  {
-    "path": "posts/2021-01-16-test2/",
-    "title": "test2",
-    "description": "A new article created using the Distill format.",
-    "author": [
-      {
-        "name": "Ronald Glenn Thomas",
-        "url": "https://focusonR.org"
-      }
-    ],
-    "date": "2021-01-16",
-    "categories": [
-      "R",
-      "AdvR answers"
-    ],
-    "contents": "\nIntroduction\nMy most common usage of the todonotes package, is to insert an uncustomized todonotes somewhere in a latex document. An example of this usage is the command Sample reference section reference. (Pocock 2005).\nMethods\nA careful reading of the chapter. Reference additional references including:\nResults\nNotes and offered solutions.\nReferences\n\n\nPocock, SJ. 2005. “when (not) to stop a clinical trial for Benefit.” JAMA: The Journal of the American Medical Association 294 (17): 2228–30. http://jama.ama-assn.org/content/294/17/2228.short.\n\n\n\n\n",
     "preview": {},
     "last_modified": "2021-07-07T10:55:13-07:00",
     "input_file": {}
@@ -160,25 +200,5 @@
     "input_file": {},
     "preview_width": 614,
     "preview_height": 576
-  },
-  {
-    "path": "posts/2019-12-27-chapter-2-of-advanced-r-problems-discussion/",
-    "title": "Chapter 2 of advanced R problems discussion",
-    "description": "A new article created using the Distill format.",
-    "author": [
-      {
-        "name": "Ronald Glenn Thomas",
-        "url": "https://focusonR.org"
-      }
-    ],
-    "date": "2019-12-28",
-    "categories": [
-      "R",
-      "AdvR answers"
-    ],
-    "contents": "\nIntroduction\nMy most common usage of the todonotes package, is to insert an uncustomized todonotes somewhere in a latex document. An example of this usage is the command Sample reference section reference. (Pocock 2005).\nMethods\nA careful reading of the chapter. Reference additional references including:\nResults\nNotes and offered solutions.\nReferences\n\n\nPocock, SJ. 2005. “when (not) to stop a clinical trial for Benefit.” JAMA: The Journal of the American Medical Association 294 (17): 2228–30. http://jama.ama-assn.org/content/294/17/2228.short.\n\n\n\n\n",
-    "preview": {},
-    "last_modified": "2021-07-07T10:55:13-07:00",
-    "input_file": {}
   }
 ]

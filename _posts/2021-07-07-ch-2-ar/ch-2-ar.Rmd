@@ -1,6 +1,5 @@
-
 ---
-title: "test2"
+title: "ch 2"
 categories:
   - R 
   - AdvR answers
@@ -13,7 +12,7 @@ author:
     affiliation_url: https://rgthomaslab.com
 date: "`r Sys.Date()`"
 output: distill::distill_article
-bibliography: library.bib
+bibliography: '`r normalizePath("~/share/library.bib")`'
 ---
 
 ```{r setup, include=FALSE}
@@ -36,6 +35,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 
 # Introduction
+Advanced R notes. 
 
 My most common usage of the todonotes package, is to insert an uncustomized
 todonotes somewhere in a latex document. An example of this usage is the command

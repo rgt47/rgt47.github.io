@@ -1,6 +1,5 @@
-
 ---
-title: "Pass for managing passwords"
+title: "Chapter 2 of advanced R problems discussion"
 categories:
   - R 
   - AdvR answers
@@ -13,13 +12,13 @@ author:
     affiliation_url: https://rgthomaslab.com
 date: "`r Sys.Date()`"
 output: distill::distill_article
-bibliography: /Users/zenn/share/library.bib
+bibliography: library.bib
 ---
 
 ```{r setup, include=FALSE}
 options(dplyr.print_max = 1e9)
 library(pacman)
-p_load(tibble, broom, snakecase, tidyr, data.table,
+p_load(tibble, broom, snakecase, tidyr, data.table,colorout, conflicted,
        purrr,ztable, hrbrthemes,readr, dplyr, magrittr, 
        lubridate, zoo, mi, survival, ggplot2, printr,
        lsmeans, ggthemes,  knitr, xtable, doBy, nlme,
@@ -50,8 +49,4 @@ Notes and offered solutions.
 
 
 # References
-
-
-
-
 

@@ -9,6 +9,36 @@
     <generator>Distill</generator>
     <lastBuildDate>Wed, 07 Jul 2021 00:00:00 +0000</lastBuildDate>
     <item>
+      <title>Chapter 2 of advanced R problems discussion</title>
+      <dc:creator>Ronald Glenn Thomas</dc:creator>
+      <link>https://focusonR.org/posts/2019-12-27-chapter-2-of-advanced-r-problems-discussion</link>
+      <description>A new article created using the Distill format.</description>
+      <category>R</category>
+      <category>AdvR answers</category>
+      <guid>https://focusonR.org/posts/2019-12-27-chapter-2-of-advanced-r-problems-discussion</guid>
+      <pubDate>Wed, 07 Jul 2021 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Pass for managing passwords</title>
+      <dc:creator>Ronald Glenn Thomas</dc:creator>
+      <link>https://focusonR.org/posts/2021-03-26-using-pass</link>
+      <description>A new article created using the Distill format.</description>
+      <category>R</category>
+      <category>AdvR answers</category>
+      <guid>https://focusonR.org/posts/2021-03-26-using-pass</guid>
+      <pubDate>Wed, 07 Jul 2021 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>ch 2</title>
+      <dc:creator>Ronald Glenn Thomas</dc:creator>
+      <link>https://focusonR.org/posts/2021-07-07-ch-2-ar</link>
+      <description>A new article created using the Distill format.</description>
+      <category>R</category>
+      <category>AdvR answers</category>
+      <guid>https://focusonR.org/posts/2021-07-07-ch-2-ar</guid>
+      <pubDate>Wed, 07 Jul 2021 00:00:00 +0000</pubDate>
+    </item>
+    <item>
       <title>new post</title>
       <dc:creator>Ronald Glenn Thomas</dc:creator>
       <link>https://focusonR.org/posts/2021-07-07-new-post</link>
@@ -16,6 +46,16 @@
       <category>R</category>
       <category>AdvR answers</category>
       <guid>https://focusonR.org/posts/2021-07-07-new-post</guid>
+      <pubDate>Wed, 07 Jul 2021 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>new idea</title>
+      <dc:creator>Ronald Glenn Thomas</dc:creator>
+      <link>https://focusonR.org/posts/2021-07-07-newidea</link>
+      <description>A new article created using the Distill format.</description>
+      <category>R</category>
+      <category>AdvR answers</category>
+      <guid>https://focusonR.org/posts/2021-07-07-newidea</guid>
       <pubDate>Wed, 07 Jul 2021 00:00:00 +0000</pubDate>
     </item>
     <item>
@@ -29,16 +69,6 @@
       <pubDate>Mon, 05 Jul 2021 00:00:00 +0000</pubDate>
     </item>
     <item>
-      <title>Pass for managing passwords</title>
-      <dc:creator>Ronald Glenn Thomas</dc:creator>
-      <link>https://focusonR.org/posts/2021-03-26-using-pass</link>
-      <description>A new article created using the Distill format.</description>
-      <category>R</category>
-      <category>AdvR answers</category>
-      <guid>https://focusonR.org/posts/2021-03-26-using-pass</guid>
-      <pubDate>Fri, 26 Mar 2021 00:00:00 +0000</pubDate>
-    </item>
-    <item>
       <title>four</title>
       <dc:creator>Ronald Glenn Thomas</dc:creator>
       <link>https://focusonR.org/posts/2021-01-16-advanced-r-notes</link>
@@ -46,16 +76,6 @@
       <category>vim</category>
       <category>R</category>
       <guid>https://focusonR.org/posts/2021-01-16-advanced-r-notes</guid>
-      <pubDate>Sat, 16 Jan 2021 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>test2</title>
-      <dc:creator>Ronald Glenn Thomas</dc:creator>
-      <link>https://focusonR.org/posts/2021-01-16-test2</link>
-      <description>A new article created using the Distill format.</description>
-      <category>R</category>
-      <category>AdvR answers</category>
-      <guid>https://focusonR.org/posts/2021-01-16-test2</guid>
       <pubDate>Sat, 16 Jan 2021 00:00:00 +0000</pubDate>
     </item>
     <item>
@@ -88,16 +108,6 @@
       <guid>https://focusonR.org/posts/2020-01-01-programming-ggplot-timeseries-function-options</guid>
       <pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate>
       <media:content url="https://focusonR.org/posts/2020-01-01-programming-ggplot-timeseries-function-options/distill-preview.png" medium="image" type="image/png" width="614" height="576"/>
-    </item>
-    <item>
-      <title>Chapter 2 of advanced R problems discussion</title>
-      <dc:creator>Ronald Glenn Thomas</dc:creator>
-      <link>https://focusonR.org/posts/2019-12-27-chapter-2-of-advanced-r-problems-discussion</link>
-      <description>A new article created using the Distill format.</description>
-      <category>R</category>
-      <category>AdvR answers</category>
-      <guid>https://focusonR.org/posts/2019-12-27-chapter-2-of-advanced-r-problems-discussion</guid>
-      <pubDate>Sat, 28 Dec 2019 00:00:00 +0000</pubDate>
     </item>
   </channel>
 </rss>
