@@ -7,7 +7,17 @@
     <description>The primary goal is to Focus on R and its underpinnings. 
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Mon, 05 Jul 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 07 Jul 2021 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>new post</title>
+      <dc:creator>Ronald Glenn Thomas</dc:creator>
+      <link>https://focusonR.org/posts/2021-07-07-new-post</link>
+      <description>A new article created using the Distill format.</description>
+      <category>R</category>
+      <category>AdvR answers</category>
+      <guid>https://focusonR.org/posts/2021-07-07-new-post</guid>
+      <pubDate>Wed, 07 Jul 2021 00:00:00 +0000</pubDate>
+    </item>
     <item>
       <title>unix tools for DS developers</title>
       <dc:creator>Ronald Glenn Thomas</dc:creator>
