@@ -6,14 +6,14 @@
       "description": "Some additional details about the blog",
       "author": [],
       "contents": "\n\n\n\n",
-      "last_modified": "2021-07-07T18:18:11-07:00"
+      "last_modified": "2021-07-07T19:23:46-07:00"
     },
     {
       "path": "contributors.html",
       "title": "Contributors",
       "author": [],
       "contents": "\nBelow is a list of contributors to this blog.\nName\nBio\nRG Thomas\nData Scientist and rookie blogger.\n\n\n\n",
-      "last_modified": "2021-07-07T18:18:12-07:00"
+      "last_modified": "2021-07-07T19:23:47-07:00"
     },
     {
       "path": "draftpost.html",
@@ -27,7 +27,7 @@
       ],
       "date": "`r Sys.Date()`",
       "contents": "\nIntroduction\nSample reference section reference. @Pocock1975a\nMethods\nResults\nMy most common usage of the todonotes package, is to insert an uncustomized todonotes somewhere in a latex document. An example of this usage is the command\nReferences\n\n\n\n",
-      "last_modified": "2021-07-07T18:18:16-07:00"
+      "last_modified": "2021-07-07T19:23:52-07:00"
     },
     {
       "path": "four.html",
@@ -41,14 +41,14 @@
       ],
       "date": "`r Sys.Date()`",
       "contents": "\nIntroduction\nSample reference section reference. @Pocock1975a\nMethods\nResults\nMy most common usage of the todonotes package, is to insert an uncustomized todonotes somewhere in a latex document. An example of this usage is the command\nReferences\n\n\n\n",
-      "last_modified": "2021-07-07T18:18:17-07:00"
+      "last_modified": "2021-07-07T19:23:53-07:00"
     },
     {
       "path": "index.html",
       "title": "Focus on R",
       "author": [],
       "contents": "\n\n\n\n",
-      "last_modified": "2021-07-07T18:18:18-07:00"
+      "last_modified": "2021-07-07T19:23:53-07:00"
     },
     {
       "path": "template.html",
@@ -62,7 +62,7 @@
       ],
       "date": "`r Sys.Date()`",
       "contents": "\nIntroduction\nMy most common usage of the todonotes package, is to insert an uncustomized todonotes somewhere in a latex document. An example of this usage is the command Sample reference section reference. (Pocock 2005).\nMethods\nA careful reading of the chapter. Reference additional references including:\nResults\nNotes and offered solutions.\nReferences\n\n\n\nPocock, SJ. 2005. “when (not) to stop a clinical trial for Benefit.” JAMA: The Journal of the American Medical Association 294 (17): 2228–30. http://jama.ama-assn.org/content/294/17/2228.short.\n\n\n\n\n",
-      "last_modified": "2021-07-07T18:18:22-07:00"
+      "last_modified": "2021-07-07T19:23:57-07:00"
     }
   ],
   "collections": ["posts/posts.json"]
