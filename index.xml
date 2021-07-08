@@ -39,23 +39,13 @@
       <pubDate>Wed, 07 Jul 2021 00:00:00 +0000</pubDate>
     </item>
     <item>
-      <title>new post</title>
+      <title>test 3 Blog post template</title>
       <dc:creator>Ronald Glenn Thomas</dc:creator>
-      <link>https://focusonR.org/posts/2021-07-07-new-post</link>
+      <link>https://focusonR.org/posts/2021-07-07-test3</link>
       <description>A new article created using the Distill format.</description>
       <category>R</category>
       <category>AdvR answers</category>
-      <guid>https://focusonR.org/posts/2021-07-07-new-post</guid>
-      <pubDate>Wed, 07 Jul 2021 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>new idea</title>
-      <dc:creator>Ronald Glenn Thomas</dc:creator>
-      <link>https://focusonR.org/posts/2021-07-07-newidea</link>
-      <description>A new article created using the Distill format.</description>
-      <category>R</category>
-      <category>AdvR answers</category>
-      <guid>https://focusonR.org/posts/2021-07-07-newidea</guid>
+      <guid>https://focusonR.org/posts/2021-07-07-test3</guid>
       <pubDate>Wed, 07 Jul 2021 00:00:00 +0000</pubDate>
     </item>
     <item>
@@ -87,16 +77,6 @@
       <category>R</category>
       <guid>https://focusonR.org/posts/2020-11-01-test-post-title</guid>
       <pubDate>Sun, 01 Nov 2020 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>Setting up a Data Science Workflow in Arch Linux on Macbook Pro</title>
-      <dc:creator>Ronald Glenn Thomas</dc:creator>
-      <link>https://focusonR.org/posts/2020-10-05-setup-data-science-workflow-in-arch-linux-on-macbook-pro</link>
-      <description>A new article created using the Distill format.</description>
-      <category>vim</category>
-      <category>R</category>
-      <guid>https://focusonR.org/posts/2020-10-05-setup-data-science-workflow-in-arch-linux-on-macbook-pro</guid>
-      <pubDate>Mon, 05 Oct 2020 00:00:00 +0000</pubDate>
     </item>
     <item>
       <title>programming ggplot timeseries function options</title>

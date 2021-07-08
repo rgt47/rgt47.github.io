@@ -1,5 +1,5 @@
 ---
-title: "new post"
+title: "test 3 Blog post template"
 categories:
   - R 
   - AdvR answers
