@@ -49,6 +49,16 @@
       <pubDate>Wed, 07 Jul 2021 00:00:00 +0000</pubDate>
     </item>
     <item>
+      <title>new great idea</title>
+      <dc:creator>Ronald Glenn Thomas</dc:creator>
+      <link>https://focusonR.org/posts/2021-07-07-greatidea</link>
+      <description>A new article created using the Distill format.</description>
+      <category>R</category>
+      <category>AdvR answers</category>
+      <guid>https://focusonR.org/posts/2021-07-07-greatidea</guid>
+      <pubDate>Wed, 07 Jul 2021 00:00:00 +0000</pubDate>
+    </item>
+    <item>
       <title>unix tools for DS developers</title>
       <dc:creator>Ronald Glenn Thomas</dc:creator>
       <link>https://focusonR.org/posts/2021-07-05-unix-tools-for-ds-developers</link>

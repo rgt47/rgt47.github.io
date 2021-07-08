@@ -80,6 +80,26 @@
     "input_file": {}
   },
   {
+    "path": "posts/2021-07-07-greatidea/",
+    "title": "new great idea",
+    "description": "A new article created using the Distill format.",
+    "author": [
+      {
+        "name": "Ronald Glenn Thomas",
+        "url": "https://focusonR.org"
+      }
+    ],
+    "date": "2021-07-07",
+    "categories": [
+      "R",
+      "AdvR answers"
+    ],
+    "contents": "\nIntroduction\nMy most common usage of the todonotes package, is to insert an uncustomized todonotes somewhere in a latex document. An example of this usage is the command Sample reference section reference. (Pocock 2005).\nMethods\nA careful reading of the chapter. Reference additional references including:\nResults\nNotes and offered solutions.\nReferences\n\n\n\nPocock, SJ. 2005. “when (not) to stop a clinical trial for Benefit.” JAMA: The Journal of the American Medical Association 294 (17): 2228–30. http://jama.ama-assn.org/content/294/17/2228.short.\n\n\n\n\n",
+    "preview": {},
+    "last_modified": "2021-07-07T18:12:48-07:00",
+    "input_file": "greatidea.utf8.md"
+  },
+  {
     "path": "posts/2021-07-05-unix-tools-for-ds-developers/",
     "title": "unix tools for DS developers",
     "description": "A new article created using the Distill format.",
