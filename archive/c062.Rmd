@@ -1,0 +1,119 @@
+---
+title: "Project report template (Cxx)"
+author: "R.G. Thomas"
+date: "`r Sys.Date()`"
+fontsize: 11pt
+geometry: "left=3cm,right=3in,top=2cm,bottom=2cm"
+output:
+  pdf_document:
+#   toc: true
+    number_sections: true
+    highlight: tango
+    keep_tex: true 
+    includes:
+      in_header: "/Users/zenn/prj/preamble.tex"
+header-includes:
+   - \rhead{Cxx project. Trial Design Lab report (draft)}
+bibliography: '`r normalizePath("~/share/library.bib")`'
+latex_engine: xelatex
+---
+
+\hspace{4in}
+\fbox{
+\parbox{3in}{\Large 
+Notes: 
+\begin{itemize}
+\item mimic grazzi, gill, dimitriadis \\
+\item plan: random forest analysis of cognitive data to
+find enrichment criteria
+\end{itemize}
+}
+}
+\listoftodos
+
+
+```{r  include=FALSE}
+# clear env: objects and packages
+rm(list = ls())
+wh = which(search()=="package:nvimcom")
+if (wh >2) for (x in (wh-1):2) {detach(po = x, force=T)}
+rm(x, wh)
+options(knitr.kable.NA = '',dplyr.summarise.inform = FALSE, 
+	dplyr.print_max = 1e9,knitr.table.format = "latex")
+library(pacman)
+p_load(janitor, kableExtra,tidyverse, knitr)
+
+opts_chunk$set(warning = F, message = F, echo = F, fig.width = 3.2,
+       fig.height = 3,  results = "asis", dev = "pdf",
+       opts_chunk$set(cache.path = "cache/"))
+source("~/work/reports/templates/zz.tools.R")
+options(scipen = 1, digits = 2)
+```
+
+# Introduction
+\lipsum[2]
+\todo[inline, color=cyan]{The original todo note withouth changed colours.\newline Here's another line.}
+\begin{wrapfigure}{r}[.4\textwidth]{.4\textwidth}%
+\textit{\sffamily\normalsize\textcolor{gray!50}{
+Tornado plot: x-axis participants IDs y-axis study visits plot mean of cumulative
+AEs stratified by pre-covid and post-covid study visits (March 12 is
+the date we are using as a cut-point: through March 12 is pre-COVID,
+after March 12 is post-COVID) }}% 
+\end{wrapfigure}
+\lipsum[2]
+
+Sample reference section reference. @Pocock1975a
+
+\begin{marginfigure}
+\includegraphics[width=3in]{/Users/zenn/prj/images/sudoku-3d-cube.pdf} \caption{test}\label{fig:unnamed-chunk-8}
+\end{marginfigure}
+
+# Methods
+
+# Results
+My most common usage of the todonotes package, is to insert an uncustomized
+todonotes somewhere in a latex document. An example of this usage is the command
+\todo{Make a cake \ldots},
+\lipsum[1]
+\todo[color=green]{Make a pie \ldots},
+\lipsum[1] 
+\todo{Make a joke \ldots},
+\listoftodos
+
+
+```{r}
+# steps to add a simple table 
+# 1) inside R block: create the table in tabyl(), call it tab1
+# > dat  %>%  tabyl(var1, var2)
+# 2. library(kableExtra)
+# 3. kable(tab1, "latex", booktabs = T,escape=FALSE) %>%
+# 		kable_styling(latex_options = "striped")   
+# 4. zz.figured(tab1)
+# 5. outside R block: \newpage \includegraphics[]{./tables/tab1.pdf}
+# 6. choose between the two versions. 
+# 7. add a caption.  \captionof{figure}{tab1 caption}
+tab1 = iris  %>%  
+mutate(len = Petal.Length > 1.3)  %>%  
+tabyl(len,Species) %>%  
+adorn_totals(where = "row") %>%  
+adorn_totals(where = "col")   
+out = kbl(tab1,  booktabs = T,escape=FALSE, 
+    caption = "tabled visit and week number") %>%
+		kable_paper(latex_options = "striped")    
+out
+# advanced formatting. if desire to convert table to figure.
+zz.figured(tab1)
+# follow with latex outside R chunk
+# \includegraphics[]{./tables/tab1.pdf}
+
+```
+
+\newpage 
+\includegraphics[]{./tables/tab1.pdf}
+\captionof{figure}{tabled visit and week number}
+
+# Code 
+```{r, ref.label=knitr::all_labels(),echo=TRUE,eval=FALSE}
+```
+
+# References

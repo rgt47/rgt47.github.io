@@ -1,5 +1,6 @@
 name: "."
 title: "Focus on R"
+theme: theme.css
 description: |
   The primary goal is to Focus on R and its underpinnings. 
 output_dir: "."

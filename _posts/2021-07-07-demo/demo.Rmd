@@ -4,40 +4,43 @@ categories:
   - R 
   - AdvR answers
 description: |
-  A new article created using the Distill format.
+  Demo article to get the hang of Distill
 author:
   - name: Ronald Glenn Thomas
     url: https://focusonR.org
     affiliation: InferenceX
     affiliation_url: https://rgthomaslab.com
+    orchid_id: 0000-0003-1686-4965
 date: "`r Sys.Date()`"
-output: distill::distill_article
+output: 
+  distill::distill_article:
+    toc: true
+    theme: theme.css
+    toc_depth: 2
+#    code_folding: true
+    highlight: haddock
+    highlight_downlit: false
 bibliography: '`r normalizePath("~/share/library.bib")`'
+
 ---
-
 ```{r setup, include=FALSE}
-options(dplyr.print_max = 1e9)
 library(pacman)
-p_load(tibble, broom, snakecase, tidyr, data.table,colorout, conflicted,
-       purrr,ztable, hrbrthemes,readr, dplyr, magrittr, 
-       lubridate, zoo, mi, survival, ggplot2, printr,
-       lsmeans, ggthemes,  knitr, xtable, doBy, nlme,
-       reshape2,  pander, pwr, tufte)
-
-opts_chunk$set(warning = F, message = F, echo=F, fig.width=3.2,
-	       fig.height=3,  results='asis', dev='pdf',
-	       opts_chunk$set(cache.path = "cache/"))
-source('~/work/reports/templates/zz.tools.R')
+p_load(DT, janitor, tibble, broom, snakecase, tidyr, data.table,
+     conflicted, rmarkdown,purrr,ztable, hrbrthemes,readr, dplyr,
+       magrittr, lubridate, zoo, mi, survival, ggplot2, printr,
+       lsmeans, ggthemes,  knitr, xtable, doBy, nlme, reshape2,
+       pander, pwr, tufte)
 options(scipen = 1, digits = 2)
-knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(
+  echo = TRUE,
+  warning = TRUE,
+  message = TRUE,
+  comment = "##",
+  R.options = list(width = 60))
 ```
-
-
 
 # Introduction
 
-My most common usage of the todonotes package, is to insert an uncustomized
-todonotes somewhere in a latex document. An example of this usage is the command
 Sample reference section reference. [@Pocock2005].
 
 # Methods
@@ -47,6 +50,42 @@ including:
 # Results
 Notes and offered solutions. 
 
+```{r echo=F,layout="l-body-outset", fig.width=6, fig.height=1.5}
+p = ggplot(diamonds, aes(carat, price)) +geom_smooth()+ 
+  facet_grid(~ cut)
+suppressMessages(print(p))
+```
+
+```{r}
+
+kable(head( mtcars ), "html")
+library(DT)
+datatable(iris)
+```
+
+```{r, eval=FALSE, echo=TRUE}
+1 + 1
+```
+$$
+\sigma = \sqrt{ \frac{1}{N} \sum_{i=1}^N (x_i -\mu)^2}
+$$
+
+Footnotes use standard Pandoc markdown notation, for 
+example ^[This will become a hover-able footnote]. 
+The number of the footnote will be automatically generated.
+
+
+<aside>
+This content will appear in the gutter of the article.
+</aside>
+
+
+<aside>
+```{r echo=F}
+p=ggplot(mtcars, aes(hp, mpg)) + geom_point()  
+suppressMessages(print(p))
+```
+</aside>
 
 # References
 
@@ -78,7 +117,6 @@ options(scipen = 1, digits = 2)
 # 1) inside R block: create the table in tabyl(), call it tab1
 # > dat  %>%  tabyl(var1, var2)
 library(kableExtra)
-library(janitor)
 # 3. kable(tab1, "latex", booktabs = T,escape=FALSE) %>%
 # 		kable_styling(latex_options = "striped")   
 # 4. zz.figured(tab1)
@@ -99,6 +137,15 @@ out
 
 ```
 
+## Acknowledgments {.appendix}
+
+This is a place to recognize people and institutions. It may also be a good place
+to acknowledge and cite software that makes your work possible.
+
+## Author Contributions {.appendix}
+
+We strongly encourage you to include an author contributions statement briefly 
+describing what each author did.
 
 # Code 
 ```{r, ref.label=knitr::all_labels(),echo=TRUE,eval=FALSE}

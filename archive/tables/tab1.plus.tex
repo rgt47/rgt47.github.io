@@ -1,0 +1,44 @@
+\documentclass[10pt]{article}
+\usepackage[usenames]{color} %used for font color
+\usepackage{amssymb} %maths
+\usepackage{amsmath} %maths
+\usepackage{tikz}
+\usepackage{datenumber}
+\usepackage{pgfmath}
+\usetikzlibrary{shapes}
+\usetikzlibrary{plotmarks}
+\usetikzlibrary{backgrounds}
+\definecolor{palecornflowerblue}{rgb}{0.67, 0.8, 0.94} 
+   \usepackage{booktabs}
+   \usepackage{longtable}
+   \usepackage{array}
+  \usepackage{multirow}
+  \usepackage{wrapfig}
+  \usepackage{float}
+  \usepackage{colortbl}
+  \usepackage{pdflscape}
+  \usepackage{tabu}
+  \usepackage{threeparttable}
+   \usepackage{threeparttablex}
+  \usepackage[normalem]{ulem}
+  \usepackage[normalem]{ulem}
+   \usepackage[utf8]{inputenc}
+   \usepackage{makecell}
+  \usepackage{xcolor} 
+\begin{document}
+	\thispagestyle{empty}
+\begin{table}[H]
+\centering\begingroup\fontsize{10}{12}\selectfont
+
+\begin{tabular}{>{\raggedright\arraybackslash}p{1in}rrrr}
+\toprule
+len & setosa & versicolor & virginica & Total\\
+\midrule
+\cellcolor{gray!6}{FALSE} & \cellcolor{gray!6}{11} & \cellcolor{gray!6}{0} & \cellcolor{gray!6}{0} & \cellcolor{gray!6}{11}\\
+TRUE & 39 & 50 & 50 & 139\\
+\cellcolor{gray!6}{Total} & \cellcolor{gray!6}{50} & \cellcolor{gray!6}{50} & \cellcolor{gray!6}{50} & \cellcolor{gray!6}{150}\\
+\bottomrule
+\end{tabular}
+\endgroup{}
+\end{table}
+\end{document}

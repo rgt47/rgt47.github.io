@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
+  <channel>
+    <title>Focus on R</title>
+    <link>https://focusonR.org/</link>
+    <atom:link href="https://focusonR.org/index.xml" rel="self" type="application/rss+xml"/>
+    <description>The primary goal is to Focus on R and its underpinnings. 
+</description>
+    <generator>Distill</generator>
+<<<<<<< HEAD
+    <lastBuildDate>Mon, 05 Jul 2021 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>unix tools for DS developers</title>
+      <dc:creator>Ronald Glenn Thomas</dc:creator>
+      <link>https://focusonR.org/posts/2021-07-05-unix-tools-for-ds-developers</link>
+      <description>A new article created using the Distill format.</description>
+      <category>R</category>
+      <category>AdvR answers</category>
+      <guid>https://focusonR.org/posts/2021-07-05-unix-tools-for-ds-developers</guid>
+      <pubDate>Mon, 05 Jul 2021 00:00:00 +0000</pubDate>
+    </item>
+=======
+    <lastBuildDate>Fri, 26 Mar 2021 00:00:00 +0000</lastBuildDate>
+>>>>>>> 47a806ef08ac33b1a73a2ee31634b7964bdd37ff
+    <item>
+      <title>Pass for managing passwords</title>
+      <dc:creator>Ronald Glenn Thomas</dc:creator>
+      <link>https://focusonR.org/posts/2021-03-26-using-pass</link>
+      <description>A new article created using the Distill format.</description>
+      <category>R</category>
+      <category>AdvR answers</category>
+      <guid>https://focusonR.org/posts/2021-03-26-using-pass</guid>
+      <pubDate>Fri, 26 Mar 2021 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>four</title>
+      <dc:creator>Ronald Glenn Thomas</dc:creator>
+      <link>https://focusonR.org/posts/2021-01-16-advanced-r-notes</link>
+      <description>A new article created using the Distill format.</description>
+      <category>vim</category>
+      <category>R</category>
+      <guid>https://focusonR.org/posts/2021-01-16-advanced-r-notes</guid>
+      <pubDate>Sat, 16 Jan 2021 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>test2</title>
+      <dc:creator>Ronald Glenn Thomas</dc:creator>
+      <link>https://focusonR.org/posts/2021-01-16-test2</link>
+      <description>A new article created using the Distill format.</description>
+      <category>R</category>
+      <category>AdvR answers</category>
+      <guid>https://focusonR.org/posts/2021-01-16-test2</guid>
+      <pubDate>Sat, 16 Jan 2021 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>test post</title>
+      <dc:creator>Ronald Glenn Thomas</dc:creator>
+      <link>https://focusonR.org/posts/2020-11-01-test-post-title</link>
+      <description>A new article: test post.</description>
+      <category>vim</category>
+      <category>R</category>
+      <guid>https://focusonR.org/posts/2020-11-01-test-post-title</guid>
+      <pubDate>Sun, 01 Nov 2020 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Setting up a Data Science Workflow in Arch Linux on Macbook Pro</title>
+      <dc:creator>Ronald Glenn Thomas</dc:creator>
+      <link>https://focusonR.org/posts/2020-10-05-setup-data-science-workflow-in-arch-linux-on-macbook-pro</link>
+      <description>A new article created using the Distill format.</description>
+      <category>vim</category>
+      <category>R</category>
+      <guid>https://focusonR.org/posts/2020-10-05-setup-data-science-workflow-in-arch-linux-on-macbook-pro</guid>
+      <pubDate>Mon, 05 Oct 2020 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>programming ggplot timeseries function options</title>
+      <dc:creator>Ronald Glenn Thomas</dc:creator>
+      <link>https://focusonR.org/posts/2020-01-01-programming-ggplot-timeseries-function-options</link>
+      <description>A chronicle of the evolution of a ggplot programming exploration.</description>
+      <category>vim</category>
+      <category>R</category>
+      <guid>https://focusonR.org/posts/2020-01-01-programming-ggplot-timeseries-function-options</guid>
+      <pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate>
+      <media:content url="https://focusonR.org/posts/2020-01-01-programming-ggplot-timeseries-function-options/distill-preview.png" medium="image" type="image/png" width="614" height="576"/>
+    </item>
+    <item>
+      <title>Chapter 2 of advanced R problems discussion</title>
+      <dc:creator>Ronald Glenn Thomas</dc:creator>
+      <link>https://focusonR.org/posts/2019-12-27-chapter-2-of-advanced-r-problems-discussion</link>
+      <description>A new article created using the Distill format.</description>
+      <category>R</category>
+      <category>AdvR answers</category>
+      <guid>https://focusonR.org/posts/2019-12-27-chapter-2-of-advanced-r-problems-discussion</guid>
+      <pubDate>Sat, 28 Dec 2019 00:00:00 +0000</pubDate>
+    </item>
+  </channel>
+</rss>

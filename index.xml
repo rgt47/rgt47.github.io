@@ -7,16 +7,17 @@
     <description>The primary goal is to Focus on R and its underpinnings. 
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Wed, 07 Jul 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 09 Jul 2021 00:00:00 +0000</lastBuildDate>
     <item>
       <title>demo post</title>
       <dc:creator>Ronald Glenn Thomas</dc:creator>
       <link>https://focusonR.org/posts/2021-07-07-demo</link>
-      <description>A new article created using the Distill format.</description>
+      <description>Demo article to get the hang of Distill</description>
       <category>R</category>
       <category>AdvR answers</category>
       <guid>https://focusonR.org/posts/2021-07-07-demo</guid>
-      <pubDate>Wed, 07 Jul 2021 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 09 Jul 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://focusonR.org/posts/2021-07-07-demo/distill-preview.png" medium="image" type="image/png" width="1152" height="288"/>
     </item>
   </channel>
 </rss>
