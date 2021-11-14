@@ -1,11 +1,10 @@
-
 ---
-title: "four"
+title: "Factors are confusing"
 categories:
   - vim
   - R 
 description: |
-  A new article created using the Distill format.
+  A new article about factors. 
 author:
   - name: Ronald Glenn Thomas
     url: https://focusonR.org
@@ -18,7 +17,7 @@ output: distill::distill_article
 ```{r setup, include=FALSE}
 options(dplyr.print_max = 1e9)
 library(pacman)
-p_load(tibble, broom, snakecase, tidyr, data.table,colorout, conflicted,
+p_load(tibble, broom, snakecase, tidyr, data.table, conflicted,
        purrr,ztable, hrbrthemes,readr, dplyr, magrittr, 
        lubridate, zoo, mi, survival, ggplot2, printr,
        lsmeans, ggthemes,  knitr, xtable, doBy, nlme,
@@ -35,6 +34,15 @@ knitr::opts_chunk$set(echo = FALSE)
 
 
 # Introduction
+
+I was browsing in stackoverflow today and came across a question about factors.
+Well factors were only one part of the question but it got me thinking about the
+whole concept of factors in R. So I thought I would take a look at the
+beginnings and some of the back and forth over time regarding the pros and cons
+of this data construct. 
+
+stackoverflow link 
+https://stackoverflow.com/questions/63558161/multiple-time-series-plots-for-several-stocks-in-r-returns-an-error
 
 Sample reference section reference. @Pocock1975a
 

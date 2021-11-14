@@ -11,7 +11,7 @@ output:
     highlight: tango
     keep_tex: true 
     includes:
-      in_header: "/Users/zenn/prj/preamble.tex"
+      in_header: "/Users/zenn/shr/preamble.tex"
 header-includes:
    - \rhead{Cxx project. Trial Design Lab report (draft)}
 bibliography: '`r normalizePath("~/share/library.bib")`'
@@ -46,7 +46,7 @@ p_load(janitor, kableExtra,tidyverse, knitr)
 opts_chunk$set(warning = F, message = F, echo = F, fig.width = 3.2,
        fig.height = 3,  results = "asis", dev = "pdf",
        opts_chunk$set(cache.path = "cache/"))
-source("~/work/reports/templates/zz.tools.R")
+source("~/shr/zz.tools.R")
 options(scipen = 1, digits = 2)
 ```
 
