@@ -12,6 +12,7 @@ author:
     affiliation_url: https://inferenceX.com
 date: "`r Sys.Date()`"
 output: distill::distill_article
+bibliography: '`r normalizePath("~/shr/library.bib")`'
 ---
 
 ```{r setup, include=FALSE}
@@ -41,9 +42,8 @@ whole concept of factors in R. So I thought I would take a look at the
 beginnings and some of the back and forth over time regarding the pros and cons
 of this data construct. 
 
-stackoverflow link 
-https://stackoverflow.com/questions/63558161/multiple-time-series-plots-for-several-stocks-in-r-returns-an-error
-
+stackoverflow link is  
+[here](https://stackoverflow.com/questions/63558161/multiple-time-series-plots-for-several-stocks-in-r-returns-an-error)
 Sample reference section reference. @Pocock1975a
 
 # Methods
