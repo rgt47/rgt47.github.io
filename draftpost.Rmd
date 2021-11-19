@@ -1,27 +1,11 @@
----
-title: "five"
-categories:
-  - vim
-  - R 
-description: |
-  A new article created using the Distill format.
-author:
-  - name: Ronald Glenn Thomas
-    url: https://focusonR.org
-    affiliation: InferenceX
-    affiliation_url: https://inferenceX.com
-date: "`r Sys.Date()`"
-output: distill::distill_article
----
 
-```{r setup, include=FALSE}
+```{r init, include=FALSE}
 options(dplyr.print_max = 1e9)
 library(pacman)
-p_load(tibble, broom, snakecase, tidyr, data.table,colorout, conflicted,
-       purrr,ztable, hrbrthemes,readr, dplyr, magrittr, 
-       lubridate, zoo, mi, survival, ggplot2, printr,
-       lsmeans, ggthemes,  knitr, xtable, doBy, nlme,
-       reshape2,  pander, pwr, tufte)
+
+p_load(rmarkdown, tidyverse,  broom,  tidyr, colorout, purrr,readr,
+       dplyr,  lubridate, zoo,  ggplot2, printr, lsmeans, ggthemes,  knitr,
+       nlme, pwr)
 
 opts_chunk$set(warning = F, message = F, echo=F, fig.width=3.2,
 	       fig.height=3,  results='asis', dev='pdf',

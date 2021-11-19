@@ -1,28 +1,32 @@
 ---
-title: "Factors are confusing"
+title: "Factors are confusing."
 categories:
   - vim
   - R 
 description: |
-  A new article about factors. 
+  A short description of the post.
 author:
   - name: Ronald Glenn Thomas
     url: https://focusonR.org
     affiliation: InferenceX
     affiliation_url: https://inferenceX.com
 date: "`r Sys.Date()`"
-output: distill::distill_article
+output:
+  distill::distill_article:
+    self_contained: false
+draft: true
 bibliography: '`r normalizePath("~/shr/library.bib")`'
 ---
 
 ```{r setup, include=FALSE}
 options(dplyr.print_max = 1e9)
 library(pacman)
-p_load(tibble, broom, snakecase, tidyr, data.table, conflicted,
-       purrr,ztable, hrbrthemes,readr, dplyr, magrittr, 
-       lubridate, zoo, mi, survival, ggplot2, printr,
-       lsmeans, ggthemes,  knitr, xtable, doBy, nlme,
-       reshape2,  pander, pwr, tufte)
+
+p_load(PerformanceAnalytics, quantmod, dygraphs, rmarkdown, tibble, broom,
+       snakecase, tidyr, data.table,colorout, conflicted, purrr,ztable,
+       hrbrthemes,readr, dplyr, magrittr, lubridate, zoo, mi, survival, ggplot2,
+       printr, lsmeans, ggthemes,  knitr, xtable, doBy, nlme, reshape2,  pander,
+       pwr, tufte)
 
 opts_chunk$set(warning = F, message = F, echo=F, fig.width=3.2,
 	       fig.height=3,  results='asis', dev='pdf',
@@ -36,25 +40,154 @@ knitr::opts_chunk$set(echo = FALSE)
 
 # Introduction
 
-I was browsing in stackoverflow today and came across a question about factors.
-Well factors were only one part of the question but it got me thinking about the
-whole concept of factors in R. So I thought I would take a look at the
-beginnings and some of the back and forth over time regarding the pros and cons
-of this data construct. 
+I've been using R for a while now and I have (like many of my colleagues)
+wrestled with factors frequently. I have on occasion found them useful
+particulary in defining an order among categorical variables. see example 2
+below, but more often they have been a hassle to deal with rather than a help. 
 
-stackoverflow link is  
-[here](https://stackoverflow.com/questions/63558161/multiple-time-series-plots-for-several-stocks-in-r-returns-an-error)
+The typical scenario is when a data set is read from a csv file and the input
+function (e.g. read.csv() ) decides to declare a numeric variable to be a
+factor. and categorical variable which should be categorical are defined as
+factors. 
+
+Why does this happen? Why is it necessary to use the readAsFactor=False flag in
+order to get the more sensible behavior. 
+
+Lets look back at some of the correspondence between R core members to see what
+the original thinking was... 
+
+Consider the following data set (borrowed from 
+https://www.tutorialspoint.com/r/r_factors.htm
+
+```{r}
+
+# Create the vectors for data frame.
+height <- c(132,151,162,139,166,147,122)
+weight <- c(48,49,66,53,67,52,40)
+gender <- c("male","male","female","female","male","female","male")
+
+# Create the data frame.
+input_data <- data.frame(height,weight,gender)
+print(input_data)
+
+# Test if the gender column is a factor.
+print(is.factor(input_data$gender))
+
+# Print the gender column so see the levels.
+print(input_data$gender)
+
+
+
+
+```
+
+Running the above on the tutorialspoint web site gives a true response for
+is.factor(gender). But when I run it I get a false. The web site indicates R
+version 3.4.1 is being run. My version is 4.1.2.
+
+Interesting. Did the default change somewhere along the line? Let check the
+release notes. for 4.1
+
 Sample reference section reference. @Pocock1975a
 
 # Methods
 
 # Results
-My most common usage of the todonotes package, is to insert an uncustomized
-todonotes somewhere in a latex document. An example of this usage is the command
 
-# References
+## Prepare for analyses
+```{r echo=T }
+set.seed(1234)
+library(ggplot2)
+library(lattice)
+```
+
+```{r echo=T, message=FALSE}
+library(PerformanceAnalytics)
+library(quantmod)
+library(dygraphs)
+
+# Function to calculate monthly returns on a stock 
+monthly_stock_returns <- function(ticker, start_year) {
+  
+  # Download the data from Yahoo finance
+  symbol <- getSymbols(ticker, src = 'yahoo', 
+                       auto.assign = FALSE, warnings = FALSE)
+  
+  # Tranform it to monthly returns using quantmode::periodReturn
+  data <- periodReturn(symbol, period = 'monthly', 
+                       subset=paste(start_year, "::", sep = ""),
+                       type = 'log')
+
+  # Let's rename the column of returns to something intuitive because
+  # the column name is what will eventually be displayed
+  colnames(data) <- as.character(ticker)
+
+  # We want to be able to work with the xts objects so let's explicitly
+  # assign them into the global environment using ticker name 
+  assign(ticker, data, .GlobalEnv)
+}
+```
 
 
 
 
 
+Let's graph the individual performances of each stock over time.
+
+```{r, echo=T, layout="l-page"}
+# Before we combine these into a portfolio, graph the individual returns
+# and see if anything jumps out as unusual. It looks like something 
+# affected Google in March of 2014, but didn't affect JP Morgan or Amazon.
+dygraph(merged_returns, main = "Google v JP Morgan v Amazon") %>%
+  dyAxis("y", label = "%") %>%
+  dyOptions(colors = RColorBrewer::brewer.pal(3, "Set2"))
+```
+```{r, echo=T, layout="l-screen"}
+# Before we combine these into a portfolio, graph the individual returns
+# and see if anything jumps out as unusual. It looks like something 
+# affected Google in March of 2014, but didn't affect JP Morgan or Amazon.
+dygraph(merged_returns, main = "Google v JP Morgan v Amazon") %>%
+  dyAxis("y", label = "%") %>%
+  dyOptions(colors = RColorBrewer::brewer.pal(3, "Set2"))
+```
+
+
+```{r, layout="l-body-outset"}
+library(rmarkdown)
+paged_table(mtcars, options = list(rows.print = 5))
+```
+
+<aside>
+This content will appear in the gutter of the article.
+</aside>
+
+
+
+
+<aside>
+```{r}
+ggplot(mtcars, aes(hp, mpg)) + geom_point() + geom_smooth()
+```
+</aside>`
+
+
+
+```{r}
+oil_daily <- Quandl("FRED/DCOILWTICO", type = "raw", collapse = "daily",  
+                    start_date="2006-01-01", end_date="2017-02-28")
+# Now weekely and let's use xts as the type.
+oil_weekly <- Quandl("FRED/DCOILWTICO", type = "xts", collapse = "weekly",  
+                     start_date="2006-01-01", end_date="2017-02-28")
+# And monthly using xts as the type.
+oil_monthly <- Quandl("FRED/DCOILWTICO", type = "xts", collapse = "monthly",  
+                      start_date="2006-01-01", end_date="2017-02-28")
+
+oil_6month <- forecast(oil_monthly, h = 6)
+oil_forecast_data <- data.frame(date = seq(mdy('03/01/2017'), 
+                                           by = 'months', length.out = 6),
+                                Forecast = oil_6month$mean,
+                                Hi_95 = oil_6month$upper[,2],
+                                Lo_95 = oil_6month$lower[,2])
+
+head(oil_forecast_data)
+```

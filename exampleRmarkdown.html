@@ -2417,7 +2417,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>draftpost.knit</h1>
+<h1>exampleRmarkdown.knit</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
 
@@ -2425,13 +2425,459 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 
 <div class="d-article">
-<h1 id="introduction">Introduction</h1>
-<p>Sample reference section reference. <span class="citation" data-cites="Pocock1975a">@Pocock1975a</span></p>
-<h1 id="methods">Methods</h1>
-<h1 id="results">Results</h1>
-<p>My most common usage of the todonotes package, is to insert an uncustomized todonotes somewhere in a latex document. An example of this usage is the command</p>
-<h1 id="references">References</h1>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<p>This post examines the features of <a href="http://www.rstudio.org/docs/authoring/using_markdown">R Markdown</a> using <a href="http://yihui.name/knitr/">knitr</a> in Rstudio 0.96. This combination of tools provides an exciting improvement in usability for <a href="http://stats.stackexchange.com/a/15006/183">reproducible analysis</a>. Specifically, this post (1) discusses getting started with R Markdown and <code>knitr</code> in Rstudio 0.96; (2) provides a basic example of producing console output and plots using R Markdown; (3) highlights several code chunk options such as caching and controlling how input and output is displayed; (4) demonstrates use of standard Markdown notation as well as the extended features of formulas and tables; and (5) discusses the implications of R Markdown. This post was produced with R Markdown. The source code is available here as a gist. The post may be most useful if the source code and displayed post are viewed side by side. In some instances, I include a copy of the R Markdown in the displayed HTML, but most of the time I assume you are reading the source and post side by side.</p>
+<!-- more -->
+<h2 id="getting-started">Getting started</h2>
+<p>To work with R Markdown, if necessary:</p>
+<ul>
+<li>Install <a href="http://www.r-project.org/">R</a></li>
+<li>Install the lastest version of <a href="http://rstudio.org/download/">RStudio</a> (at time of posting, this is 0.96)</li>
+<li>Install the latest version of the <code>knitr</code> package: <code>install.packages("knitr")</code></li>
+</ul>
+<p>To run the basic working example that produced this blog post:</p>
+<ul>
+<li>Open R Studio, and go to File - New - R Markdown</li>
+<li>If necessary install <code>ggplot2</code> and <code>lattice</code> packages: <code>install.packages("ggplot2"); install.packages("lattice")</code></li>
+<li>Paste in the contents of this gist (which contains the R Markdown file used to produce this post) and save the file with an <code>.rmd</code> extension</li>
+<li>Click Knit HTML</li>
+</ul>
+<h2 id="prepare-for-analyses">Prepare for analyses</h2>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>1234</span><span class='op'>)</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://ggplot2.tidyverse.org'>ggplot2</a></span><span class='op'>)</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://lattice.r-forge.r-project.org/'>lattice</a></span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<h2 id="basic-console-output">Basic console output</h2>
+<p>To insert an R code chunk, you can type it manually or just press <code>Chunks - Insert chunks</code> or use the shortcut key. This will produce the following code chunk:</p>
+<pre><code>&lt;div class=&quot;layout-chunk&quot; data-layout=&quot;l-body&quot;&gt;
+
+
+&lt;/div&gt;</code></pre>
+<p>Pressing tab when inside the braces will bring up code chunk options.</p>
+<p>The following R code chunk labelled <code>basicconsole</code> is as follows:</p>
+<pre><code>&lt;div class=&quot;layout-chunk&quot; data-layout=&quot;l-body&quot;&gt;
+&lt;div class=&quot;sourceCode&quot;&gt;&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&#39;va&#39;&gt;x&lt;/span&gt; &lt;span class=&#39;op&#39;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#39;fl&#39;&gt;1&lt;/span&gt;&lt;span class=&#39;op&#39;&gt;:&lt;/span&gt;&lt;span class=&#39;fl&#39;&gt;10&lt;/span&gt;
+&lt;span class=&#39;va&#39;&gt;y&lt;/span&gt; &lt;span class=&#39;op&#39;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#39;fu&#39;&gt;&lt;a href=&#39;https://rdrr.io/r/base/Round.html&#39;&gt;round&lt;/a&gt;&lt;/span&gt;&lt;span class=&#39;op&#39;&gt;(&lt;/span&gt;&lt;span class=&#39;fu&#39;&gt;&lt;a href=&#39;https://rdrr.io/r/stats/Normal.html&#39;&gt;rnorm&lt;/a&gt;&lt;/span&gt;&lt;span class=&#39;op&#39;&gt;(&lt;/span&gt;&lt;span class=&#39;fl&#39;&gt;10&lt;/span&gt;, &lt;span class=&#39;va&#39;&gt;x&lt;/span&gt;, &lt;span class=&#39;fl&#39;&gt;1&lt;/span&gt;&lt;span class=&#39;op&#39;&gt;)&lt;/span&gt;, &lt;span class=&#39;fl&#39;&gt;2&lt;/span&gt;&lt;span class=&#39;op&#39;&gt;)&lt;/span&gt;
+&lt;span class=&#39;va&#39;&gt;df&lt;/span&gt; &lt;span class=&#39;op&#39;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#39;fu&#39;&gt;&lt;a href=&#39;https://rdrr.io/r/base/data.frame.html&#39;&gt;data.frame&lt;/a&gt;&lt;/span&gt;&lt;span class=&#39;op&#39;&gt;(&lt;/span&gt;&lt;span class=&#39;va&#39;&gt;x&lt;/span&gt;, &lt;span class=&#39;va&#39;&gt;y&lt;/span&gt;&lt;span class=&#39;op&#39;&gt;)&lt;/span&gt;
+&lt;span class=&#39;va&#39;&gt;df&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+|  x|     y|
+|--:|-----:|
+|  1| -0.21|
+|  2|  2.28|
+|  3|  4.08|
+|  4|  1.65|
+|  5|  5.43|
+|  6|  6.51|
+|  7|  6.43|
+|  8|  7.45|
+|  9|  8.44|
+| 10|  9.11|
+
+&lt;/div&gt;</code></pre>
+<p>The code chunk input and output is then displayed as follows:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fl'>1</span><span class='op'>:</span><span class='fl'>10</span>
+<span class='va'>y</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/Round.html'>round</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span><span class='fl'>10</span>, <span class='va'>x</span>, <span class='fl'>1</span><span class='op'>)</span>, <span class='fl'>2</span><span class='op'>)</span>
+<span class='va'>df</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>y</span><span class='op'>)</span>
+<span class='va'>df</span>
+</code></pre>
+</div>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: right;">x</th>
+<th style="text-align: right;">y</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.52</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1.00</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">2.22</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">4.06</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">5.96</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">5.89</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">6.49</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">7.09</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">8.16</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">12.42</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="plots">Plots</h2>
+<p>Images generated by <code>knitr</code> are saved in a figures folder. However, they also appear to be represented in the HTML output using a <a href="http://en.wikipedia.org/wiki/Data_URI_scheme">data URI scheme</a>. This means that you can paste the HTML into a blog post or discussion forum and you don’t have to worry about finding a place to store the images; they’re embedded in the HTML.</p>
+<h3 id="simple-plot">Simple plot</h3>
+<p>Here is a basic plot using base graphics:</p>
+<pre><code>&lt;div class=&quot;layout-chunk&quot; data-layout=&quot;l-body&quot;&gt;
+&lt;div class=&quot;sourceCode&quot;&gt;&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&#39;fu&#39;&gt;&lt;a href=&#39;https://rdrr.io/r/graphics/plot.default.html&#39;&gt;plot&lt;/a&gt;&lt;/span&gt;&lt;span class=&#39;op&#39;&gt;(&lt;/span&gt;&lt;span class=&#39;va&#39;&gt;x&lt;/span&gt;&lt;span class=&#39;op&#39;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;img src=&quot;exampleRmarkdown_files/figure-html5/unnamed-chunk-4-1.png&quot; width=&quot;624&quot; /&gt;
+
+&lt;/div&gt;</code></pre>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="exampleRmarkdown_files/figure-html5/simpleplot-1.png" width="624" /></p>
+</div>
+<p>Note that unlike traditional Sweave, there is no need to write <code>fig=TRUE</code>.</p>
+<h3 id="multiple-plots">Multiple plots</h3>
+<p>Also, unlike traditional Sweave, you can include multiple plots in one code chunk:</p>
+<pre><code>&lt;div class=&quot;layout-chunk&quot; data-layout=&quot;l-body&quot;&gt;
+&lt;div class=&quot;sourceCode&quot;&gt;&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&#39;fu&#39;&gt;&lt;a href=&#39;https://rdrr.io/r/graphics/boxplot.html&#39;&gt;boxplot&lt;/a&gt;&lt;/span&gt;&lt;span class=&#39;op&#39;&gt;(&lt;/span&gt;&lt;span class=&#39;fl&#39;&gt;1&lt;/span&gt;&lt;span class=&#39;op&#39;&gt;:&lt;/span&gt;&lt;span class=&#39;fl&#39;&gt;10&lt;/span&gt;&lt;span class=&#39;op&#39;&gt;~&lt;/span&gt;&lt;span class=&#39;fu&#39;&gt;&lt;a href=&#39;https://rdrr.io/r/base/rep.html&#39;&gt;rep&lt;/a&gt;&lt;/span&gt;&lt;span class=&#39;op&#39;&gt;(&lt;/span&gt;&lt;span class=&#39;fl&#39;&gt;1&lt;/span&gt;&lt;span class=&#39;op&#39;&gt;:&lt;/span&gt;&lt;span class=&#39;fl&#39;&gt;2&lt;/span&gt;,&lt;span class=&#39;fl&#39;&gt;5&lt;/span&gt;&lt;span class=&#39;op&#39;&gt;)&lt;/span&gt;&lt;span class=&#39;op&#39;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;img src=&quot;exampleRmarkdown_files/figure-html5/unnamed-chunk-5-1.png&quot; width=&quot;624&quot; /&gt;&lt;div class=&quot;sourceCode&quot;&gt;&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&#39;fu&#39;&gt;&lt;a href=&#39;https://rdrr.io/r/graphics/plot.default.html&#39;&gt;plot&lt;/a&gt;&lt;/span&gt;&lt;span class=&#39;op&#39;&gt;(&lt;/span&gt;&lt;span class=&#39;va&#39;&gt;x&lt;/span&gt;, &lt;span class=&#39;va&#39;&gt;y&lt;/span&gt;&lt;span class=&#39;op&#39;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;img src=&quot;exampleRmarkdown_files/figure-html5/unnamed-chunk-5-2.png&quot; width=&quot;624&quot; /&gt;
+
+&lt;/div&gt;</code></pre>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/graphics/boxplot.html'>boxplot</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>10</span><span class='op'>~</span><span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>2</span>,<span class='fl'>5</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+<img src="exampleRmarkdown_files/figure-html5/multipleplots-1.png" width="624" />
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>y</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="exampleRmarkdown_files/figure-html5/multipleplots-2.png" width="624" /></p>
+</div>
+<h3 id="ggplot2-plot"><code>ggplot2</code> plot</h3>
+<p>Ggplot2 plots work well:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/qplot.html'>qplot</a></span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>y</span>, data<span class='op'>=</span><span class='va'>df</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="exampleRmarkdown_files/figure-html5/ggplot2ex-1.png" width="624" /></p>
+</div>
+<h3 id="lattice-plot"><code>lattice</code> plot</h3>
+<p>As do lattice plots:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/pkg/lattice/man/xyplot.html'>xyplot</a></span><span class='op'>(</span><span class='va'>y</span><span class='op'>~</span><span class='va'>x</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="exampleRmarkdown_files/figure-html5/latticeex-1.png" width="624" /></p>
+</div>
+<p>Note that unlike traditional Sweave, there is no need to print lattice plots directly.</p>
+<h2 id="r-code-chunk-features">R Code chunk features</h2>
+<h3 id="create-markdown-code-from-r">Create Markdown code from R</h3>
+<p>The following code hides the command input (i.e., <code>echo=FALSE</code>), and outputs the content directly as code (i.e., <code>results=asis</code>, which is similar to <code>results=tex</code> in Sweave).</p>
+<pre><code>&lt;div class=&quot;layout-chunk&quot; data-layout=&quot;l-body&quot;&gt;
+Here are some dot points
+
+* The value of y[1] is 0.52
+* The value of y[2] is 1
+* The value of y[3] is 2.22
+
+&lt;/div&gt;</code></pre>
+<div class="layout-chunk" data-layout="l-body">
+<p>Here are some dot points</p>
+<ul>
+<li>The value of y[1] is 0.52</li>
+<li>The value of y[2] is 1</li>
+<li>The value of y[3] is 2.22</li>
+</ul>
+</div>
+<h3 id="create-markdown-table-code-from-r">Create Markdown table code from R</h3>
+<pre><code>&lt;div class=&quot;layout-chunk&quot; data-layout=&quot;l-body&quot;&gt;
+x | y
+--- | ---
+1 | 0.52
+2 | 1
+3 | 2.22
+4 | 4.06
+5 | 5.96
+6 | 5.89
+7 | 6.49
+8 | 7.09
+9 | 8.16
+10 | 12.42
+
+&lt;/div&gt;</code></pre>
+<div class="layout-chunk" data-layout="l-body">
+<table>
+<thead>
+<tr class="header">
+<th>x</th>
+<th>y</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>0.52</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>2.22</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>4.06</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>5.96</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>5.89</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>6.49</td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>7.09</td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td>8.16</td>
+</tr>
+<tr class="even">
+<td>10</td>
+<td>12.42</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="control-output-display">Control output display</h3>
+<p>The folllowing code supresses display of R input commands (i.e., <code>echo=FALSE</code>) and removes any preceding text from console output (<code>comment=""</code>; the default is <code>comment="##"</code>).</p>
+<pre><code>&lt;div class=&quot;layout-chunk&quot; data-layout=&quot;l-body&quot;&gt;
+
+|  x|    y|
+|--:|----:|
+|  1| 0.52|
+|  2| 1.00|
+|  3| 2.22|
+|  4| 4.06|
+|  5| 5.96|
+|  6| 5.89|
+
+&lt;/div&gt;</code></pre>
+<div class="layout-chunk" data-layout="l-body">
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: right;">x</th>
+<th style="text-align: right;">y</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.52</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1.00</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">2.22</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">4.06</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">5.96</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">5.89</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="control-figure-size">Control figure size</h3>
+<p>The following is an example of a smaller figure using <code>fig.width</code> and <code>fig.height</code> options.</p>
+<pre><code>&lt;div class=&quot;layout-chunk&quot; data-layout=&quot;l-body&quot;&gt;
+&lt;div class=&quot;sourceCode&quot;&gt;&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&#39;fu&#39;&gt;&lt;a href=&#39;https://rdrr.io/r/graphics/plot.default.html&#39;&gt;plot&lt;/a&gt;&lt;/span&gt;&lt;span class=&#39;op&#39;&gt;(&lt;/span&gt;&lt;span class=&#39;va&#39;&gt;x&lt;/span&gt;&lt;span class=&#39;op&#39;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;img src=&quot;exampleRmarkdown_files/figure-html5/unnamed-chunk-10-1.png&quot; width=&quot;288&quot; /&gt;
+
+&lt;/div&gt;</code></pre>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="exampleRmarkdown_files/figure-html5/smallplot-1.png" width="288" /></p>
+</div>
+<h3 id="cache-analysis">Cache analysis</h3>
+<p>Caching analyses is straightforward. Here’s example code. On the first run on my computer, this took about 10 seconds. On subsequent runs, this code was not run.</p>
+<p>If you want to rerun cached code chunks, just <a href="http://stackoverflow.com/a/10629121/180892">delete the contents of the <code>cache</code> folder</a></p>
+<pre><code>&lt;div class=&quot;layout-chunk&quot; data-layout=&quot;l-body&quot;&gt;
+&lt;div class=&quot;sourceCode&quot;&gt;&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&#39;kw&#39;&gt;for&lt;/span&gt; &lt;span class=&#39;op&#39;&gt;(&lt;/span&gt;&lt;span class=&#39;va&#39;&gt;i&lt;/span&gt; &lt;span class=&#39;kw&#39;&gt;in&lt;/span&gt; &lt;span class=&#39;fl&#39;&gt;1&lt;/span&gt;&lt;span class=&#39;op&#39;&gt;:&lt;/span&gt;&lt;span class=&#39;fl&#39;&gt;5000&lt;/span&gt;&lt;span class=&#39;op&#39;&gt;)&lt;/span&gt; &lt;span class=&#39;op&#39;&gt;{&lt;/span&gt;
+    &lt;span class=&#39;fu&#39;&gt;&lt;a href=&#39;https://rdrr.io/r/stats/lm.html&#39;&gt;lm&lt;/a&gt;&lt;/span&gt;&lt;span class=&#39;op&#39;&gt;(&lt;/span&gt;&lt;span class=&#39;op&#39;&gt;(&lt;/span&gt;&lt;span class=&#39;va&#39;&gt;i&lt;/span&gt;&lt;span class=&#39;op&#39;&gt;+&lt;/span&gt;&lt;span class=&#39;fl&#39;&gt;1&lt;/span&gt;&lt;span class=&#39;op&#39;&gt;)&lt;/span&gt;&lt;span class=&#39;op&#39;&gt;~&lt;/span&gt;&lt;span class=&#39;va&#39;&gt;i&lt;/span&gt;&lt;span class=&#39;op&#39;&gt;)&lt;/span&gt;
+&lt;span class=&#39;op&#39;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;</code></pre>
+<h2 id="basic-markdown-functionality">Basic markdown functionality</h2>
+<p>For those not familiar with standard <a href="http://daringfireball.net/projects/markdown/">Markdown</a>, the following may be useful. See the source code for how to produce such points. However, RStudio does include a Markdown quick reference button that adequatly covers this material.</p>
+<h3 id="dot-points">Dot Points</h3>
+<p>Simple dot points:</p>
+<ul>
+<li>Point 1</li>
+<li>Point 2</li>
+<li>Point 3</li>
+</ul>
+<p>and numeric dot points:</p>
+<ol type="1">
+<li>Number 1</li>
+<li>Number 2</li>
+<li>Number 3</li>
+</ol>
+<p>and nested dot points:</p>
+<ul>
+<li>A
+<ul>
+<li>A.1</li>
+<li>A.2</li>
+</ul></li>
+<li>B
+<ul>
+<li>B.1</li>
+<li>B.2</li>
+</ul></li>
+</ul>
+<h3 id="equations">Equations</h3>
+<p>Equations are included by using LaTeX notation and including them either between single dollar signs (inline equations) or double dollar signs (displayed equations). If you hang around the Q&amp;A site <a href="http://stats.stackexchange.com">CrossValidated</a> you’ll be familiar with this idea.</p>
+<p>There are inline equations such as <span class="math inline">\(y_i = \alpha + \beta x_i + e_i\)</span>.</p>
+<p>And displayed formulas:</p>
+<p><span class="math display">\[\frac{1}{1+\exp(-x)}\]</span></p>
+<p>knitr provides self-contained HTML code that calls a Mathjax script to display formulas. However, in order to include the script in my blog posts I <a href="https://gist.github.com/2716053">took the script</a> and incorporated it into my blogger template. If you are viewing this post through syndication or an RSS reader, this may not work. You may need to view this post on my website.</p>
+<h3 id="tables">Tables</h3>
+<p>Tables can be included using the following notation</p>
+<table>
+<thead>
+<tr class="header">
+<th>A</th>
+<th>B</th>
+<th>C</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Male</td>
+<td>Blue</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Female</td>
+<td>Pink</td>
+</tr>
+</tbody>
+</table>
+<h3 id="hyperlinks">Hyperlinks</h3>
+<ul>
+<li>If you like this post, you may wish to subscribe to <a href="http://feeds.feedburner.com/jeromyanglim">my RSS feed</a>.</li>
+</ul>
+<h3 id="images">Images</h3>
+<p>Here’s an example image:</p>
+<figure>
+<img src="http://i.imgur.com/RVNmr.jpg" alt="image from redmond barry building unimelb" /><figcaption aria-hidden="true">image from redmond barry building unimelb</figcaption>
+</figure>
+<h3 id="code">Code</h3>
+<p>Here is Markdown R code chunk displayed as code:</p>
+<pre><code>&lt;div class=&quot;layout-chunk&quot; data-layout=&quot;l-body&quot;&gt;
+&lt;div class=&quot;sourceCode&quot;&gt;&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&#39;va&#39;&gt;x&lt;/span&gt; &lt;span class=&#39;op&#39;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#39;fl&#39;&gt;1&lt;/span&gt;&lt;span class=&#39;op&#39;&gt;:&lt;/span&gt;&lt;span class=&#39;fl&#39;&gt;10&lt;/span&gt;
+&lt;span class=&#39;va&#39;&gt;x&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+```
+ [1]  1  2  3  4  5  6  7  8  9 10
+```
+
+&lt;/div&gt;</code></pre>
+<p>And then there’s inline code such as <code>x &lt;- 1:10</code>.</p>
+<h3 id="quote">Quote</h3>
+<p>Let’s quote some stuff:</p>
+<blockquote>
+<p>To be, or not to be, that is the question: Whether ’tis nobler in the mind to suffer The slings and arrows of outrageous fortune,</p>
+</blockquote>
+<h2 id="conclusion">Conclusion</h2>
+<ul>
+<li>R Markdown is awesome.
+<ul>
+<li>The ratio of markup to content is excellent.</li>
+<li>For exploratory analyses, blog posts, and the like R Markdown will be a powerful productivity booster.</li>
+<li>For journal articles, LaTeX will presumably still be required.</li>
+</ul></li>
+<li>The RStudio team have made the whole process very user friendly.
+<ul>
+<li>RStudio provides useful shortcut keys for compiling to HTML, and running code chunks. These shortcut keys are presented in a clear way.</li>
+<li>The incorporated extensions to Markdown, particularly formula and table support, are particularly useful.</li>
+<li>Jump-to-chunk feature facilitates navigation. It helps if your code chunks have informative names.</li>
+<li>Code completion on R code chunk options is really helpful. See also <a href="http://yihui.name/knitr/options">chunk options documentation on the knitr website</a>.</li>
+</ul></li>
+<li>Other recent posts on R markdown include those by :
+<ul>
+<li><a href="http://christophergandrud.blogspot.com.au/2012/05/dynamic-content-with-rstudio-markdown.html">Christopher Gandrud</a></li>
+<li><a href="http://lamages.blogspot.com.au/2012/05/interactive-reports-in-r-with-knitr-and.html">Markcus Gesmann</a></li>
+<li><a href="http://rstudio.org/docs/authoring/using_markdown">Rstudio on R Markdown</a></li>
+<li><a href="http://yihui.name/knitr/">Yihui Xie</a>: I really want to thank him for developing <code>knitr</code>. He has also posted <a href="https://github.com/yihui/knitr/blob/master/inst/examples/knitr-minimal.Rmd">this example of R Markdown</a>.</li>
+</ul></li>
+</ul>
+<h2 id="questions">Questions</h2>
+<p>The following are a few questions I encountered along the way that might interest others. ### Annoying <code>&lt;br/&gt;</code>’s <strong>Question:</strong> I asked on the Rstudio discussion site: <a href="http://support.rstudio.org/help/discussions/problems/2329-why-does-r-markdown-to-html-insert-br-when-there-is-a-new-line-of-text">Why does Markdown to HTML insert <code>&lt;br/&gt;</code> on new lines?</a></p>
+<p><strong>Answer:</strong> I just do a find and delete on this text for now.</p>
+<h3 id="temporarily-disable-caching">Temporarily disable caching</h3>
+<p><strong>Question:</strong> I asked on StackOverflow about <a href="http://stackoverflow.com/q/10628665/180892">How to set cache=FALSE for a knitr markdown document and override code chunk settings?</a></p>
+<p><strong>Answer:</strong> Delete the cache folder. But there are other possible workflows.</p>
+<h3 id="equivalent-of-sexpr">Equivalent of Sexpr</h3>
+<p><strong>Question:</strong> I asked on Stack Overvlow about <a href="http://stackoverflow.com/q/10629416/180892">whether there an R Markdown equivalent to Sexpr in Sweave?</a>.</p>
+<p><strong>Answer:</strong> Include the code between brackets of “backick r space” and “backtick”. E.g., in the source code I have calculated 2 + 2 = 4 .</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
@@ -2439,6 +2885,15 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <div class="d-appendix">
 </div>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 
 <!--radix_placeholder_site_after_body-->
 <!--/radix_placeholder_site_after_body-->
