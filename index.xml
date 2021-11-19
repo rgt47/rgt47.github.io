@@ -7,7 +7,17 @@
     <description>The primary goal is to Focus on R and its underpinnings. 
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Fri, 09 Jul 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 19 Nov 2021 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Cs(), A small but very useful utility.</title>
+      <dc:creator>Ronald Glenn Thomas</dc:creator>
+      <link>https://focusonR.org/posts/2021-11-19-a-small-but-very-useful-utility</link>
+      <description>A short description of the post.</description>
+      <category>HMISC</category>
+      <category>R</category>
+      <guid>https://focusonR.org/posts/2021-11-19-a-small-but-very-useful-utility</guid>
+      <pubDate>Fri, 19 Nov 2021 00:00:00 +0000</pubDate>
+    </item>
     <item>
       <title>demo post</title>
       <dc:creator>Ronald Glenn Thomas</dc:creator>

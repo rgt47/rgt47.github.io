@@ -1,5 +1,25 @@
 [
   {
+    "path": "posts/2021-11-19-a-small-but-very-useful-utility/",
+    "title": "Cs(), A small but very useful utility.",
+    "description": "A short description of the post.",
+    "author": [
+      {
+        "name": "Ronald Glenn Thomas",
+        "url": "https://focusonR.org"
+      }
+    ],
+    "date": "2021-11-19",
+    "categories": [
+      "HMISC",
+      "R"
+    ],
+    "contents": "\nDistill is a publication format for scientific and technical writing, native to the web.\nLearn more about using Distill at https://rstudio.github.io/distill.\nIntroduction\nSample reference section reference. @Pocock1975a\nMethods\nResults\nMy most common usage of the todonotes package, is to insert an uncustomized todonotes somewhere in a latex document. An example of this usage is the command\nReferences\n\n\n\n",
+    "preview": {},
+    "last_modified": "2021-11-19T15:58:13-08:00",
+    "input_file": {}
+  },
+  {
     "path": "posts/2021-07-07-demo/",
     "title": "demo post",
     "description": "Demo article to get the hang of Distill",
