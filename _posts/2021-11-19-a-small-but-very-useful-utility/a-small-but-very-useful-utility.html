@@ -1486,9 +1486,34 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </div>
 
 <div class="d-article">
-<p>Distill is a publication format for scientific and technical writing, native to the web.</p>
-<p>Learn more about using Distill at <a href="https://rstudio.github.io/distill" class="uri">https://rstudio.github.io/distill</a>.</p>
 <h1 id="introduction">Introduction</h1>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://hbiostat.org/R/Hmisc/'>Hmisc</a></span><span class='op'>)</span>
+<span class='va'>foo</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"a"</span>, <span class='st'>"b"</span>, <span class='st'>"c"</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='va'>foo</span><span class='op'>)</span>
+</code></pre>
+</div>
+[1] “a” “b” “c”
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>foo2</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/Hmisc/man/Cs.html'>Cs</a></span><span class='op'>(</span><span class='va'>a</span>,<span class='va'>b</span>,<span class='va'>c</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='va'>foo2</span><span class='op'>)</span>
+</code></pre>
+</div>
+[1] “a” “b” “c”
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/all.equal.html'>all.equal</a></span><span class='op'>(</span><span class='va'>foo</span>, <span class='va'>foo2</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p>[1] TRUE</p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='va'>Cs</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p>function (…) as.character(sys.call())[-1] &lt;bytecode: 0x7ff72a843898&gt; &lt;environment: namespace:Hmisc&gt;</p>
+</div>
 <p>Sample reference section reference. <span class="citation" data-cites="Pocock1975a">@Pocock1975a</span></p>
 <h1 id="methods">Methods</h1>
 <h1 id="results">Results</h1>

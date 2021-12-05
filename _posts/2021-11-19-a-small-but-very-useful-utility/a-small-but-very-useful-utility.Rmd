@@ -19,16 +19,13 @@ output:
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-Distill is a publication format for scientific and technical writing, native to the web.
-
-Learn more about using Distill at <https://rstudio.github.io/distill>.
 
 
 
 ```{r , include=FALSE}
 options(dplyr.print_max = 1e9)
 library(pacman)
-p_load(Hmisc, tibble, broom, snakecase, tidyr, data.table,colorout, conflicted,
+p_load(Hmisc, tibble, broom, snakecase, tidyr, data.table, 
        purrr,ztable, hrbrthemes,readr, dplyr, magrittr, 
        lubridate, zoo, mi, survival, ggplot2, printr,
        lsmeans, ggthemes,  knitr, xtable, doBy, nlme,
@@ -45,6 +42,19 @@ knitr::opts_chunk$set(echo = FALSE)
 
 
 # Introduction
+```{r echo=T}
+library(Hmisc)
+foo = c("a", "b", "c")
+print(foo)
+foo2 = Cs(a,b,c)
+print(foo2)
+all.equal(foo, foo2)
+```
+
+```{r echo=T}
+print(Cs)
+
+```
 
 Sample reference section reference. @Pocock1975a
 

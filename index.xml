@@ -7,7 +7,17 @@
     <description>The primary goal is to Focus on R and its underpinnings. 
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Fri, 19 Nov 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 05 Dec 2021 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Factors are confusing.</title>
+      <dc:creator>Ronald Glenn Thomas</dc:creator>
+      <link>https://focusonR.org/posts/2021-11-14-factors-are-confusing</link>
+      <description>A short description of the post.</description>
+      <category>vim</category>
+      <category>R</category>
+      <guid>https://focusonR.org/posts/2021-11-14-factors-are-confusing</guid>
+      <pubDate>Sun, 05 Dec 2021 00:00:00 +0000</pubDate>
+    </item>
     <item>
       <title>Cs(), A small but very useful utility.</title>
       <dc:creator>Ronald Glenn Thomas</dc:creator>
