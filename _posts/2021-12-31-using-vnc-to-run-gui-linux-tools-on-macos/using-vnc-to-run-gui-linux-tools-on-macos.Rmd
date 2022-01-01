@@ -1,3 +1,27 @@
+---
+title: "using VNC to run gui linux tools on macos"
+description: |
+  A short description of the post.
+author:
+  - name: Ronald Glenn Thomas
+    url: https://focusonR.org
+date: 2021-12-31
+output:
+  distill::distill_article:
+    self_contained: false
+draft: true
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+Distill is a publication format for scientific and technical writing, native to the web.
+
+Learn more about using Distill at <https://rstudio.github.io/distill>.
+
+
 
 ```{r init, include=FALSE}
 # read this snippet in to new blog posts templates written by Distill
@@ -19,6 +43,10 @@ options(scipen = 1, digits = 2)
 
 # Introduction
 
+I've been trying to figure out how to access gui applications from docker images of different linux distros.
+Today I came across a blog post that was extremely helpful in developing a strategy to acomplish this. 
+
+
 Sample reference section reference. @Pocock1975a
 
 # Methods
@@ -28,6 +56,7 @@ My most common usage of the todonotes package, is to insert an uncustomized
 todonotes somewhere in a latex document. An example of this usage is the command
 
 # References
+
 
 
 

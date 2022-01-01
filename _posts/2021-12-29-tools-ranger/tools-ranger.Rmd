@@ -1,0 +1,66 @@
+---
+title: "tools: ranger"
+description: |
+  A short description of the post.
+author:
+  - name: Ronald Glenn Thomas
+    url: https://focusonR.org
+bibliography: /Users/zenn/shr/bibs/ranger_blog_post.bib
+date: 2021-12-29
+draft: true
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+
+```{r init, include=FALSE}
+options(dplyr.print_max = 1e9)
+library(pacman)
+
+p_load(rmarkdown, tidyverse,  broom,  tidyr,  purrr,readr,
+       dplyr,  lubridate, zoo,  ggplot2, printr, lsmeans, ggthemes,  knitr,
+       nlme, pwr)
+
+opts_chunk$set(warning = F, message = F, echo=F, fig.width=3.2,
+	       fig.height=3,  results='asis', dev='pdf',
+	       opts_chunk$set(cache.path = "cache/"))
+source('~/shr/zz.tools.R')
+options(scipen = 1, digits = 2)
+```
+
+
+
+# Introduction
+
+This is another of the continuing articles describing useful tools for the
+RGT laboratory. 
+
+Ranger is an alternative to the mac Finder. It runs in the terminal using the
+Curses library (expand). I think its written in Ruby. Its fast and uses vim
+style keybindings. 
+
+The help system is launched with "?" and is pretty useful.  You can preload key
+directories in the config in ~/.config/ranger/rc.conf file. So, for example, you
+could type "g4" to immediately go to the directory
+"/Users/zenn/prj/c060/launch/app4" by adding the line below.
+
+```sh
+map g4 cd /Users/zenn/prj/c060/launch/app4
+```
+
+
+# Methods
+
+# Results
+
+Sample reference. @Pocock1975a
+
+Sample reference. @ranger1
+
