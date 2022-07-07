@@ -20,26 +20,28 @@
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css" data-origin="pandoc">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(title);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -48,16 +50,17 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  { color: #00769e; background-color: #f1f3f5; }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
+code span { color: #00769e; } /* Normal */
 code span.al { color: #ad0000; } /* Alert */
 code span.an { color: #5e5e5e; } /* Annotation */
-code span.at { } /* Attribute */
+code span.at { color: #657422; } /* Attribute */
 code span.bn { color: #ad0000; } /* BaseN */
 code span.bu { } /* BuiltIn */
-code span.cf { color: #007ba5; } /* ControlFlow */
+code span.cf { color: #00769e; } /* ControlFlow */
 code span.ch { color: #20794d; } /* Char */
 code span.cn { color: #8f5902; } /* Constant */
 code span.co { color: #5e5e5e; } /* Comment */
@@ -71,9 +74,9 @@ code span.fl { color: #ad0000; } /* Float */
 code span.fu { color: #4758ab; } /* Function */
 code span.im { } /* Import */
 code span.in { color: #5e5e5e; } /* Information */
-code span.kw { color: #007ba5; } /* Keyword */
+code span.kw { color: #00769e; } /* Keyword */
 code span.op { color: #5e5e5e; } /* Operator */
-code span.ot { color: #007ba5; } /* Other */
+code span.ot { color: #00769e; } /* Other */
 code span.pp { color: #ad0000; } /* Preprocessor */
 code span.sc { color: #5e5e5e; } /* SpecialChar */
 code span.ss { color: #20794d; } /* SpecialString */
@@ -86,36 +89,36 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
   <!--radix_placeholder_meta_tags-->
   <title>Focus on R: Untitled</title>
-  
-  
-  
-  
+
+
+
+
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
   <meta property="og:title" content="Focus on R: Untitled"/>
   <meta property="og:type" content="article"/>
   <meta property="og:locale" content="en_US"/>
   <meta property="og:site_name" content="Focus on R"/>
-  
+
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
   <meta property="twitter:title" content="Focus on R: Untitled"/>
-  
+
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
-  
+
   <script type="text/json" id="radix-rmarkdown-metadata">
   {"type":"list","attributes":{},"value":[]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
   <meta name="distill:offset" content=""/>
-  
+
   <script type="application/javascript">
-  
+
     window.headroom_prevent_pin = false;
-  
+
     window.document.addEventListener("DOMContentLoaded", function (event) {
-  
+
       // initialize headroom for banner
       var header = $('header').get(0);
       var headerHeight = header.offsetHeight;
@@ -132,13 +135,13 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
       if(window.location.hash)
         headroom.unpin();
       $(header).addClass('headroom--transition');
-  
+
       // offset scroll location for banner on hash change
       // (see: https://github.com/WickyNilliams/headroom.js/issues/38)
       window.addEventListener("hashchange", function(event) {
         window.scrollTo(0, window.pageYOffset - (headerHeight + 25));
       });
-  
+
       // responsive menu
       $('.distill-site-header').each(function(i, val) {
         var topnav = $(this);
@@ -147,7 +150,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
           topnav.toggleClass('responsive');
         });
       });
-  
+
       // nav dropdowns
       $('.nav-dropbtn').click(function(e) {
         $(this).next('.nav-dropdown-content').toggleClass('nav-dropdown-active');
@@ -162,99 +165,99 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
       });
     });
   </script>
-  
+
   <style type="text/css">
-  
+
   /* Theme (user-documented overrideables for nav appearance) */
-  
+
   .distill-site-nav {
     color: rgba(255, 255, 255, 0.8);
     background-color: #0F2E3D;
     font-size: 15px;
     font-weight: 300;
   }
-  
+
   .distill-site-nav a {
     color: inherit;
     text-decoration: none;
   }
-  
+
   .distill-site-nav a:hover {
     color: white;
   }
-  
+
   @media print {
     .distill-site-nav {
       display: none;
     }
   }
-  
+
   .distill-site-header {
-  
+
   }
-  
+
   .distill-site-footer {
-  
+
   }
-  
-  
+
+
   /* Site Header */
-  
+
   .distill-site-header {
     width: 100%;
     box-sizing: border-box;
     z-index: 3;
   }
-  
+
   .distill-site-header .nav-left {
     display: inline-block;
     margin-left: 8px;
   }
-  
+
   @media screen and (max-width: 768px) {
     .distill-site-header .nav-left {
       margin-left: 0;
     }
   }
-  
-  
+
+
   .distill-site-header .nav-right {
     float: right;
     margin-right: 8px;
   }
-  
+
   .distill-site-header a,
   .distill-site-header .title {
     display: inline-block;
     text-align: center;
     padding: 14px 10px 14px 10px;
   }
-  
+
   .distill-site-header .title {
     font-size: 18px;
     min-width: 150px;
   }
-  
+
   .distill-site-header .logo {
     padding: 0;
   }
-  
+
   .distill-site-header .logo img {
     display: none;
     max-height: 20px;
     width: auto;
     margin-bottom: -4px;
   }
-  
+
   .distill-site-header .nav-image img {
     max-height: 18px;
     width: auto;
     display: inline-block;
     margin-bottom: -3px;
   }
-  
-  
-  
+
+
+
   @media screen and (min-width: 1000px) {
     .distill-site-header .logo img {
       display: inline-block;
@@ -269,17 +272,17 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
       padding-left: 12px;
     }
   }
-  
-  
+
+
   .distill-site-header .nav-toggle {
     display: none;
   }
-  
+
   .nav-dropdown {
     display: inline-block;
     position: relative;
   }
-  
+
   .nav-dropdown .nav-dropbtn {
     border: none;
     outline: none;
@@ -293,7 +296,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     margin-top: 1px;
     z-index: 2;
   }
-  
+
   .nav-dropdown-content {
     display: none;
     position: absolute;
@@ -308,18 +311,18 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     padding-top: 4px;
     padding-bottom: 4px;
   }
-  
+
   .nav-dropdown-content hr {
     margin-top: 4px;
     margin-bottom: 4px;
     border: none;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   }
-  
+
   .nav-dropdown-active {
     display: block;
   }
-  
+
   .nav-dropdown-content a, .nav-dropdown-content .nav-dropdown-header {
     color: black;
     padding: 6px 24px;
@@ -327,7 +330,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     display: block;
     text-align: left;
   }
-  
+
   .nav-dropdown-content .nav-dropdown-header {
     display: block;
     padding: 5px 24px;
@@ -337,21 +340,21 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     color: #999999;
     white-space: nowrap;
   }
-  
+
   .nav-dropdown:hover .nav-dropbtn {
     color: white;
   }
-  
+
   .nav-dropdown-content a:hover {
     background-color: #ddd;
     color: black;
   }
-  
+
   .nav-right .nav-dropdown-content {
     margin-left: -45%;
     right: 0;
   }
-  
+
   @media screen and (max-width: 768px) {
     .distill-site-header a, .distill-site-header .nav-dropdown  {display: none;}
     .distill-site-header a.nav-toggle {
@@ -371,8 +374,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
       margin-left: 0;
     }
   }
-  
-  
+
+
   @media screen and (max-width: 768px) {
     .distill-site-header.responsive {position: relative; min-height: 500px; }
     .distill-site-header.responsive a.nav-toggle {
@@ -397,9 +400,9 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
       text-align: left;
     }
   }
-  
+
   /* Site Footer */
-  
+
   .distill-site-footer {
     width: 100%;
     overflow: hidden;
@@ -410,19 +413,19 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     padding-bottom: 30px;
     text-align: center;
   }
-  
+
   /* Headroom */
-  
+
   d-title {
     padding-top: 6rem;
   }
-  
+
   @media print {
     d-title {
       padding-top: 4rem;
     }
   }
-  
+
   .headroom {
     z-index: 1000;
     position: fixed;
@@ -430,36 +433,36 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     left: 0;
     right: 0;
   }
-  
+
   .headroom--transition {
     transition: all .4s ease-in-out;
   }
-  
+
   .headroom--unpinned {
     top: -100px;
   }
-  
+
   .headroom--pinned {
     top: 0;
   }
-  
+
   /* adjust viewport for navbar height */
   /* helps vertically center bootstrap (non-distill) content */
   .min-vh-100 {
     min-height: calc(100vh - 100px) !important;
   }
-  
+
   </style>
-  
+
   <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
   <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet"/>
   <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet"/>
   <script src="site_libs/headroom-0.9.4/headroom.min.js"></script>
   <script src="site_libs/autocomplete-0.37.1/autocomplete.min.js"></script>
   <script src="site_libs/fuse-6.4.1/fuse.min.js"></script>
-  
+
   <script type="application/javascript">
-  
+
   function getMeta(metaName) {
     var metas = document.getElementsByTagName('meta');
     for (let i = 0; i < metas.length; i++) {
@@ -469,14 +472,14 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     }
     return '';
   }
-  
+
   function offsetURL(url) {
     var offset = getMeta('distill:offset');
     return offset ? offset + '/' + url : url;
   }
-  
+
   function createFuseIndex() {
-  
+
     // create fuse index
     var options = {
       keys: [
@@ -489,7 +492,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
       threshold: 0
     };
     var fuse = new window.Fuse([], options);
-  
+
     // fetch the main search.json
     return fetch(offsetURL('search.json'))
       .then(function(response) {
@@ -519,7 +522,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
               return fuse;
             });
           });
-  
+
         } else {
           return Promise.reject(
             new Error('Unexpected status from search index request: ' +
@@ -528,20 +531,20 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
         }
       });
   }
-  
+
   window.document.addEventListener("DOMContentLoaded", function (event) {
-  
+
     // get search element (bail if we don't have one)
     var searchEl = window.document.getElementById('distill-search');
     if (!searchEl)
       return;
-  
+
     createFuseIndex()
       .then(function(fuse) {
-  
+
         // make search box visible
         searchEl.classList.remove('hidden');
-  
+
         // initialize autocomplete
         var options = {
           autoselect: true,
@@ -590,19 +593,19 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
       .catch(function(error) {
         console.log(error);
       });
-  
+
   });
-  
+
   </script>
-  
+
   <style type="text/css">
-  
+
   .nav-search {
     font-size: x-small;
   }
-  
+
   /* Algolioa Autocomplete */
-  
+
   .algolia-autocomplete {
     display: inline-block;
     margin-left: 10px;
@@ -616,8 +619,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     border: 1px #0F2E3D solid;
     width: 180px;
   }
-  
-  
+
+
   @media screen and (max-width: 768px) {
     .distill-site-nav .algolia-autocomplete {
       display: none;
@@ -633,13 +636,13 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
       max-height: 400px;
     }
   }
-  
+
   .algolia-autocomplete .aa-input, .algolia-autocomplete .aa-hint {
     width: 90%;
     outline: none;
     border: none;
   }
-  
+
   .algolia-autocomplete .aa-hint {
     color: #999;
   }
@@ -656,30 +659,30 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     border: 1px solid #999;
     border-top: none;
   }
-  
+
   .algolia-autocomplete .aa-dropdown-menu .aa-suggestion {
     cursor: pointer;
     padding: 5px 4px;
     border-bottom: 1px solid #eee;
   }
-  
+
   .algolia-autocomplete .aa-dropdown-menu .aa-suggestion:last-of-type {
     border-bottom: none;
     margin-bottom: 2px;
   }
-  
+
   .algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item {
     overflow: hidden;
     font-size: 0.8em;
     line-height: 1.4em;
   }
-  
+
   .algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item h3 {
     font-size: 1rem;
     margin-block-start: 0;
     margin-block-end: 5px;
   }
-  
+
   .algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item-description {
     display: inline-block;
     overflow: hidden;
@@ -687,22 +690,22 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     width: 80%;
     margin-right: 4%;
   }
-  
+
   .algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item-preview {
     display: inline-block;
     width: 15%;
   }
-  
+
   .algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item-preview img {
     height: 3em;
     width: auto;
     display: none;
   }
-  
+
   .algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item-preview img[src] {
     display: initial;
   }
-  
+
   .algolia-autocomplete .aa-dropdown-menu .aa-suggestion.aa-cursor {
     background-color: #eee;
   }
@@ -710,47 +713,47 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     font-weight: bold;
     font-style: normal;
   }
-  
+
   </style>
-  
-  
+
+
   <!--/radix_placeholder_navigation_in_header-->
   <!--radix_placeholder_distill-->
-  
+
   <style type="text/css">
-  
+
   body {
     background-color: white;
   }
-  
+
   .pandoc-table {
     width: 100%;
   }
-  
+
   .pandoc-table>caption {
     margin-bottom: 10px;
   }
-  
+
   .pandoc-table th:not([align]) {
     text-align: left;
   }
-  
+
   .pagedtable-footer {
     font-size: 15px;
   }
-  
+
   d-byline .byline {
     grid-template-columns: 2fr 2fr;
   }
-  
+
   d-byline .byline h3 {
     margin-block-start: 1.5em;
   }
-  
+
   d-byline .byline .authors-affiliations h3 {
     margin-block-start: 0.5em;
   }
-  
+
   .authors-affiliations .orcid-id {
     width: 16px;
     height:16px;
@@ -759,12 +762,12 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     vertical-align: middle;
     padding-bottom: 2px;
   }
-  
+
   d-title .dt-tags {
     margin-top: 1em;
     grid-column: text;
   }
-  
+
   .dt-tags .dt-tag {
     text-decoration: none;
     display: inline-block;
@@ -778,24 +781,24 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     text-transform: uppercase;
     font-weight: 500;
   }
-  
+
   d-article table.gt_table td,
   d-article table.gt_table th {
     border-bottom: none;
   }
-  
+
   .html-widget {
     margin-bottom: 2.0em;
   }
-  
+
   .l-screen-inset {
     padding-right: 16px;
   }
-  
+
   .l-screen .caption {
     margin-left: 10px;
   }
-  
+
   .shaded {
     background: rgb(247, 247, 247);
     padding-top: 20px;
@@ -803,75 +806,75 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     border-top: 1px solid rgba(0, 0, 0, 0.1);
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   }
-  
+
   .shaded .html-widget {
     margin-bottom: 0;
     border: 1px solid rgba(0, 0, 0, 0.1);
   }
-  
+
   .shaded .shaded-content {
     background: white;
   }
-  
+
   .text-output {
     margin-top: 0;
     line-height: 1.5em;
   }
-  
+
   .hidden {
     display: none !important;
   }
-  
+
   d-article {
     padding-top: 2.5rem;
     padding-bottom: 30px;
   }
-  
+
   d-appendix {
     padding-top: 30px;
   }
-  
+
   d-article>p>img {
     width: 100%;
   }
-  
+
   d-article h2 {
     margin: 1rem 0 1.5rem 0;
   }
-  
+
   d-article h3 {
     margin-top: 1.5rem;
   }
-  
+
   d-article iframe {
     border: 1px solid rgba(0, 0, 0, 0.1);
     margin-bottom: 2.0em;
     width: 100%;
   }
-  
+
   /* Tweak code blocks */
-  
+
   d-article div.sourceCode code,
   d-article pre code {
     font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
   }
-  
+
   d-article pre,
   d-article div.sourceCode,
   d-article div.sourceCode pre {
     overflow: auto;
   }
-  
+
   d-article div.sourceCode {
     background-color: white;
   }
-  
+
   d-article div.sourceCode pre {
     padding-left: 10px;
     font-size: 12px;
     border-left: 2px solid rgba(0,0,0,0.1);
   }
-  
+
   d-article pre {
     font-size: 12px;
     color: black;
@@ -883,50 +886,50 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     word-break: normal;
     word-wrap: normal;
     line-height: 1.5;
-  
+
     -moz-tab-size: 4;
     -o-tab-size: 4;
     tab-size: 4;
-  
+
     -webkit-hyphens: none;
     -moz-hyphens: none;
     -ms-hyphens: none;
     hyphens: none;
   }
-  
+
   d-article pre a {
     border-bottom: none;
   }
-  
+
   d-article pre a:hover {
     border-bottom: none;
     text-decoration: underline;
   }
-  
+
   d-article details {
     grid-column: text;
     margin-bottom: 0.8em;
   }
-  
+
   @media(min-width: 768px) {
-  
+
   d-article pre,
   d-article div.sourceCode,
   d-article div.sourceCode pre {
     overflow: visible !important;
   }
-  
+
   d-article div.sourceCode pre {
     padding-left: 18px;
     font-size: 14px;
   }
-  
+
   d-article pre {
     font-size: 14px;
   }
-  
+
   }
-  
+
   figure img.external {
     background: white;
     border: 1px solid rgba(0, 0, 0, 0.1);
@@ -934,9 +937,9 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     padding: 18px;
     box-sizing: border-box;
   }
-  
+
   /* CSS for d-contents */
-  
+
   .d-contents {
     grid-column: text;
     color: rgba(0,0,0,0.8);
@@ -948,7 +951,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     padding-left: 0.25em;
     justify-self: start;
   }
-  
+
   @media(min-width: 1000px) {
     .d-contents.d-contents-float {
       height: 0;
@@ -959,82 +962,78 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
       padding-left: 2em;
     }
   }
-  
+
   .d-contents nav h3 {
     font-size: 18px;
     margin-top: 0;
     margin-bottom: 1em;
   }
-  
+
   .d-contents li {
     list-style-type: none
   }
-  
+
   .d-contents nav > ul {
     padding-left: 0;
   }
-  
+
   .d-contents ul {
     padding-left: 1em
   }
-  
+
   .d-contents nav ul li {
     margin-top: 0.6em;
     margin-bottom: 0.2em;
   }
-  
+
   .d-contents nav a {
     font-size: 13px;
     border-bottom: none;
     text-decoration: none
     color: rgba(0, 0, 0, 0.8);
   }
-  
+
   .d-contents nav a:hover {
     text-decoration: underline solid rgba(0, 0, 0, 0.6)
   }
-  
+
   .d-contents nav > ul > li > a {
     font-weight: 600;
   }
-  
+
   .d-contents nav > ul > li > ul {
     font-weight: inherit;
   }
-  
+
   .d-contents nav > ul > li > ul > li {
     margin-top: 0.2em;
   }
-  
-  
+
+
   .d-contents nav ul {
     margin-top: 0;
     margin-bottom: 0.25em;
   }
-  
+
   .d-article-with-toc h2:nth-child(2) {
     margin-top: 0;
   }
-  
-  
+
+
   /* Figure */
-  
+
   .figure {
     position: relative;
     margin-bottom: 2.5em;
     margin-top: 1.5em;
   }
-  
-  .figure img {
-    width: 100%;
-  }
-  
+
   .figure .caption {
     color: rgba(0, 0, 0, 0.6);
     font-size: 12px;
     line-height: 1.5em;
   }
-  
+
   .figure img.external {
     background: white;
     border: 1px solid rgba(0, 0, 0, 0.1);
@@ -1042,42 +1041,42 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     padding: 18px;
     box-sizing: border-box;
   }
-  
+
   .figure .caption a {
     color: rgba(0, 0, 0, 0.6);
   }
-  
+
   .figure .caption b,
   .figure .caption strong, {
     font-weight: 600;
     color: rgba(0, 0, 0, 1.0);
   }
-  
+
   /* Citations */
-  
+
   d-article .citation {
     color: inherit;
     cursor: inherit;
   }
-  
+
   div.hanging-indent{
     margin-left: 1em; text-indent: -1em;
   }
-  
+
   /* Citation hover box */
-  
+
   .tippy-box[data-theme~=light-border] {
     background-color: rgba(250, 250, 250, 0.95);
   }
-  
+
   .tippy-content > p {
     margin-bottom: 0;
     padding: 2px;
   }
-  
-  
+
+
   /* Tweak 1000px media break to show more text */
-  
+
   @media(min-width: 1000px) {
     .base-grid,
     distill-header,
@@ -1093,11 +1092,11 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
       grid-template-columns: [screen-start] 1fr [page-start kicker-start] 80px [middle-start] 50px [text-start kicker-end] 65px 65px 65px 65px 65px 65px 65px 65px [text-end gutter-start] 65px [middle-end] 65px [page-end gutter-end] 1fr [screen-end];
       grid-column-gap: 16px;
     }
-  
+
     .grid {
       grid-column-gap: 16px;
     }
-  
+
     d-article {
       font-size: 1.06rem;
       line-height: 1.7em;
@@ -1106,7 +1105,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
       font-size: 13px;
     }
   }
-  
+
   @media(min-width: 1180px) {
     .base-grid,
     distill-header,
@@ -1122,16 +1121,16 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
       grid-template-columns: [screen-start] 1fr [page-start kicker-start] 60px [middle-start] 60px [text-start kicker-end] 60px 60px 60px 60px 60px 60px 60px 60px [text-end gutter-start] 60px [middle-end] 60px [page-end gutter-end] 1fr [screen-end];
       grid-column-gap: 32px;
     }
-  
+
     .grid {
       grid-column-gap: 32px;
     }
   }
-  
-  
+
+
   /* Get the citation styles for the appendix (not auto-injected on render since
      we do our own rendering of the citation appendix) */
-  
+
   d-appendix .citation-appendix,
   .d-appendix .citation-appendix {
     font-size: 11px;
@@ -1148,9 +1147,9 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     white-space: pre-wrap;
     word-wrap: break-word;
   }
-  
+
   /* Include appendix styles here so they can be overridden */
-  
+
   d-appendix {
     contain: layout style;
     font-size: 0.8em;
@@ -1162,7 +1161,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     padding-top: 60px;
     padding-bottom: 48px;
   }
-  
+
   d-appendix h3 {
     grid-column: page-start / text-start;
     font-size: 15px;
@@ -1171,59 +1170,59 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     margin-bottom: 0;
     color: rgba(0,0,0,0.65);
   }
-  
+
   d-appendix h3 + * {
     margin-top: 1em;
   }
-  
+
   d-appendix ol {
     padding: 0 0 0 15px;
   }
-  
+
   @media (min-width: 768px) {
     d-appendix ol {
       padding: 0 0 0 30px;
       margin-left: -30px;
     }
   }
-  
+
   d-appendix li {
     margin-bottom: 1em;
   }
-  
+
   d-appendix a {
     color: rgba(0, 0, 0, 0.6);
   }
-  
+
   d-appendix > * {
     grid-column: text;
   }
-  
+
   d-appendix > d-footnote-list,
   d-appendix > d-citation-list,
   d-appendix > distill-appendix {
     grid-column: screen;
   }
-  
+
   /* Include footnote styles here so they can be overridden */
-  
+
   d-footnote-list {
     contain: layout style;
   }
-  
+
   d-footnote-list > * {
     grid-column: text;
   }
-  
+
   d-footnote-list a.footnote-backlink {
     color: rgba(0,0,0,0.3);
     padding-left: 0.5em;
   }
-  
-  
-  
+
+
+
   /* Anchor.js */
-  
+
   .anchorjs-link {
     /*transition: all .25s linear; */
     text-decoration: none;
@@ -1234,86 +1233,86 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     text-decoration: none;
     border-bottom: none;
   }
-  
+
   /* Social footer */
-  
+
   .social_footer {
     margin-top: 30px;
     margin-bottom: 0;
     color: rgba(0,0,0,0.67);
   }
-  
+
   .disqus-comments {
     margin-right: 30px;
   }
-  
+
   .disqus-comment-count {
     border-bottom: 1px solid rgba(0, 0, 0, 0.4);
     cursor: pointer;
   }
-  
+
   #disqus_thread {
     margin-top: 30px;
   }
-  
+
   .article-sharing a {
     border-bottom: none;
     margin-right: 8px;
   }
-  
+
   .article-sharing a:hover {
     border-bottom: none;
   }
-  
+
   .sidebar-section.subscribe {
     font-size: 12px;
     line-height: 1.6em;
   }
-  
+
   .subscribe p {
     margin-bottom: 0.5em;
   }
-  
-  
+
+
   .article-footer .subscribe {
     font-size: 15px;
     margin-top: 45px;
   }
-  
-  
+
+
   .sidebar-section.custom {
     font-size: 12px;
     line-height: 1.6em;
   }
-  
+
   .custom p {
     margin-bottom: 0.5em;
   }
-  
+
   /* Styles for listing layout (hide title) */
   .layout-listing d-title, .layout-listing .d-title {
     display: none;
   }
-  
+
   /* Styles for posts lists (not auto-injected) */
-  
-  
+
+
   .posts-with-sidebar {
     padding-left: 45px;
     padding-right: 45px;
   }
-  
+
   .posts-list .description h2,
   .posts-list .description p {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
   }
-  
+
   .posts-list .description h2 {
     font-weight: 700;
     border-bottom: none;
     padding-bottom: 0;
   }
-  
+
   .posts-list h2.post-tag {
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
     padding-bottom: 12px;
@@ -1322,7 +1321,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     margin-top: 60px;
     margin-bottom: 24px;
   }
-  
+
   .posts-list .post-preview {
     text-decoration: none;
     overflow: hidden;
@@ -1330,29 +1329,29 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     padding: 24px 0;
   }
-  
+
   .post-preview-last {
     border-bottom: none !important;
   }
-  
+
   .posts-list .posts-list-caption {
     grid-column: screen;
     font-weight: 400;
   }
-  
+
   .posts-list .post-preview h2 {
     margin: 0 0 6px 0;
     line-height: 1.2em;
     font-style: normal;
     font-size: 24px;
   }
-  
+
   .posts-list .post-preview p {
     margin: 0 0 12px 0;
     line-height: 1.4em;
     font-size: 16px;
   }
-  
+
   .posts-list .post-preview .thumbnail {
     box-sizing: border-box;
     margin-bottom: 24px;
@@ -1363,32 +1362,32 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     width: 100%;
     display: block;
   }
-  
+
   .posts-list .metadata {
     font-size: 12px;
     line-height: 1.4em;
     margin-bottom: 18px;
   }
-  
+
   .posts-list .metadata > * {
     display: inline-block;
   }
-  
+
   .posts-list .metadata .publishedDate {
     margin-right: 2em;
   }
-  
+
   .posts-list .metadata .dt-authors {
     display: block;
     margin-top: 0.3em;
     margin-right: 2em;
   }
-  
+
   .posts-list .dt-tags {
     display: block;
     line-height: 1em;
   }
-  
+
   .posts-list .dt-tags .dt-tag {
     display: inline-block;
     color: rgba(0,0,0,0.6);
@@ -1401,24 +1400,24 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     text-transform: uppercase;
     font-weight: 500;
   }
-  
+
   .posts-list img {
     opacity: 1;
   }
-  
+
   .posts-list img[data-src] {
     opacity: 0;
   }
-  
+
   .posts-more {
     clear: both;
   }
-  
-  
+
+
   .posts-sidebar {
     font-size: 16px;
   }
-  
+
   .posts-sidebar h3 {
     font-size: 16px;
     margin-top: 0;
@@ -1426,39 +1425,39 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     font-weight: 400;
     text-transform: uppercase;
   }
-  
+
   .sidebar-section {
     margin-bottom: 30px;
   }
-  
+
   .categories ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
   }
-  
+
   .categories li {
     color: rgba(0, 0, 0, 0.8);
     margin-bottom: 0;
   }
-  
+
   .categories li>a {
     border-bottom: none;
   }
-  
+
   .categories li>a:hover {
     border-bottom: 1px solid rgba(0, 0, 0, 0.4);
   }
-  
+
   .categories .active {
     font-weight: 600;
   }
-  
+
   .categories .category-count {
     color: rgba(0, 0, 0, 0.4);
   }
-  
-  
+
+
   @media(min-width: 768px) {
     .posts-list .post-preview h2 {
       font-size: 26px;
@@ -1494,55 +1493,55 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
       padding-bottom: 24px;
     }
   }
-  
-  
+
+
   /* Improve display for browsers without grid (IE/Edge <= 15) */
-  
+
   .downlevel {
     line-height: 1.6em;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
     margin: 0;
   }
-  
+
   .downlevel .d-title {
     padding-top: 6rem;
     padding-bottom: 1.5rem;
   }
-  
+
   .downlevel .d-title h1 {
     font-size: 50px;
     font-weight: 700;
     line-height: 1.1em;
     margin: 0 0 0.5rem;
   }
-  
+
   .downlevel .d-title p {
     font-weight: 300;
     font-size: 1.2rem;
     line-height: 1.55em;
     margin-top: 0;
   }
-  
+
   .downlevel .d-byline {
     padding-top: 0.8em;
     padding-bottom: 0.8em;
     font-size: 0.8rem;
     line-height: 1.8em;
   }
-  
+
   .downlevel .section-separator {
     border: none;
     border-top: 1px solid rgba(0, 0, 0, 0.1);
   }
-  
+
   .downlevel .d-article {
     font-size: 1.06rem;
     line-height: 1.7em;
     padding-top: 1rem;
     padding-bottom: 2rem;
   }
-  
-  
+
+
   .downlevel .d-appendix {
     padding-left: 0;
     padding-right: 0;
@@ -1554,11 +1553,11 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     padding-top: 40px;
     padding-bottom: 48px;
   }
-  
+
   .downlevel .footnotes ol {
     padding-left: 13px;
   }
-  
+
   .downlevel .base-grid,
   .downlevel .distill-header,
   .downlevel .d-title,
@@ -1575,7 +1574,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     padding-left: 40px;
     padding-right: 40px;
   }
-  
+
   @media(min-width: 768px) {
     .downlevel .base-grid,
     .downlevel .distill-header,
@@ -1595,14 +1594,14 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     max-width: 900px;
   }
   }
-  
+
   .downlevel pre code {
     display: block;
     border-left: 2px solid rgba(0, 0, 0, .1);
     padding: 0 0 0 20px;
     font-size: 14px;
   }
-  
+
   .downlevel code, .downlevel pre {
     color: black;
     background: none;
@@ -1613,27 +1612,27 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     word-break: normal;
     word-wrap: normal;
     line-height: 1.5;
-  
+
     -moz-tab-size: 4;
     -o-tab-size: 4;
     tab-size: 4;
-  
+
     -webkit-hyphens: none;
     -moz-hyphens: none;
     -ms-hyphens: none;
     hyphens: none;
   }
-  
+
   .downlevel .posts-list .post-preview {
     color: inherit;
   }
-  
-  
-  
+
+
+
   </style>
-  
+
   <script type="application/javascript">
-  
+
   function is_downlevel_browser() {
     if (bowser.isUnsupportedBrowser({ msie: "12", msedge: "16"},
                                    window.navigator.userAgent)) {
@@ -1642,20 +1641,20 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
       return window.load_distill_framework === undefined;
     }
   }
-  
+
   // show body when load is complete
   function on_load_complete() {
-  
+
     // add anchors
     if (window.anchors) {
       window.anchors.options.placement = 'left';
       window.anchors.add('d-article > h2, d-article > h3, d-article > h4, d-article > h5');
     }
-  
-  
+
+
     // set body to visible
     document.body.style.visibility = 'visible';
-  
+
     // force redraw for leaflet widgets
     if (window.HTMLWidgets) {
       var maps = window.HTMLWidgets.findAll(".leaflet");
@@ -1668,39 +1667,39 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
         });
       });
     }
-  
+
     // trigger 'shown' so htmlwidgets resize
     $('d-article').trigger('shown');
   }
-  
+
   function init_distill() {
-  
+
     init_common();
-  
+
     // create front matter
     var front_matter = $('<d-front-matter></d-front-matter>');
     $('#distill-front-matter').wrap(front_matter);
-  
+
     // create d-title
     $('.d-title').changeElementType('d-title');
-  
+
     // create d-byline
     var byline = $('<d-byline></d-byline>');
     $('.d-byline').replaceWith(byline);
-  
+
     // create d-article
     var article = $('<d-article></d-article>');
     $('.d-article').wrap(article).children().unwrap();
-  
+
     // move posts container into article
     $('.posts-container').appendTo($('d-article'));
-  
+
     // create d-appendix
     $('.d-appendix').changeElementType('d-appendix');
-  
+
     // flag indicating that we have appendix items
     var appendix = $('.appendix-bottom').children('h3').length > 0;
-  
+
     // replace footnotes with <d-footnote>
     $('.footnote-ref').each(function(i, val) {
       appendix = true;
@@ -1716,10 +1715,10 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     });
     // remove footnotes
     $('.footnotes').remove();
-  
+
     // move refs into #references-listing
     $('#references-listing').replaceWith($('#refs'));
-  
+
     $('h1.appendix, h2.appendix').each(function(i, val) {
       $(this).changeElementType('h3');
     });
@@ -1729,16 +1728,16 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
       appendix = true;
       $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('d-appendix'));
     });
-  
+
     // show d-appendix if we have appendix content
     $("d-appendix").css('display', appendix ? 'grid' : 'none');
-  
+
     // localize layout chunks to just output
     $('.layout-chunk').each(function(i, val) {
-  
+
       // capture layout
       var layout = $(this).attr('data-layout');
-  
+
       // apply layout to markdown level block elements
       var elements = $(this).children().not('details, div.sourceCode, pre, script');
       elements.each(function(i, el) {
@@ -1751,40 +1750,40 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
           $(this).wrap(layout_div);
         }
       });
-  
-  
+
+
       // unwrap the layout-chunk div
       $(this).children().unwrap();
     });
-  
+
     // remove code block used to force  highlighting css
     $('.distill-force-highlighting-css').parent().remove();
-  
+
     // remove empty line numbers inserted by pandoc when using a
     // custom syntax highlighting theme
     $('code.sourceCode a:empty').remove();
-  
+
     // load distill framework
     load_distill_framework();
-  
+
     // wait for window.distillRunlevel == 4 to do post processing
     function distill_post_process() {
-  
+
       if (!window.distillRunlevel || window.distillRunlevel < 4)
         return;
-  
+
       // hide author/affiliations entirely if we have no authors
       var front_matter = JSON.parse($("#distill-front-matter").html());
       var have_authors = front_matter.authors && front_matter.authors.length > 0;
       if (!have_authors)
         $('d-byline').addClass('hidden');
-  
+
       // article with toc class
       $('.d-contents').parent().addClass('d-article-with-toc');
-  
+
       // strip links that point to #
       $('.authors-affiliations').find('a[href="#"]').removeAttr('href');
-  
+
       // add orcid ids
       $('.authors-affiliations').find('.author').each(function(i, el) {
         var orcid_id = front_matter.authors[i].orcidID;
@@ -1799,12 +1798,12 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
           $(this).append(a);
         }
       });
-  
+
       // hide elements of author/affiliations grid that have no value
       function hide_byline_column(caption) {
         $('d-byline').find('h3:contains("' + caption + '")').parent().css('visibility', 'hidden');
       }
-  
+
       // affiliations
       var have_affiliations = false;
       for (var i = 0; i<front_matter.authors.length; ++i) {
@@ -1816,11 +1815,11 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
       }
       if (!have_affiliations)
         $('d-byline').find('h3:contains("Affiliations")').css('visibility', 'hidden');
-  
+
       // published date
       if (!front_matter.publishedDate)
         hide_byline_column("Published");
-  
+
       // document object identifier
       var doi = $('d-byline').find('h3:contains("DOI")');
       var doi_p = doi.next().empty();
@@ -1840,24 +1839,30 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
            .html(front_matter.doi)
            .appendTo(doi_p);
       }
-  
+
        // change plural form of authors/affiliations
       if (front_matter.authors.length === 1) {
         var grid = $('.authors-affiliations');
         grid.children('h3:contains("Authors")').text('Author');
         grid.children('h3:contains("Affiliations")').text('Affiliation');
       }
-  
+
       // remove d-appendix and d-footnote-list local styles
       $('d-appendix > style:first-child').remove();
       $('d-footnote-list > style:first-child').remove();
-  
+
       // move appendix-bottom entries to the bottom
       $('.appendix-bottom').appendTo('d-appendix').children().unwrap();
       $('.appendix-bottom').remove();
-  
+
       // hoverable references
       $('span.citation[data-cites]').each(function() {
+        if ($(this).children()[0].nodeName == "D-FOOTNOTE") {
+          var fn = $(this).children()[0]
+          $(this).html(fn.shadowRoot.querySelector("sup"))
+          $(this).id = fn.id
+          fn.remove()
+        }
         var refs = $(this).attr('data-cites').split(" ");
         var refHtml = refs.map(function(ref) {
           return "<p>" + $('#ref-' + ref).html() + "</p>";
@@ -1872,39 +1877,64 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
           placement: 'bottom-start'
         });
       });
-  
+
+      // fix footnotes in tables (#411)
+      // replacing broken distill.pub feature
+      $('table d-footnote').each(function() {
+        // we replace internal showAtNode methode which is triggered when hovering a footnote
+        this.hoverBox.showAtNode = function(node) {
+          // ported from https://github.com/distillpub/template/pull/105/files
+          calcOffset = function(elem) {
+              let x = elem.offsetLeft;
+              let y = elem.offsetTop;
+              // Traverse upwards until an `absolute` element is found or `elem`
+              // becomes null.
+              while (elem = elem.offsetParent && elem.style.position != 'absolute') {
+                  x += elem.offsetLeft;
+                  y += elem.offsetTop;
+              }
+
+              return { left: x, top: y };
+          }
+          // https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/offsetTop
+          const bbox = node.getBoundingClientRect();
+          const offset = calcOffset(node);
+          this.show([offset.left + bbox.width, offset.top + bbox.height]);
+        }
+      })
+
       // clear polling timer
       clearInterval(tid);
-  
+
       // show body now that everything is ready
       on_load_complete();
     }
-  
+
     var tid = setInterval(distill_post_process, 50);
     distill_post_process();
-  
+
   }
-  
+
   function init_downlevel() {
-  
+
     init_common();
-  
+
      // insert hr after d-title
     $('.d-title').after($('<hr class="section-separator"/>'));
-  
+
     // check if we have authors
     var front_matter = JSON.parse($("#distill-front-matter").html());
     var have_authors = front_matter.authors && front_matter.authors.length > 0;
-  
+
     // manage byline/border
     if (!have_authors)
       $('.d-byline').remove();
     $('.d-byline').after($('<hr class="section-separator"/>'));
     $('.d-byline a').remove();
-  
+
     // remove toc
     $('.d-contents').remove();
-  
+
     // move appendix elements
     $('h1.appendix, h2.appendix').each(function(i, val) {
       $(this).changeElementType('h3');
@@ -1912,65 +1942,67 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     $('h3.appendix').each(function(i, val) {
       $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('.d-appendix'));
     });
-  
-  
+
+
     // inject headers into references and footnotes
     var refs_header = $('<h3></h3>');
     refs_header.text('References');
     $('#refs').prepend(refs_header);
-  
+
     var footnotes_header = $('<h3></h3');
     footnotes_header.text('Footnotes');
     $('.footnotes').children('hr').first().replaceWith(footnotes_header);
-  
+
     // move appendix-bottom entries to the bottom
     $('.appendix-bottom').appendTo('.d-appendix').children().unwrap();
     $('.appendix-bottom').remove();
-  
+
     // remove appendix if it's empty
     if ($('.d-appendix').children().length === 0)
       $('.d-appendix').remove();
-  
+
     // prepend separator above appendix
     $('.d-appendix').before($('<hr class="section-separator" style="clear: both"/>'));
-  
+
     // trim code
     $('pre>code').each(function(i, val) {
       $(this).html($.trim($(this).html()));
     });
-  
+
     // move posts-container right before article
     $('.posts-container').insertBefore($('.d-article'));
-  
+
     $('body').addClass('downlevel');
-  
+
     on_load_complete();
   }
-  
-  
+
+
   function init_common() {
-  
+
     // jquery plugin to change element types
     (function($) {
       $.fn.changeElementType = function(newType) {
         var attrs = {};
-  
+
         $.each(this[0].attributes, function(idx, attr) {
           attrs[attr.nodeName] = attr.nodeValue;
         });
-  
+
         this.replaceWith(function() {
           return $("<" + newType + "/>", attrs).append($(this).contents());
         });
       };
     })(jQuery);
-  
+
     // prevent underline for linked images
     $('a > img').parent().css({'border-bottom' : 'none'});
-  
+
     // mark non-body figures created by knitr chunks as 100% width
     $('.layout-chunk').each(function(i, val) {
       var figures = $(this).find('img, .html-widget');
+      // ignore leaflet img layers (#106)
+      figures = figures.filter(':not(img[class*="leaflet"])')
       if ($(this).attr('data-layout') !== "l-body") {
         figures.css('width', '100%');
       } else {
@@ -1979,35 +2011,35 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
           var fig = $(this);
           fig.css('width', fig.attr('width') + 'px');
         });
-  
+
       }
     });
-  
+
     // auto-append index.html to post-preview links in file: protocol
     // and in rstudio ide preview
     $('.post-preview').each(function(i, val) {
       if (window.location.protocol === "file:")
         $(this).attr('href', $(this).attr('href') + "index.html");
     });
-  
+
     // get rid of index.html references in header
     if (window.location.protocol !== "file:") {
       $('.distill-site-header a[href]').each(function(i,val) {
-        $(this).attr('href', $(this).attr('href').replace("index.html", "./"));
+        $(this).attr('href', $(this).attr('href').replace(/^index[.]html/, "./"));
       });
     }
-  
+
     // add class to pandoc style tables
     $('tr.header').parent('thead').parent('table').addClass('pandoc-table');
     $('.kable-table').children('table').addClass('pandoc-table');
-  
+
     // add figcaption style to table captions
     $('caption').parent('table').addClass("figcaption");
-  
+
     // initialize posts list
     if (window.init_posts_list)
       window.init_posts_list();
-  
+
     // implmement disqus comment link
     $('.disqus-comment-count').click(function() {
       window.headroom_prevent_pin = true;
@@ -2021,31 +2053,31 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
       }
     });
   }
-  
+
   document.addEventListener('DOMContentLoaded', function() {
     if (is_downlevel_browser())
       init_downlevel();
     else
       window.addEventListener('WebComponentsReady', init_distill);
   });
-  
+
   </script>
-  
+
   <style type="text/css">
   /* base variables */
-  
+
   /* Edit the CSS properties in this file to create a custom
      Distill theme. Only edit values in the right column
      for each row; values shown are the CSS defaults.
      To return any property to the default,
      you may set its value to: unset
      All rows must end with a semi-colon.                      */
-  
+
   /* Optional: embed custom fonts here with `@import`          */
   /* This must remain at the top of this file.                 */
-  
-  
-  
+
+
+
   html {
     /*-- Main font sizes --*/
     --title-size:      50px;
@@ -2065,7 +2097,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     --body-font:       sans-serif;
     --navbar-font:     sans-serif;  /* websites + blogs only */
   }
-  
+
   /*-- ARTICLE METADATA --*/
   d-byline {
     --heading-size:    0.6rem;
@@ -2073,13 +2105,13 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     --body-size:       0.8rem;
     --body-color:      rgba(0, 0, 0, 0.8);
   }
-  
+
   /*-- ARTICLE TABLE OF CONTENTS --*/
   .d-contents {
     --heading-size:    18px;
     --contents-size:   13px;
   }
-  
+
   /*-- ARTICLE APPENDIX --*/
   d-appendix {
     --heading-size:    15px;
@@ -2087,10 +2119,10 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     --text-size:       0.8em;
     --text-color:      rgba(0, 0, 0, 0.5);
   }
-  
+
   /*-- WEBSITE HEADER + FOOTER --*/
   /* These properties only apply to Distill sites and blogs  */
-  
+
   .distill-site-header {
     --title-size:       18px;
     --text-color:       rgba(255, 255, 255, 0.8);
@@ -2098,32 +2130,32 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     --hover-color:      white;
     --bkgd-color:       #0F2E3D;
   }
-  
+
   .distill-site-footer {
     --text-color:       rgba(255, 255, 255, 0.8);
     --text-size:        15px;
     --hover-color:      white;
     --bkgd-color:       #0F2E3D;
   }
-  
+
   /*-- Additional custom styles --*/
   /* Add any additional CSS rules below                      */
   </style>
   <style type="text/css">/* base variables */
-  
+
   /* Edit the CSS properties in this file to create a custom
      Distill theme. Only edit values in the right column
      for each row; values shown are the CSS defaults.
      To return any property to the default,
      you may set its value to: unset
      All rows must end with a semi-colon.                      */
-  
+
   /* Optional: embed custom fonts here with `@import`          */
   /* This must remain at the top of this file.                 */
   @import url('https://fonts.googleapis.com/css2?family=Lato');
   @import url('https://fonts.googleapis.com/css2?family=Fira+Mono');
   @import url('https://fonts.googleapis.com/css2?family=Montserrat');
-  
+
   html {
     /*-- Main font sizes --*/
     --title-size:      50px;
@@ -2143,7 +2175,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     --body-font:       'Lato', sans-serif;         /* edited */
     --navbar-font:     'Montserrat', sans-serif;   /* edited */
   }
-  
+
   /*-- ARTICLE METADATA --*/
   d-byline {
     --heading-size:    0.6rem;
@@ -2151,13 +2183,13 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     --body-size:       0.8rem;
     --body-color:      rgba(0, 0, 0, 0.8);
   }
-  
+
   /*-- ARTICLE TABLE OF CONTENTS --*/
   .d-contents {
     --heading-size:    18px;
     --contents-size:   13px;
   }
-  
+
   /*-- ARTICLE APPENDIX --*/
   d-appendix {
     --heading-size:    15px;
@@ -2165,10 +2197,10 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     --text-size:       0.8em;
     --text-color:      rgba(0, 0, 0, 0.5);
   }
-  
+
   /*-- WEBSITE HEADER + FOOTER --*/
   /* These properties only apply to Distill sites and blogs  */
-  
+
   .distill-site-header {
     --title-size:       20px;                      /* edited */
     --text-color:       #FFFFFF;                   /* edited */
@@ -2176,79 +2208,79 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     --hover-color:      #383838;                   /* edited */
     --bkgd-color:       rgb(249, 83, 85);          /* edited */
   }
-  
+
   .distill-site-footer {
     --text-color:       rgba(255, 255, 255, 0.8);
     --text-size:        15px;
     --hover-color:      white;
     --bkgd-color:       #0F2E3D;
   }
-  
-  
+
+
   /*-- Additional custom styles --*/
-  
+
   .posts-list .metadata .publishedDate {
       color: rgb(249, 83, 85);
   }
-  
+
   d-article p code {
     color: #383838;
     background: rgba(249, 83, 85, 0.1);
     font-weight: 400;
     font-size: 0.9em;
   }
-  
+
   d-article a {
       border-bottom: 2px solid rgba(249, 83, 85, 0.4);
       text-decoration: none;
   }
-  
+
   .distill-site-header .title {
       font-weight: 600; 
   }
-  
+
   ul > li::marker {
     color: rgb(249, 83, 85);
   }</style>
   <style type="text/css">
   /* base style */
-  
+
   /* FONT FAMILIES */
-  
+
   :root {
     --heading-default: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
     --mono-default: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
     --body-default: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
   }
-  
+
   body,
   .posts-list .post-preview p,
   .posts-list .description p {
     font-family: var(--body-font), var(--body-default);
   }
-  
+
   h1, h2, h3, h4, h5, h6,
   .posts-list .post-preview h2,
   .posts-list .description h2 {
     font-family: var(--heading-font), var(--heading-default);
   }
-  
+
   d-article div.sourceCode code,
   d-article pre code {
     font-family: var(--mono-font), var(--mono-default);
   }
-  
-  
+
+
   /*-- TITLE --*/
   d-title h1,
   .posts-list > h1 {
     color: var(--title-color, black);
   }
-  
+
   d-title h1 {
     font-size: var(--title-size, 50px);
   }
-  
+
   /*-- HEADERS --*/
   d-article h1,
   d-article h2,
@@ -2258,7 +2290,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   d-article h6 {
     color: var(--header-color, rgba(0, 0, 0, 0.8));
   }
-  
+
   /*-- BODY --*/
   d-article > p,  /* only text inside of <p> tags */
   d-article > ul, /* lists */
@@ -2266,20 +2298,20 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     color: var(--body-color, rgba(0, 0, 0, 0.8));
     font-size: var(--body-size, 1.06rem);
   }
-  
-  
+
+
   /*-- CODE --*/
   d-article div.sourceCode code,
   d-article pre code {
     font-size: var(--code-size, 14px);
   }
-  
+
   /*-- ASIDE --*/
   d-article aside {
     font-size: var(--aside-size, 12px);
     color: var(--aside-color, rgba(0, 0, 0, 0.6));
   }
-  
+
   /*-- FIGURE CAPTIONS --*/
   figure .caption,
   figure figcaption,
@@ -2287,84 +2319,85 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     font-size: var(--fig-cap-size, 13px);
     color: var(--fig-cap-color, rgba(0, 0, 0, 0.6));
   }
-  
+
   /*-- METADATA --*/
   d-byline h3 {
     font-size: var(--heading-size, 0.6rem);
     color: var(--heading-color, rgba(0, 0, 0, 0.5));
   }
-  
+
   d-byline {
     font-size: var(--body-size, 0.8rem);
     color: var(--body-color, rgba(0, 0, 0, 0.8));
   }
-  
+
   d-byline a,
   d-article d-byline a {
     color: var(--body-color, rgba(0, 0, 0, 0.8));
   }
-  
+
   /*-- TABLE OF CONTENTS --*/
   .d-contents nav h3 {
     font-size: var(--heading-size, 18px);
   }
-  
+
   .d-contents nav a {
     font-size: var(--contents-size, 13px);
   }
-  
+
   /*-- APPENDIX --*/
   d-appendix h3 {
     font-size: var(--heading-size, 15px);
     color: var(--heading-color, rgba(0, 0, 0, 0.65));
   }
-  
+
   d-appendix {
     font-size: var(--text-size, 0.8em);
     color: var(--text-color, rgba(0, 0, 0, 0.5));
   }
-  
+
   d-appendix d-footnote-list a.footnote-backlink {
     color: var(--text-color, rgba(0, 0, 0, 0.5));
   }
-  
+
   /*-- WEBSITE HEADER + FOOTER --*/
   .distill-site-header .title {
     font-size: var(--title-size, 18px);
     font-family: var(--navbar-font), var(--heading-default);
   }
-  
+
   .distill-site-header a,
   .nav-dropdown .nav-dropbtn {
     font-family: var(--navbar-font), var(--heading-default);
   }
-  
+
   .nav-dropdown .nav-dropbtn {
     color: var(--text-color, rgba(255, 255, 255, 0.8));
     font-size: var(--text-size, 15px);
   }
-  
+
   .distill-site-header a:hover,
   .nav-dropdown:hover .nav-dropbtn {
     color: var(--hover-color, white);
   }
-  
+
   .distill-site-header {
     font-size: var(--text-size, 15px);
     color: var(--text-color, rgba(255, 255, 255, 0.8));
     background-color: var(--bkgd-color, #0F2E3D);
   }
-  
+
   .distill-site-footer {
     font-size: var(--text-size, 15px);
     color: var(--text-color, rgba(255, 255, 255, 0.8));
     background-color: var(--bkgd-color, #0F2E3D);
   }
-  
+
   .distill-site-footer a:hover {
     color: var(--hover-color, white);
   }</style>
   <!--/radix_placeholder_distill-->
+  <script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
   <script src="site_libs/popper-2.6.0/popper.min.js"></script>
   <link href="site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
   <link href="site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
@@ -2422,45 +2455,71 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 
 <div class="d-article">
-<p>This post examines the features of <a href="http://www.rstudio.org/docs/authoring/using_markdown">R Markdown</a> using <a href="http://yihui.name/knitr/">knitr</a> in Rstudio 0.96. This combination of tools provides an exciting improvement in usability for <a href="http://stats.stackexchange.com/a/15006/183">reproducible analysis</a>. Specifically, this post (1) discusses getting started with R Markdown and <code>knitr</code> in Rstudio 0.96; (2) provides a basic example of producing console output and plots using R Markdown; (3) highlights several code chunk options such as caching and controlling how input and output is displayed; (4) demonstrates use of standard Markdown notation as well as the extended features of formulas and tables; and (5) discusses the implications of R Markdown. This post was produced with R Markdown. The source code is available here as a gist. The post may be most useful if the source code and displayed post are viewed side by side. In some instances, I include a copy of the R Markdown in the displayed HTML, but most of the time I assume you are reading the source and post side by side.</p>
+<p>This post examines the features of <a
+href="http://www.rstudio.org/docs/authoring/using_markdown">R
+Markdown</a> using <a href="http://yihui.name/knitr/">knitr</a> in
+Rstudio 0.96. This combination of tools provides an exciting improvement
+in usability for <a
+href="http://stats.stackexchange.com/a/15006/183">reproducible
+analysis</a>. Specifically, this post (1) discusses getting started with
+R Markdown and <code>knitr</code> in Rstudio 0.96; (2) provides a basic
+example of producing console output and plots using R Markdown; (3)
+highlights several code chunk options such as caching and controlling
+how input and output is displayed; (4) demonstrates use of standard
+Markdown notation as well as the extended features of formulas and
+tables; and (5) discusses the implications of R Markdown. This post was
+produced with R Markdown. The source code is available here as a gist.
+The post may be most useful if the source code and displayed post are
+viewed side by side. In some instances, I include a copy of the R
+Markdown in the displayed HTML, but most of the time I assume you are
+reading the source and post side by side.</p>
 <!-- more -->
 <h2 id="getting-started">Getting started</h2>
 <p>To work with R Markdown, if necessary:</p>
 <ul>
 <li>Install <a href="http://www.r-project.org/">R</a></li>
-<li>Install the lastest version of <a href="http://rstudio.org/download/">RStudio</a> (at time of posting, this is 0.96)</li>
-<li>Install the latest version of the <code>knitr</code> package: <code>install.packages("knitr")</code></li>
+<li>Install the lastest version of <a
+href="http://rstudio.org/download/">RStudio</a> (at time of posting,
+this is 0.96)</li>
+<li>Install the latest version of the <code>knitr</code> package:
+<code>install.packages("knitr")</code></li>
 </ul>
 <p>To run the basic working example that produced this blog post:</p>
 <ul>
 <li>Open R Studio, and go to File - New - R Markdown</li>
-<li>If necessary install <code>ggplot2</code> and <code>lattice</code> packages: <code>install.packages("ggplot2"); install.packages("lattice")</code></li>
-<li>Paste in the contents of this gist (which contains the R Markdown file used to produce this post) and save the file with an <code>.rmd</code> extension</li>
+<li>If necessary install <code>ggplot2</code> and <code>lattice</code>
+packages:
+<code>install.packages("ggplot2"); install.packages("lattice")</code></li>
+<li>Paste in the contents of this gist (which contains the R Markdown
+file used to produce this post) and save the file with an
+<code>.rmd</code> extension</li>
 <li>Click Knit HTML</li>
 </ul>
 <h2 id="prepare-for-analyses">Prepare for analyses</h2>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>1234</span><span class='op'>)</span>
-<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://ggplot2.tidyverse.org'>ggplot2</a></span><span class='op'>)</span>
-<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://lattice.r-forge.r-project.org/'>lattice</a></span><span class='op'>)</span>
-</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>1234</span><span class='op'>)</span></span>
+<span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://ggplot2.tidyverse.org'>ggplot2</a></span><span class='op'>)</span></span>
+<span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://lattice.r-forge.r-project.org/'>lattice</a></span><span class='op'>)</span></span></code></pre>
 </div>
 </div>
 <h2 id="basic-console-output">Basic console output</h2>
-<p>To insert an R code chunk, you can type it manually or just press <code>Chunks - Insert chunks</code> or use the shortcut key. This will produce the following code chunk:</p>
+<p>To insert an R code chunk, you can type it manually or just press
+<code>Chunks - Insert chunks</code> or use the shortcut key. This will
+produce the following code chunk:</p>
 <pre><code>&lt;div class=&quot;layout-chunk&quot; data-layout=&quot;l-body&quot;&gt;
 
 
 &lt;/div&gt;</code></pre>
-<p>Pressing tab when inside the braces will bring up code chunk options.</p>
-<p>The following R code chunk labelled <code>basicconsole</code> is as follows:</p>
+<p>Pressing tab when inside the braces will bring up code chunk
+options.</p>
+<p>The following R code chunk labelled <code>basicconsole</code> is as
+follows:</p>
 <pre><code>&lt;div class=&quot;layout-chunk&quot; data-layout=&quot;l-body&quot;&gt;
-&lt;div class=&quot;sourceCode&quot;&gt;&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&#39;va&#39;&gt;x&lt;/span&gt; &lt;span class=&#39;op&#39;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#39;fl&#39;&gt;1&lt;/span&gt;&lt;span class=&#39;op&#39;&gt;:&lt;/span&gt;&lt;span class=&#39;fl&#39;&gt;10&lt;/span&gt;
-&lt;span class=&#39;va&#39;&gt;y&lt;/span&gt; &lt;span class=&#39;op&#39;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#39;fu&#39;&gt;&lt;a href=&#39;https://rdrr.io/r/base/Round.html&#39;&gt;round&lt;/a&gt;&lt;/span&gt;&lt;span class=&#39;op&#39;&gt;(&lt;/span&gt;&lt;span class=&#39;fu&#39;&gt;&lt;a href=&#39;https://rdrr.io/r/stats/Normal.html&#39;&gt;rnorm&lt;/a&gt;&lt;/span&gt;&lt;span class=&#39;op&#39;&gt;(&lt;/span&gt;&lt;span class=&#39;fl&#39;&gt;10&lt;/span&gt;, &lt;span class=&#39;va&#39;&gt;x&lt;/span&gt;, &lt;span class=&#39;fl&#39;&gt;1&lt;/span&gt;&lt;span class=&#39;op&#39;&gt;)&lt;/span&gt;, &lt;span class=&#39;fl&#39;&gt;2&lt;/span&gt;&lt;span class=&#39;op&#39;&gt;)&lt;/span&gt;
-&lt;span class=&#39;va&#39;&gt;df&lt;/span&gt; &lt;span class=&#39;op&#39;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#39;fu&#39;&gt;&lt;a href=&#39;https://rdrr.io/r/base/data.frame.html&#39;&gt;data.frame&lt;/a&gt;&lt;/span&gt;&lt;span class=&#39;op&#39;&gt;(&lt;/span&gt;&lt;span class=&#39;va&#39;&gt;x&lt;/span&gt;, &lt;span class=&#39;va&#39;&gt;y&lt;/span&gt;&lt;span class=&#39;op&#39;&gt;)&lt;/span&gt;
-&lt;span class=&#39;va&#39;&gt;df&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;sourceCode&quot;&gt;&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span&gt;&lt;span class=&#39;va&#39;&gt;x&lt;/span&gt; &lt;span class=&#39;op&#39;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#39;fl&#39;&gt;1&lt;/span&gt;&lt;span class=&#39;op&#39;&gt;:&lt;/span&gt;&lt;span class=&#39;fl&#39;&gt;10&lt;/span&gt;&lt;/span&gt;
+&lt;span&gt;&lt;span class=&#39;va&#39;&gt;y&lt;/span&gt; &lt;span class=&#39;op&#39;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#39;fu&#39;&gt;&lt;a href=&#39;https://rdrr.io/r/base/Round.html&#39;&gt;round&lt;/a&gt;&lt;/span&gt;&lt;span class=&#39;op&#39;&gt;(&lt;/span&gt;&lt;span class=&#39;fu&#39;&gt;&lt;a href=&#39;https://rdrr.io/r/stats/Normal.html&#39;&gt;rnorm&lt;/a&gt;&lt;/span&gt;&lt;span class=&#39;op&#39;&gt;(&lt;/span&gt;&lt;span class=&#39;fl&#39;&gt;10&lt;/span&gt;, &lt;span class=&#39;va&#39;&gt;x&lt;/span&gt;, &lt;span class=&#39;fl&#39;&gt;1&lt;/span&gt;&lt;span class=&#39;op&#39;&gt;)&lt;/span&gt;, &lt;span class=&#39;fl&#39;&gt;2&lt;/span&gt;&lt;span class=&#39;op&#39;&gt;)&lt;/span&gt;&lt;/span&gt;
+&lt;span&gt;&lt;span class=&#39;va&#39;&gt;df&lt;/span&gt; &lt;span class=&#39;op&#39;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#39;fu&#39;&gt;&lt;a href=&#39;https://rdrr.io/r/base/data.frame.html&#39;&gt;data.frame&lt;/a&gt;&lt;/span&gt;&lt;span class=&#39;op&#39;&gt;(&lt;/span&gt;&lt;span class=&#39;va&#39;&gt;x&lt;/span&gt;, &lt;span class=&#39;va&#39;&gt;y&lt;/span&gt;&lt;span class=&#39;op&#39;&gt;)&lt;/span&gt;&lt;/span&gt;
+&lt;span&gt;&lt;span class=&#39;va&#39;&gt;df&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 |  x|     y|
@@ -2480,11 +2539,10 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <p>The code chunk input and output is then displayed as follows:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fl'>1</span><span class='op'>:</span><span class='fl'>10</span>
-<span class='va'>y</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/Round.html'>round</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span><span class='fl'>10</span>, <span class='va'>x</span>, <span class='fl'>1</span><span class='op'>)</span>, <span class='fl'>2</span><span class='op'>)</span>
-<span class='va'>df</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>y</span><span class='op'>)</span>
-<span class='va'>df</span>
-</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fl'>1</span><span class='op'>:</span><span class='fl'>10</span></span>
+<span><span class='va'>y</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/Round.html'>round</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span><span class='fl'>10</span>, <span class='va'>x</span>, <span class='fl'>1</span><span class='op'>)</span>, <span class='fl'>2</span><span class='op'>)</span></span>
+<span><span class='va'>df</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>y</span><span class='op'>)</span></span>
+<span><span class='va'>df</span></span></code></pre>
 </div>
 <table>
 <thead>
@@ -2538,42 +2596,43 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </table>
 </div>
 <h2 id="plots">Plots</h2>
-<p>Images generated by <code>knitr</code> are saved in a figures folder. However, they also appear to be represented in the HTML output using a <a href="http://en.wikipedia.org/wiki/Data_URI_scheme">data URI scheme</a>. This means that you can paste the HTML into a blog post or discussion forum and you don’t have to worry about finding a place to store the images; they’re embedded in the HTML.</p>
+<p>Images generated by <code>knitr</code> are saved in a figures folder.
+However, they also appear to be represented in the HTML output using a
+<a href="http://en.wikipedia.org/wiki/Data_URI_scheme">data URI
+scheme</a>. This means that you can paste the HTML into a blog post or
+discussion forum and you don’t have to worry about finding a place to
+store the images; they’re embedded in the HTML.</p>
 <h3 id="simple-plot">Simple plot</h3>
 <p>Here is a basic plot using base graphics:</p>
 <pre><code>&lt;div class=&quot;layout-chunk&quot; data-layout=&quot;l-body&quot;&gt;
-&lt;div class=&quot;sourceCode&quot;&gt;&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&#39;fu&#39;&gt;&lt;a href=&#39;https://rdrr.io/r/graphics/plot.default.html&#39;&gt;plot&lt;/a&gt;&lt;/span&gt;&lt;span class=&#39;op&#39;&gt;(&lt;/span&gt;&lt;span class=&#39;va&#39;&gt;x&lt;/span&gt;&lt;span class=&#39;op&#39;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;sourceCode&quot;&gt;&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span&gt;&lt;span class=&#39;fu&#39;&gt;&lt;a href=&#39;https://rdrr.io/r/graphics/plot.default.html&#39;&gt;plot&lt;/a&gt;&lt;/span&gt;&lt;span class=&#39;op&#39;&gt;(&lt;/span&gt;&lt;span class=&#39;va&#39;&gt;x&lt;/span&gt;&lt;span class=&#39;op&#39;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;img src=&quot;exampleRmarkdown_files/figure-html5/unnamed-chunk-4-1.png&quot; width=&quot;624&quot; /&gt;
 
 &lt;/div&gt;</code></pre>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
-</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span></span></code></pre>
 </div>
 <p><img src="exampleRmarkdown_files/figure-html5/simpleplot-1.png" width="624" /></p>
 </div>
-<p>Note that unlike traditional Sweave, there is no need to write <code>fig=TRUE</code>.</p>
+<p>Note that unlike traditional Sweave, there is no need to write
+<code>fig=TRUE</code>.</p>
 <h3 id="multiple-plots">Multiple plots</h3>
-<p>Also, unlike traditional Sweave, you can include multiple plots in one code chunk:</p>
+<p>Also, unlike traditional Sweave, you can include multiple plots in
+one code chunk:</p>
 <pre><code>&lt;div class=&quot;layout-chunk&quot; data-layout=&quot;l-body&quot;&gt;
-&lt;div class=&quot;sourceCode&quot;&gt;&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&#39;fu&#39;&gt;&lt;a href=&#39;https://rdrr.io/r/graphics/boxplot.html&#39;&gt;boxplot&lt;/a&gt;&lt;/span&gt;&lt;span class=&#39;op&#39;&gt;(&lt;/span&gt;&lt;span class=&#39;fl&#39;&gt;1&lt;/span&gt;&lt;span class=&#39;op&#39;&gt;:&lt;/span&gt;&lt;span class=&#39;fl&#39;&gt;10&lt;/span&gt;&lt;span class=&#39;op&#39;&gt;~&lt;/span&gt;&lt;span class=&#39;fu&#39;&gt;&lt;a href=&#39;https://rdrr.io/r/base/rep.html&#39;&gt;rep&lt;/a&gt;&lt;/span&gt;&lt;span class=&#39;op&#39;&gt;(&lt;/span&gt;&lt;span class=&#39;fl&#39;&gt;1&lt;/span&gt;&lt;span class=&#39;op&#39;&gt;:&lt;/span&gt;&lt;span class=&#39;fl&#39;&gt;2&lt;/span&gt;,&lt;span class=&#39;fl&#39;&gt;5&lt;/span&gt;&lt;span class=&#39;op&#39;&gt;)&lt;/span&gt;&lt;span class=&#39;op&#39;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;img src=&quot;exampleRmarkdown_files/figure-html5/unnamed-chunk-5-1.png&quot; width=&quot;624&quot; /&gt;&lt;div class=&quot;sourceCode&quot;&gt;&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&#39;fu&#39;&gt;&lt;a href=&#39;https://rdrr.io/r/graphics/plot.default.html&#39;&gt;plot&lt;/a&gt;&lt;/span&gt;&lt;span class=&#39;op&#39;&gt;(&lt;/span&gt;&lt;span class=&#39;va&#39;&gt;x&lt;/span&gt;, &lt;span class=&#39;va&#39;&gt;y&lt;/span&gt;&lt;span class=&#39;op&#39;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;sourceCode&quot;&gt;&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span&gt;&lt;span class=&#39;fu&#39;&gt;&lt;a href=&#39;https://rdrr.io/r/graphics/boxplot.html&#39;&gt;boxplot&lt;/a&gt;&lt;/span&gt;&lt;span class=&#39;op&#39;&gt;(&lt;/span&gt;&lt;span class=&#39;fl&#39;&gt;1&lt;/span&gt;&lt;span class=&#39;op&#39;&gt;:&lt;/span&gt;&lt;span class=&#39;fl&#39;&gt;10&lt;/span&gt;&lt;span class=&#39;op&#39;&gt;~&lt;/span&gt;&lt;span class=&#39;fu&#39;&gt;&lt;a href=&#39;https://rdrr.io/r/base/rep.html&#39;&gt;rep&lt;/a&gt;&lt;/span&gt;&lt;span class=&#39;op&#39;&gt;(&lt;/span&gt;&lt;span class=&#39;fl&#39;&gt;1&lt;/span&gt;&lt;span class=&#39;op&#39;&gt;:&lt;/span&gt;&lt;span class=&#39;fl&#39;&gt;2&lt;/span&gt;,&lt;span class=&#39;fl&#39;&gt;5&lt;/span&gt;&lt;span class=&#39;op&#39;&gt;)&lt;/span&gt;&lt;span class=&#39;op&#39;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;img src=&quot;exampleRmarkdown_files/figure-html5/unnamed-chunk-5-1.png&quot; width=&quot;624&quot; /&gt;&lt;div class=&quot;sourceCode&quot;&gt;&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span&gt;&lt;span class=&#39;fu&#39;&gt;&lt;a href=&#39;https://rdrr.io/r/graphics/plot.default.html&#39;&gt;plot&lt;/a&gt;&lt;/span&gt;&lt;span class=&#39;op&#39;&gt;(&lt;/span&gt;&lt;span class=&#39;va&#39;&gt;x&lt;/span&gt;, &lt;span class=&#39;va&#39;&gt;y&lt;/span&gt;&lt;span class=&#39;op&#39;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;img src=&quot;exampleRmarkdown_files/figure-html5/unnamed-chunk-5-2.png&quot; width=&quot;624&quot; /&gt;
 
 &lt;/div&gt;</code></pre>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/graphics/boxplot.html'>boxplot</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>10</span><span class='op'>~</span><span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>2</span>,<span class='fl'>5</span><span class='op'>)</span><span class='op'>)</span>
-</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rdrr.io/r/graphics/boxplot.html'>boxplot</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>10</span><span class='op'>~</span><span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>2</span>,<span class='fl'>5</span><span class='op'>)</span><span class='op'>)</span></span></code></pre>
 </div>
 <img src="exampleRmarkdown_files/figure-html5/multipleplots-1.png" width="624" />
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>y</span><span class='op'>)</span>
-</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>y</span><span class='op'>)</span></span></code></pre>
 </div>
 <p><img src="exampleRmarkdown_files/figure-html5/multipleplots-2.png" width="624" /></p>
 </div>
@@ -2581,8 +2640,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <p>Ggplot2 plots work well:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/qplot.html'>qplot</a></span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>y</span>, data<span class='op'>=</span><span class='va'>df</span><span class='op'>)</span>
-</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/qplot.html'>qplot</a></span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>y</span>, data<span class='op'>=</span><span class='va'>df</span><span class='op'>)</span></span></code></pre>
 </div>
 <p><img src="exampleRmarkdown_files/figure-html5/ggplot2ex-1.png" width="624" /></p>
 </div>
@@ -2590,15 +2648,18 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <p>As do lattice plots:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/pkg/lattice/man/xyplot.html'>xyplot</a></span><span class='op'>(</span><span class='va'>y</span><span class='op'>~</span><span class='va'>x</span><span class='op'>)</span>
-</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rdrr.io/pkg/lattice/man/xyplot.html'>xyplot</a></span><span class='op'>(</span><span class='va'>y</span><span class='op'>~</span><span class='va'>x</span><span class='op'>)</span></span></code></pre>
 </div>
 <p><img src="exampleRmarkdown_files/figure-html5/latticeex-1.png" width="624" /></p>
 </div>
-<p>Note that unlike traditional Sweave, there is no need to print lattice plots directly.</p>
+<p>Note that unlike traditional Sweave, there is no need to print
+lattice plots directly.</p>
 <h2 id="r-code-chunk-features">R Code chunk features</h2>
 <h3 id="create-markdown-code-from-r">Create Markdown code from R</h3>
-<p>The following code hides the command input (i.e., <code>echo=FALSE</code>), and outputs the content directly as code (i.e., <code>results=asis</code>, which is similar to <code>results=tex</code> in Sweave).</p>
+<p>The following code hides the command input (i.e.,
+<code>echo=FALSE</code>), and outputs the content directly as code
+(i.e., <code>results=asis</code>, which is similar to
+<code>results=tex</code> in Sweave).</p>
 <pre><code>&lt;div class=&quot;layout-chunk&quot; data-layout=&quot;l-body&quot;&gt;
 Here are some dot points
 
@@ -2615,7 +2676,8 @@ Here are some dot points
 <li>The value of y[3] is 2.22</li>
 </ul>
 </div>
-<h3 id="create-markdown-table-code-from-r">Create Markdown table code from R</h3>
+<h3 id="create-markdown-table-code-from-r">Create Markdown table code
+from R</h3>
 <pre><code>&lt;div class=&quot;layout-chunk&quot; data-layout=&quot;l-body&quot;&gt;
 x | y
 --- | ---
@@ -2684,7 +2746,10 @@ x | y
 </table>
 </div>
 <h3 id="control-output-display">Control output display</h3>
-<p>The folllowing code supresses display of R input commands (i.e., <code>echo=FALSE</code>) and removes any preceding text from console output (<code>comment=""</code>; the default is <code>comment="##"</code>).</p>
+<p>The folllowing code supresses display of R input commands (i.e.,
+<code>echo=FALSE</code>) and removes any preceding text from console
+output (<code>comment=""</code>; the default is
+<code>comment="##"</code>).</p>
 <pre><code>&lt;div class=&quot;layout-chunk&quot; data-layout=&quot;l-body&quot;&gt;
 
 |  x|    y|
@@ -2734,23 +2799,26 @@ x | y
 </table>
 </div>
 <h3 id="control-figure-size">Control figure size</h3>
-<p>The following is an example of a smaller figure using <code>fig.width</code> and <code>fig.height</code> options.</p>
+<p>The following is an example of a smaller figure using
+<code>fig.width</code> and <code>fig.height</code> options.</p>
 <pre><code>&lt;div class=&quot;layout-chunk&quot; data-layout=&quot;l-body&quot;&gt;
-&lt;div class=&quot;sourceCode&quot;&gt;&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&#39;fu&#39;&gt;&lt;a href=&#39;https://rdrr.io/r/graphics/plot.default.html&#39;&gt;plot&lt;/a&gt;&lt;/span&gt;&lt;span class=&#39;op&#39;&gt;(&lt;/span&gt;&lt;span class=&#39;va&#39;&gt;x&lt;/span&gt;&lt;span class=&#39;op&#39;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;sourceCode&quot;&gt;&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span&gt;&lt;span class=&#39;fu&#39;&gt;&lt;a href=&#39;https://rdrr.io/r/graphics/plot.default.html&#39;&gt;plot&lt;/a&gt;&lt;/span&gt;&lt;span class=&#39;op&#39;&gt;(&lt;/span&gt;&lt;span class=&#39;va&#39;&gt;x&lt;/span&gt;&lt;span class=&#39;op&#39;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;img src=&quot;exampleRmarkdown_files/figure-html5/unnamed-chunk-10-1.png&quot; width=&quot;288&quot; /&gt;
 
 &lt;/div&gt;</code></pre>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
-</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span></span></code></pre>
 </div>
 <p><img src="exampleRmarkdown_files/figure-html5/smallplot-1.png" width="288" /></p>
 </div>
 <h3 id="cache-analysis">Cache analysis</h3>
-<p>Caching analyses is straightforward. Here’s example code. On the first run on my computer, this took about 10 seconds. On subsequent runs, this code was not run.</p>
-<p>If you want to rerun cached code chunks, just <a href="http://stackoverflow.com/a/10629121/180892">delete the contents of the <code>cache</code> folder</a></p>
+<p>Caching analyses is straightforward. Here’s example code. On the
+first run on my computer, this took about 10 seconds. On subsequent
+runs, this code was not run.</p>
+<p>If you want to rerun cached code chunks, just <a
+href="http://stackoverflow.com/a/10629121/180892">delete the contents of
+the <code>cache</code> folder</a></p>
 <pre><code>&lt;div class=&quot;layout-chunk&quot; data-layout=&quot;l-body&quot;&gt;
 &lt;div class=&quot;sourceCode&quot;&gt;&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&#39;kw&#39;&gt;for&lt;/span&gt; &lt;span class=&#39;op&#39;&gt;(&lt;/span&gt;&lt;span class=&#39;va&#39;&gt;i&lt;/span&gt; &lt;span class=&#39;kw&#39;&gt;in&lt;/span&gt; &lt;span class=&#39;fl&#39;&gt;1&lt;/span&gt;&lt;span class=&#39;op&#39;&gt;:&lt;/span&gt;&lt;span class=&#39;fl&#39;&gt;5000&lt;/span&gt;&lt;span class=&#39;op&#39;&gt;)&lt;/span&gt; &lt;span class=&#39;op&#39;&gt;{&lt;/span&gt;
     &lt;span class=&#39;fu&#39;&gt;&lt;a href=&#39;https://rdrr.io/r/stats/lm.html&#39;&gt;lm&lt;/a&gt;&lt;/span&gt;&lt;span class=&#39;op&#39;&gt;(&lt;/span&gt;&lt;span class=&#39;op&#39;&gt;(&lt;/span&gt;&lt;span class=&#39;va&#39;&gt;i&lt;/span&gt;&lt;span class=&#39;op&#39;&gt;+&lt;/span&gt;&lt;span class=&#39;fl&#39;&gt;1&lt;/span&gt;&lt;span class=&#39;op&#39;&gt;)&lt;/span&gt;&lt;span class=&#39;op&#39;&gt;~&lt;/span&gt;&lt;span class=&#39;va&#39;&gt;i&lt;/span&gt;&lt;span class=&#39;op&#39;&gt;)&lt;/span&gt;
@@ -2759,7 +2827,11 @@ x | y
 
 &lt;/div&gt;</code></pre>
 <h2 id="basic-markdown-functionality">Basic markdown functionality</h2>
-<p>For those not familiar with standard <a href="http://daringfireball.net/projects/markdown/">Markdown</a>, the following may be useful. See the source code for how to produce such points. However, RStudio does include a Markdown quick reference button that adequatly covers this material.</p>
+<p>For those not familiar with standard <a
+href="http://daringfireball.net/projects/markdown/">Markdown</a>, the
+following may be useful. See the source code for how to produce such
+points. However, RStudio does include a Markdown quick reference button
+that adequatly covers this material.</p>
 <h3 id="dot-points">Dot Points</h3>
 <p>Simple dot points:</p>
 <ul>
@@ -2787,11 +2859,21 @@ x | y
 </ul></li>
 </ul>
 <h3 id="equations">Equations</h3>
-<p>Equations are included by using LaTeX notation and including them either between single dollar signs (inline equations) or double dollar signs (displayed equations). If you hang around the Q&amp;A site <a href="http://stats.stackexchange.com">CrossValidated</a> you’ll be familiar with this idea.</p>
-<p>There are inline equations such as <span class="math inline">\(y_i = \alpha + \beta x_i + e_i\)</span>.</p>
+<p>Equations are included by using LaTeX notation and including them
+either between single dollar signs (inline equations) or double dollar
+signs (displayed equations). If you hang around the Q&amp;A site <a
+href="http://stats.stackexchange.com">CrossValidated</a> you’ll be
+familiar with this idea.</p>
+<p>There are inline equations such as <span class="math inline">\(y_i =
+\alpha + \beta x_i + e_i\)</span>.</p>
 <p>And displayed formulas:</p>
 <p><span class="math display">\[\frac{1}{1+\exp(-x)}\]</span></p>
-<p>knitr provides self-contained HTML code that calls a Mathjax script to display formulas. However, in order to include the script in my blog posts I <a href="https://gist.github.com/2716053">took the script</a> and incorporated it into my blogger template. If you are viewing this post through syndication or an RSS reader, this may not work. You may need to view this post on my website.</p>
+<p>knitr provides self-contained HTML code that calls a Mathjax script
+to display formulas. However, in order to include the script in my blog
+posts I <a href="https://gist.github.com/2716053">took the script</a>
+and incorporated it into my blogger template. If you are viewing this
+post through syndication or an RSS reader, this may not work. You may
+need to view this post on my website.</p>
 <h3 id="tables">Tables</h3>
 <p>Tables can be included using the following notation</p>
 <table>
@@ -2817,19 +2899,22 @@ x | y
 </table>
 <h3 id="hyperlinks">Hyperlinks</h3>
 <ul>
-<li>If you like this post, you may wish to subscribe to <a href="http://feeds.feedburner.com/jeromyanglim">my RSS feed</a>.</li>
+<li>If you like this post, you may wish to subscribe to <a
+href="http://feeds.feedburner.com/jeromyanglim">my RSS feed</a>.</li>
 </ul>
 <h3 id="images">Images</h3>
 <p>Here’s an example image:</p>
 <figure>
-<img src="http://i.imgur.com/RVNmr.jpg" alt="image from redmond barry building unimelb" /><figcaption>image from redmond barry building unimelb</figcaption>
+<img src="http://i.imgur.com/RVNmr.jpg"
+alt="image from redmond barry building unimelb" />
+<figcaption aria-hidden="true">image from redmond barry building
+unimelb</figcaption>
 </figure>
 <h3 id="code">Code</h3>
 <p>Here is Markdown R code chunk displayed as code:</p>
 <pre><code>&lt;div class=&quot;layout-chunk&quot; data-layout=&quot;l-body&quot;&gt;
-&lt;div class=&quot;sourceCode&quot;&gt;&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&#39;va&#39;&gt;x&lt;/span&gt; &lt;span class=&#39;op&#39;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#39;fl&#39;&gt;1&lt;/span&gt;&lt;span class=&#39;op&#39;&gt;:&lt;/span&gt;&lt;span class=&#39;fl&#39;&gt;10&lt;/span&gt;
-&lt;span class=&#39;va&#39;&gt;x&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;sourceCode&quot;&gt;&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span&gt;&lt;span class=&#39;va&#39;&gt;x&lt;/span&gt; &lt;span class=&#39;op&#39;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#39;fl&#39;&gt;1&lt;/span&gt;&lt;span class=&#39;op&#39;&gt;:&lt;/span&gt;&lt;span class=&#39;fl&#39;&gt;10&lt;/span&gt;&lt;/span&gt;
+&lt;span&gt;&lt;span class=&#39;va&#39;&gt;x&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 ```
  [1]  1  2  3  4  5  6  7  8  9 10
@@ -2840,41 +2925,71 @@ x | y
 <h3 id="quote">Quote</h3>
 <p>Let’s quote some stuff:</p>
 <blockquote>
-<p>To be, or not to be, that is the question: Whether ’tis nobler in the mind to suffer The slings and arrows of outrageous fortune,</p>
+<p>To be, or not to be, that is the question: Whether ’tis nobler in the
+mind to suffer The slings and arrows of outrageous fortune,</p>
 </blockquote>
 <h2 id="conclusion">Conclusion</h2>
 <ul>
 <li>R Markdown is awesome.
 <ul>
 <li>The ratio of markup to content is excellent.</li>
-<li>For exploratory analyses, blog posts, and the like R Markdown will be a powerful productivity booster.</li>
+<li>For exploratory analyses, blog posts, and the like R Markdown will
+be a powerful productivity booster.</li>
 <li>For journal articles, LaTeX will presumably still be required.</li>
 </ul></li>
 <li>The RStudio team have made the whole process very user friendly.
 <ul>
-<li>RStudio provides useful shortcut keys for compiling to HTML, and running code chunks. These shortcut keys are presented in a clear way.</li>
-<li>The incorporated extensions to Markdown, particularly formula and table support, are particularly useful.</li>
-<li>Jump-to-chunk feature facilitates navigation. It helps if your code chunks have informative names.</li>
-<li>Code completion on R code chunk options is really helpful. See also <a href="http://yihui.name/knitr/options">chunk options documentation on the knitr website</a>.</li>
+<li>RStudio provides useful shortcut keys for compiling to HTML, and
+running code chunks. These shortcut keys are presented in a clear
+way.</li>
+<li>The incorporated extensions to Markdown, particularly formula and
+table support, are particularly useful.</li>
+<li>Jump-to-chunk feature facilitates navigation. It helps if your code
+chunks have informative names.</li>
+<li>Code completion on R code chunk options is really helpful. See also
+<a href="http://yihui.name/knitr/options">chunk options documentation on
+the knitr website</a>.</li>
 </ul></li>
 <li>Other recent posts on R markdown include those by :
 <ul>
-<li><a href="http://christophergandrud.blogspot.com.au/2012/05/dynamic-content-with-rstudio-markdown.html">Christopher Gandrud</a></li>
-<li><a href="http://lamages.blogspot.com.au/2012/05/interactive-reports-in-r-with-knitr-and.html">Markcus Gesmann</a></li>
-<li><a href="http://rstudio.org/docs/authoring/using_markdown">Rstudio on R Markdown</a></li>
-<li><a href="http://yihui.name/knitr/">Yihui Xie</a>: I really want to thank him for developing <code>knitr</code>. He has also posted <a href="https://github.com/yihui/knitr/blob/master/inst/examples/knitr-minimal.Rmd">this example of R Markdown</a>.</li>
+<li><a
+href="http://christophergandrud.blogspot.com.au/2012/05/dynamic-content-with-rstudio-markdown.html">Christopher
+Gandrud</a></li>
+<li><a
+href="http://lamages.blogspot.com.au/2012/05/interactive-reports-in-r-with-knitr-and.html">Markcus
+Gesmann</a></li>
+<li><a href="http://rstudio.org/docs/authoring/using_markdown">Rstudio
+on R Markdown</a></li>
+<li><a href="http://yihui.name/knitr/">Yihui Xie</a>: I really want to
+thank him for developing <code>knitr</code>. He has also posted <a
+href="https://github.com/yihui/knitr/blob/master/inst/examples/knitr-minimal.Rmd">this
+example of R Markdown</a>.</li>
 </ul></li>
 </ul>
 <h2 id="questions">Questions</h2>
-<p>The following are a few questions I encountered along the way that might interest others. ### Annoying <code>&lt;br/&gt;</code>’s <strong>Question:</strong> I asked on the Rstudio discussion site: <a href="http://support.rstudio.org/help/discussions/problems/2329-why-does-r-markdown-to-html-insert-br-when-there-is-a-new-line-of-text">Why does Markdown to HTML insert <code>&lt;br/&gt;</code> on new lines?</a></p>
-<p><strong>Answer:</strong> I just do a find and delete on this text for now.</p>
+<p>The following are a few questions I encountered along the way that
+might interest others. ### Annoying <code>&lt;br/&gt;</code>’s
+<strong>Question:</strong> I asked on the Rstudio discussion site: <a
+href="http://support.rstudio.org/help/discussions/problems/2329-why-does-r-markdown-to-html-insert-br-when-there-is-a-new-line-of-text">Why
+does Markdown to HTML insert <code>&lt;br/&gt;</code> on new
+lines?</a></p>
+<p><strong>Answer:</strong> I just do a find and delete on this text for
+now.</p>
 <h3 id="temporarily-disable-caching">Temporarily disable caching</h3>
-<p><strong>Question:</strong> I asked on StackOverflow about <a href="http://stackoverflow.com/q/10628665/180892">How to set cache=FALSE for a knitr markdown document and override code chunk settings?</a></p>
-<p><strong>Answer:</strong> Delete the cache folder. But there are other possible workflows.</p>
+<p><strong>Question:</strong> I asked on StackOverflow about <a
+href="http://stackoverflow.com/q/10628665/180892">How to set cache=FALSE
+for a knitr markdown document and override code chunk settings?</a></p>
+<p><strong>Answer:</strong> Delete the cache folder. But there are other
+possible workflows.</p>
 <h3 id="equivalent-of-sexpr">Equivalent of Sexpr</h3>
-<p><strong>Question:</strong> I asked on Stack Overvlow about <a href="http://stackoverflow.com/q/10629416/180892">whether there an R Markdown equivalent to Sexpr in Sweave?</a>.</p>
-<p><strong>Answer:</strong> Include the code between brackets of “backick r space” and “backtick”. E.g., in the source code I have calculated 2 + 2 = 4 .</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<p><strong>Question:</strong> I asked on Stack Overvlow about <a
+href="http://stackoverflow.com/q/10629416/180892">whether there an R
+Markdown equivalent to Sexpr in Sweave?</a>.</p>
+<p><strong>Answer:</strong> Include the code between brackets of
+“backick r space” and “backtick”. E.g., in the source code I have
+calculated 2 + 2 = 4 .</p>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>

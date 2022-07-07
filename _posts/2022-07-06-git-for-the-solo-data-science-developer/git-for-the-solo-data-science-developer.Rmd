@@ -1,0 +1,106 @@
+---
+title: "git for the solo data science developer"
+description: |
+  A short description of the post.
+author:
+  - name: Ronald Glenn Thomas
+    url: https://focusonR.org
+date: 2022-07-06
+output:
+  distill::distill_article:
+    self_contained: false
+bibliography: /Users/zenn/shr/library.bib
+draft: true
+---
+
+
+```{r init, include=FALSE}
+# read this snippet in to new blog posts templates written by Distill
+# from vim ":r ../../draftpost.Rmd"
+# don't forget to add "
+
+# draft: true
+# bibliography: /Users/zenn/shr/library.bib
+# 
+# to YAML above  
+
+options(dplyr.print_max = 1e9)
+library(pacman)
+
+p_load(rmarkdown, tidyverse,  broom,  tidyr,  purrr,readr,
+       dplyr,  lubridate, zoo,  ggplot2, printr, lsmeans, ggthemes,  knitr,
+       nlme, pwr)
+
+opts_chunk$set(warning = F, message = F, echo=F, fig.width=3.2,
+	       fig.height=3,  results='asis', dev='pdf',
+	       opts_chunk$set(cache.path = "cache/"))
+source('~/shr/zz.tools.R')
+options(scipen = 1, digits = 2)
+```
+
+# Introduction
+
+This document chronicles my circuitous journey from old school naming of
+sequential drafts with a date stamped name creating a new copy of the program
+file each time I started working on it. I wrote a small utility to find the last
+Rmd file in a directory, extract the base name and copy to a new file with a
+current date stamp. This actually worked reasonably well for being able to "roll
+back" an iteration or two if I changed my mind about a feature, or messed up
+with the coding and  needed a "fresh" copy. 
+
+However, as I learnt more about git as a version control system the more I
+realized I was being naive as to the best approach. Git can be cryptic but its 
+able to do everything I needed and much more. The trick was to determine what I
+needed as a solo developer in order to be able to try new feature ideas without
+corrupting a master version. 
+
+At first the main challenge was to understand the branch and merging process. 
+
+I started with the excellent reference Pro Git by Scott Chacon and Ben Straub https://git-scm.com/book/en/v2.
+
+The first three chapters got me started. 
+
+I simultaneously worked my way through the online tutorial for the vim plugin
+Fugitive by Tim Pope. https://dzx.fr/blog/introduction-to-vim-fugitive/
+
+
+Sample reference section reference. @Pocock1975a
+
+# Methods
+
+# Results
+My most common usage of the todonotes package, is to insert an uncustomized
+todonotes somewhere in a latex document. An example of this usage is the command
+
+# References
+
+
+
+
+
+
+# Introduction
+
+
+# Methods
+
+# Results
+My most common usage of the todonotes package, is to insert an uncustomized
+todonotes somewhere in a latex document. An example of this usage is the command
+
+# References
+
+
+
+
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+Distill is a publication format for scientific and technical writing, native to the web.
+
+Learn more about using Distill at <https://rstudio.github.io/distill>.
+
+

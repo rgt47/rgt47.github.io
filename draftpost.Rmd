@@ -1,8 +1,13 @@
 
 ```{r init, include=FALSE}
 # read this snippet in to new blog posts templates written by Distill
-# from vim ":r ../../draftpost.Rmd"
-# don't forget to add "draft: true" to YAML above
+# directly below the YAML
+# from vim ":r ~/blog/draftpost.Rmd"
+# or using sh> cat draftpost.Rmd >> _post/postname/postname.Rmd
+# don't forget to add 
+# bibliography: /Users/zenn/shr/library.bib
+# if including references
+# to YAML above  
 options(dplyr.print_max = 1e9)
 library(pacman)
 
