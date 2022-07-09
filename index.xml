@@ -7,7 +7,15 @@
     <description>The primary goal is to Focus on R and its underpinnings. 
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Sun, 05 Dec 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 09 Jul 2022 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>new8</title>
+      <dc:creator>Ronald Glenn Thomas</dc:creator>
+      <link>https://focusonR.org/posts/new8</link>
+      <description>A short description of the post.</description>
+      <guid>https://focusonR.org/posts/new8</guid>
+      <pubDate>Sat, 09 Jul 2022 00:00:00 +0000</pubDate>
+    </item>
     <item>
       <title>Factors are confusing.</title>
       <dc:creator>Ronald Glenn Thomas</dc:creator>

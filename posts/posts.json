@@ -1,5 +1,22 @@
 [
   {
+    "path": "posts/new8/",
+    "title": "new8",
+    "description": "A short description of the post.",
+    "author": [
+      {
+        "name": "Ronald Glenn Thomas",
+        "url": "https://focusonR.org"
+      }
+    ],
+    "date": "2022-07-09",
+    "categories": [],
+    "contents": "\nIntroduction\n\n\n\n",
+    "preview": {},
+    "last_modified": "2022-07-09T12:38:55-07:00",
+    "input_file": {}
+  },
+  {
     "path": "posts/2021-11-14-factors-are-confusing/",
     "title": "Factors are confusing.",
     "description": "A short description of the post.",

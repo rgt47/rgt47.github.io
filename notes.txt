@@ -1,0 +1,16 @@
+
+name new post foobar
+
+
+Rscript -e "create_post('foobar', draft=T, edit=F, date_prefix=NULL)"
+cat draftpost.Rmd >> _posts/foobar/foobar.Rmd
+mvim _posts/foobar/foobar.Rmd
+Rscript -e "render_site()"
+gz -m "update blog"
+
+
+
+Rscript -e "create_post('dockerizeshinyapp', draft=T, edit=F, date_prefix=NULL)"
+cat draftpost.Rmd >> _posts/dockerizeshinyapp/dockerizeshinyapp.Rmd
+mvim _posts/dockerizeshinyapp/dockerizeshinyapp.Rmd
+

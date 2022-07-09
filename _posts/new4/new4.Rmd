@@ -1,0 +1,35 @@
+---
+title: "new4"
+description: |
+  A short description of the post.
+author:
+  - name: Ronald Glenn Thomas
+    url: https://focusonR.org
+date: 2022-07-09
+output:
+  distill::distill_article:
+    self_contained: false
+draft: true
+---
+
+
+
+```{r init, include=FALSE}
+
+options(dplyr.print_max = 1e9)
+library(pacman)
+
+p_load(rmarkdown, tidyverse,  broom,  tidyr,  purrr,readr,
+       dplyr,  lubridate, zoo,  ggplot2, printr, lsmeans, ggthemes,  knitr,
+       nlme, pwr)
+
+opts_chunk$set(warning = F, message = F, echo=F, fig.width=3.2,
+	       fig.height=3,  results='asis', dev='pdf'))
+source('~/shr/zz.tools.R')
+options(scipen = 1, digits = 2)
+```
+
+
+  
+
+
