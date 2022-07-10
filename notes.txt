@@ -1,16 +1,24 @@
+given the name of the new post as "foobar"
 
-name new post foobar
-
-
+sh> cd ~/blog
 Rscript -e "create_post('foobar', draft=T, edit=F, date_prefix=NULL)"
 cat draftpost.Rmd >> _posts/foobar/foobar.Rmd
 mvim _posts/foobar/foobar.Rmd
 Rscript -e "render_site()"
 gz -m "update blog"
 
+# or using hacked create_post() script zz.cp() (sourced in .Rprofile in ~/blog)
+sh> Rscript -e "zz.cp('foobar')"
+sh> v _posts/foobar/foobar.Rmd
+# if ready to publish delete draft command in YAML
+sh> Rscript -e "render('_posts/foobar/foobar.Rmd')"
+sh> Rscript -e "render_site()"
+sh> gz -m "update blog"
 
-
-Rscript -e "create_post('dockerizeshinyapp', draft=T, edit=F, date_prefix=NULL)"
-cat draftpost.Rmd >> _posts/dockerizeshinyapp/dockerizeshinyapp.Rmd
+# example 
+Rscript -e "zz.cp('dockerizeshinyapp')"
 mvim _posts/dockerizeshinyapp/dockerizeshinyapp.Rmd
-
+# render when done editing 
+vim-Nvim-R><localleader>'
+sh> Rscript -e "render_site()"
+sh> gz -m "update blog"
