@@ -1,0 +1,22 @@
+curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/gpg.key' | sudo gpg --dearmor -o /usr/share/keyrings/caddy-stable-archive-keyring.gpg
+
+
+curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/debian.deb.txt' | sudo tee /etc/apt/sources.list.d/caddy-stable.list
+
+
+docker run -d -p 80:80 -p 443:443 -v ./my-website:/usr/share/caddy/ -v caddy-config:/config -v caddy_data:/data caddy:2 caddy file-server --domain rgtlab.com
+
+
+docker run -d -p 80:80 -v  -v caddy-config:/config -v caddy_data:/data caddy:2
+
+
+sudo docker run -d -p 80:80 -p 443:443 -v caddy-config:/config -v ~/Caddyfile:/etc/caddy/Caddyfile -v caddy_data:/data caddy:2
+
+sudo docker rm -f caddy
+
+sudo docker run -d -p 80:80 -p 443:443   -v ~/Caddyfile:/etc/caddy/Caddyfile -v caddy_data:/data caddy:2
+
+
+basicauth * {
+	bob JDJhJDE0JEw4Zk5MQi5nYndEaHRjVTFVeGl2a2VBZTVPcFI0THhEZUd0OEJkOTR2d0VjRUxsMDBsQUg2
+}

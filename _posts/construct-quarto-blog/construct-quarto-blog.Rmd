@@ -1,0 +1,72 @@
+---
+title: "Construct quarto blog"
+description: |
+  I'm ready to do some blogging. I've worked out the Distill procedure, but it
+  seems limiting. I'm going to try to mimic what I have in quarto. 
+author:
+  - name: Ronald Glenn Thomas
+    url: https://focusonR.org
+date: 2022-07-22
+output:
+  distill::distill_article:
+    self_contained: false
+draft: true
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+# Introduction
+Start at the quarto ["Get Started"](https://quarto.org/docs/get-started/)
+page: Download the latest macos file: ``quarto-1.0.36-macos.pkg``
+and install
+```sh
+open quarto-1.0.36-macos.pkg
+```
+
+To initiate the blog navigate to prj directory and run the ``quarto create-project``
+command.
+
+```sh
+quarto create-project myblog --type website:blog
+```
+next open Rstudio
+
+create a new project in the ~/prj/qblog directory
+
+in the "build" pane. select "render website"
+
+
+
+```{r init, include=FALSE}
+# read this snippet in to new blog posts templates written by Distill
+# from vim ":r ~/blog/draftpost.Rmd"
+# or using sh> cat draftpost.Rmd >> _post/postname/postname.Rmd
+# don't forget to add 
+# bibliography: /Users/zenn/shr/library.bib
+# if including references
+# to YAML above  
+options(dplyr.print_max = 1e9)
+library(pacman)
+p_load(rmarkdown, tidyverse,  broom,  lubridate, printr, ggthemes, knitr, pwr)
+
+opts_chunk$set(warning = F, message = F, echo=F, fig.width=3.2,
+	       fig.height=3,  results='asis', dev='pdf',
+	       opts_chunk$set(cache.path = "cache/"))
+source('~/shr/zz.tools.R')
+options(scipen = 1, digits = 2)
+
+# Introduction
+
+
+# Methods
+
+# Results
+
+# References
+
+
+
+
+

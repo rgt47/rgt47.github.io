@@ -63,6 +63,13 @@ The first three chapters got me started.
 I simultaneously worked my way through the online tutorial for the vim plugin
 Fugitive by Tim Pope. https://dzx.fr/blog/introduction-to-vim-fugitive/
 
+## First question
+The first question a solo developer might ask is "Why don't I just use the
+master branch to develop in? I can commit when I want to save and roll back if I
+need to rework something. 
+
+This is a great question. I'll offer a few pros and cons in the following. 
+
 
 Sample reference section reference. @Pocock1975a
 
