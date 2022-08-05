@@ -6,13 +6,13 @@ author:
   - name: Ronald Glenn Thomas
     url: https://focusonR.org
 date: 2022-07-09
-geometry: "left=3cm,right=3in,top=2cm,bottom=2cm"
-output:
-  pdf_document:
+#geometry: "left=3cm,right=3in,top=2cm,bottom=2cm"
 #output:
-#  distill::distill_article:
-#    self_contained: false
-draft: true
+#  pdf_document:
+output:
+  distill::distill_article:
+    self_contained: false
+#draft: true
 bibliography: /Users/zenn/shr/library.bib
 ---
 
@@ -43,17 +43,34 @@ include_graphics("rshiny.png")
 
 # Introduction
 
-Lets assume we're just finished developing a 'shiny' new shiny app, named ``myapp.R``,
-that resides in the directory ``~/APPS/app3``. (where in my case I created the
-symbolic link ``APPS`` via the z-shell to ``sh> ln -s ~/prj/c060/prj/launch ~/APPS``.
-We want to check that the app is working as expected locally. To do that we can run it with the shell
-command ``APPS/app3> Rscript -e "runApp("myapp.R",launch.browser=T)"``.
+This is the first in a series of posts on how to leverage the technologies of: R
+(statistics environment), Shiny (dynamic programming), Docker (container
+packaging), Linux, Caddy (webserver), and AWS (Amazon's cloud hosting service)
+to provide open-source solutions to one of the central challenges in the
+practice of data science i.e. how to communicate analysis results to clients and
+collaborators. 
 
+This initial post provides a minimal example of applying these technologies to
+develop and host an interactive tool for conducting a statistical power
+analysis. 
+
+Starting with a simple, but still useful, shiny app and ending with a hosted web
+site with a custom domain name.  Lets assume we're just finished developing a
+'shiny' new shiny app, named ``power0.R``, 
+
+See the details of the power0 shiny app 
+[here](file:///Users/zenn/Dropbox/prj/blog/_posts/simpleshinypower0/simpleshinypower0.html)
+
+A screenshot of the finished app looks like: 
+
+```{r out.width = "300px"}
+include_graphics("shinyapppower0.png")
+```
+
+```{r, eval=F, echo=F}
 Consider an app that is a balance of simple and functional -- one that calculates
 the power for a 2-sample t-test as a function of the standardized effect size. 
-Here is our shiny app ``myapp.R``: 
-
-```{r, eval=F, echo=T}
+re is our shiny app ``myapp.R``: 
 ui <- fluidPage(
 titlePanel("Power Calculator for Two Group Parallel Designs"),
 sliderInput("N", "Total Sample Size:", min = 0, max = 300, value = 100),
@@ -110,20 +127,24 @@ CMD ["/usr/bin/shiny-server"]
 
 # Hosting
 
-Once we have a prodeuction ready dockerized hsiny app available, ewe'll want to
-host it on the interjet; mTho do that we;ll need the following :
-1 ) a virtual server,
-2) a domain name
-3) an SSL certificate (encrypted communication)
-4) an authentication method (password protection)
-5) a reverse proxy method
-6) an index file (landing page)
+Once we have a production ready dockerized shiny app available, we'll want to
+host it on the internet. To do that we'll need the following :
+
+1. a virtual server with a static IP address,
+2. a domain name
+3. an SSL certificate (encrypted communication)
+4. an authentication method (password protection)
+5. a reverse proxy method
+6. an index file (landing page)
 
 This can all be done at no cost if you have your own (self-hosted) server and
 domain name, or at minimal cost using a cloud-hosting service (e.g. Amazon's EC2
 or Digital Ocean) and a "leased" domain name from, e.g. GoDaddy. 
 
 ## On custom EC2 instance
+
+See the details of setting up the server are 
+[here](file:///Users/zenn/Dropbox/prj/blog/_posts/spinupserveraws/spinupserveraws.html)
 
 * Open EC2 console. 
 ```sh
@@ -178,6 +199,27 @@ or
 ssh ec2 
 
 ```
+
+set up the environment on server
+```sh
+export HOST="134.122.40.112"
+ssh root@$HOST
+
+apt-get -y update
+apt-get -y upgrade
+
+apt-get install -y \
+    docker \
+    docker-compose
+
+systemctl enable docker
+# or use homebrew for linux
+
+docker pull registry.gitlab.com/analythium/shinyproxy-hello/hello:latest
+docker pull analythium/covidapp-shiny:minimal
+
+```
+
 if you've set up a ``config`` file in ``~/.ssh`` (see Tips at the end of the
 blog)
 
@@ -378,4 +420,58 @@ then you ssh into new server with
 
 sh> ssh ec2
 
+```
+
+The Caddyfile and docker-compose.yml file are
+
+Caddyfile
+
+```sh
+
+rgtlab.org {
+
+    root * /srv
+    handle_path /power0/* {
+        reverse_proxy power0:3838
+    }
+    file_server
+}
+
+```
+
+docker-compose.yml
+
+```sh
+
+version: "3.7"
+
+services:
+  power0:
+    image: rgt47/power0:latest
+  caddy:
+    image: caddy:2.3.0-alpine
+    ports:
+      - "443:443"
+    volumes:
+      - $PWD/Caddyfile:/etc/caddy/Caddyfile
+      - $PWD/site:/srv
+      - caddy_data:/data
+      - caddy_config:/config
+volumes:
+  caddy_data:
+  caddy_config:
+
+
+```
+
+The index.html file 
+
+```sh
+
+<!DOCTYPE html>
+<html>
+  <body>
+      <a href="./power0/">Power0</a>
+  </body>
+</html> 
 ```

@@ -114,12 +114,12 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","draft","bibliography"]}},"value":[{"type":"character","attributes":{},"value":["Dockerize Shiny Apps"]},{"type":"character","attributes":{},"value":["A step-by-step walkthrough of developing a dockerfile for an R shiny app.\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Ronald Glenn Thomas"]},{"type":"character","attributes":{},"value":["https://focusonR.org"]}]}]},{"type":"character","attributes":{},"value":["2022-07-09"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["/Users/zenn/shr/library.bib"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","bibliography"]}},"value":[{"type":"character","attributes":{},"value":["Dockerize Shiny Apps"]},{"type":"character","attributes":{},"value":["A step-by-step walkthrough of developing a dockerfile for an R shiny app.\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Ronald Glenn Thomas"]},{"type":"character","attributes":{},"value":["https://focusonR.org"]}]}]},{"type":"character","attributes":{},"value":["2022-07-09"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"character","attributes":{},"value":["/Users/zenn/shr/library.bib"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["docker1.jpg","dockerizeshinyapp_files/anchor-4.2.2/anchor.min.js","dockerizeshinyapp_files/bowser-1.9.3/bowser.min.js","dockerizeshinyapp_files/distill-2.2.21/template.v2.js","dockerizeshinyapp_files/header-attrs-2.14/header-attrs.js","dockerizeshinyapp_files/jquery-3.6.0/jquery-3.6.0.js","dockerizeshinyapp_files/jquery-3.6.0/jquery-3.6.0.min.js","dockerizeshinyapp_files/jquery-3.6.0/jquery-3.6.0.min.map","dockerizeshinyapp_files/popper-2.6.0/popper.min.js","dockerizeshinyapp_files/tippy-6.2.7/tippy-bundle.umd.min.js","dockerizeshinyapp_files/tippy-6.2.7/tippy-light-border.css","dockerizeshinyapp_files/tippy-6.2.7/tippy.css","dockerizeshinyapp_files/tippy-6.2.7/tippy.umd.min.js","dockerizeshinyapp_files/webcomponents-2.0.0/webcomponents.js","dockerizeshinyapp.pdf","rshiny.png"]}
+  {"type":"character","attributes":{},"value":["docker1.jpg","dockerizeshinyapp_files/anchor-4.2.2/anchor.min.js","dockerizeshinyapp_files/bowser-1.9.3/bowser.min.js","dockerizeshinyapp_files/distill-2.2.21/template.v2.js","dockerizeshinyapp_files/header-attrs-2.14/header-attrs.js","dockerizeshinyapp_files/jquery-3.6.0/jquery-3.6.0.js","dockerizeshinyapp_files/jquery-3.6.0/jquery-3.6.0.min.js","dockerizeshinyapp_files/jquery-3.6.0/jquery-3.6.0.min.map","dockerizeshinyapp_files/popper-2.6.0/popper.min.js","dockerizeshinyapp_files/tippy-6.2.7/tippy-bundle.umd.min.js","dockerizeshinyapp_files/tippy-6.2.7/tippy-light-border.css","dockerizeshinyapp_files/tippy-6.2.7/tippy.css","dockerizeshinyapp_files/tippy-6.2.7/tippy.umd.min.js","dockerizeshinyapp_files/webcomponents-2.0.0/webcomponents.js","dockerizeshinyapp.pdf","notes.txt","rshiny.png","shinyapppower0.png","temp"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
   <!--/radix_placeholder_navigation_in_header-->
@@ -1519,53 +1519,28 @@ class="uri">https://focusonR.org</a>
 <p><img src="rshiny.png" width="300px" /></p>
 </div>
 <h1 id="introduction">Introduction</h1>
-<p>Lets assume we’re just finished developing a ‘shiny’ new shiny app,
-named <code>myapp.R</code>, that resides in the directory
-<code>~/APPS/app3</code>. (where in my case I created the symbolic link
-<code>APPS</code> via the z-shell to
-<code>sh&gt; ln -s ~/prj/c060/prj/launch ~/APPS</code>. We want to check
-that the app is working as expected locally. To do that we can run it
-with the shell command
-<code>APPS/app3&gt; Rscript -e "runApp("myapp.R",launch.browser=T)"</code>.</p>
-<p>Consider an app that is a balance of simple and functional – one that
-calculates the power for a 2-sample t-test as a function of the
-standardized effect size. Here is our shiny app
-<code>myapp.R</code>:</p>
+<p>This is the first in a series of posts on how to leverage the
+technologies of: R (statistics environment), Shiny (dynamic
+programming), Docker (container packaging), Linux, Caddy (webserver),
+and AWS (Amazon’s cloud hosting service) to provide open-source
+solutions to one of the central challenges in the practice of data
+science i.e. how to communicate analysis results to clients and
+collaborators.</p>
+<p>This initial post provides a minimal example of applying these
+technologies to develop and host an interactive tool for conducting a
+statistical power analysis.</p>
+<p>Starting with a simple, but still useful, shiny app and ending with a
+hosted web site with a custom domain name. Lets assume we’re just
+finished developing a ‘shiny’ new shiny app, named
+<code>power0.R</code>,</p>
+<p>See the details of the power0 shiny app <a
+href="file:///Users/zenn/Dropbox/prj/blog/_posts/simpleshinypower0/simpleshinypower0.html">here</a></p>
+<p>A screenshot of the finished app looks like:</p>
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/trinker/pacman'>pacman</a></span><span class='op'>)</span></span>
-<span><span class='fu'><a href='https://rdrr.io/pkg/pacman/man/p_load.html'>p_load</a></span><span class='op'>(</span><span class='va'>ggplot2</span>, <span class='va'>pwr</span><span class='op'>)</span></span>
-<span></span>
-<span><span class='va'>ui</span> <span class='op'>&lt;-</span> <span class='fu'>fluidPage</span><span class='op'>(</span></span>
-<span>  <span class='fu'>fluidRow</span><span class='op'>(</span> </span>
-<span>    <span class='fu'>column</span><span class='op'>(</span> <span class='fl'>2</span>,</span>
-<span><span class='fu'>sliderInput</span><span class='op'>(</span><span class='st'>"N"</span>, <span class='st'>"Total Sample Size:"</span>, min <span class='op'>=</span> <span class='fl'>0</span>, max <span class='op'>=</span> <span class='fl'>300</span>, value <span class='op'>=</span> <span class='fl'>100</span><span class='op'>)</span>,</span>
-<span><span class='fu'>sliderInput</span><span class='op'>(</span><span class='st'>"del"</span>, <span class='st'>"Range for delta"</span>, min <span class='op'>=</span> <span class='fl'>0.0</span>, max <span class='op'>=</span> <span class='fl'>1.5</span>, value <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>,<span class='fl'>1</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>,</span>
-<span>    <span class='fu'>column</span><span class='op'>(</span> <span class='fl'>6</span>,align<span class='op'>=</span><span class='st'>"center"</span>, <span class='fu'>plotOutput</span><span class='op'>(</span><span class='st'>"plot"</span><span class='op'>)</span>,</span>
-<span><span class='fu'>verbatimTextOutput</span><span class='op'>(</span><span class='st'>"eff"</span><span class='op'>)</span><span class='op'>)</span>,</span>
-<span>    <span class='fu'>column</span><span class='op'>(</span> <span class='fl'>3</span>, <span class='fu'>dataTableOutput</span><span class='op'>(</span><span class='st'>"df"</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span></span>
-<span></span>
-<span><span class='va'>server</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>input</span>, <span class='va'>output</span>, <span class='va'>session</span><span class='op'>)</span> <span class='op'>{</span></span>
-<span>  <span class='va'>del</span> <span class='op'>=</span> <span class='fu'>reactive</span><span class='op'>(</span><span class='va'>input</span><span class='op'>$</span><span class='va'>del</span><span class='op'>)</span></span>
-<span>  <span class='va'>delta</span> <span class='op'>=</span> <span class='fu'>reactive</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span><span class='op'>(</span><span class='fu'>del</span><span class='op'>(</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>]</span>, <span class='fu'>del</span><span class='op'>(</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>2</span><span class='op'>]</span>, <span class='op'>(</span><span class='fu'>del</span><span class='op'>(</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>2</span><span class='op'>]</span> <span class='op'>-</span> <span class='fu'>del</span><span class='op'>(</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>]</span><span class='op'>)</span><span class='op'>/</span><span class='fl'>20</span><span class='op'>)</span><span class='op'>)</span></span>
-<span>  <span class='va'>pow</span> <span class='op'>=</span> <span class='fu'>reactive</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/lapply.html'>sapply</a></span><span class='op'>(</span><span class='fu'>delta</span><span class='op'>(</span><span class='op'>)</span>, <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='fu'>pwr.t.test</span><span class='op'>(</span><span class='va'>input</span><span class='op'>$</span><span class='va'>N</span>, d<span class='op'>=</span><span class='va'>x</span><span class='op'>)</span><span class='op'>$</span><span class='va'>power</span> <span class='op'>)</span><span class='op'>)</span></span>
-<span>  <span class='va'>out</span> <span class='op'>=</span> <span class='fu'>reactive</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>cbind</a></span><span class='op'>(</span>N<span class='op'>=</span><span class='va'>input</span><span class='op'>$</span><span class='va'>N</span>, delta <span class='op'>=</span><span class='fu'>delta</span><span class='op'>(</span><span class='op'>)</span>, power <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Round.html'>round</a></span><span class='op'>(</span><span class='fu'>pow</span><span class='op'>(</span><span class='op'>)</span>,<span class='fl'>3</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span></span>
-<span>  <span class='va'>output</span><span class='op'>$</span><span class='va'>df</span> <span class='op'>&lt;-</span> <span class='fu'>renderDataTable</span><span class='op'>(</span><span class='fu'>out</span><span class='op'>(</span><span class='op'>)</span>, </span>
-<span>          options <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>dom <span class='op'>=</span> <span class='st'>'t'</span>, scrollY<span class='op'>=</span><span class='fl'>300</span>, scroller<span class='op'>=</span><span class='cn'>TRUE</span><span class='op'>)</span><span class='op'>)</span></span>
-<span>  <span class='va'>output</span><span class='op'>$</span><span class='va'>plot</span> <span class='op'>&lt;-</span> <span class='fu'>renderPlot</span><span class='op'>(</span><span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'>out</span><span class='op'>(</span><span class='op'>)</span>, <span class='fu'>aes</span><span class='op'>(</span>x<span class='op'>=</span><span class='va'>delta</span>, y<span class='op'>=</span><span class='va'>power</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> </span>
-<span>    <span class='fu'>geom_line</span><span class='op'>(</span><span class='op'>)</span><span class='op'>+</span></span>
-<span>    <span class='fu'>geom_hline</span><span class='op'>(</span>yintercept<span class='op'>=</span><span class='fl'>0.8</span>, color<span class='op'>=</span><span class='st'>"red"</span><span class='op'>)</span><span class='op'>+</span></span>
-<span>    <span class='fu'>geom_vline</span><span class='op'>(</span>xintercept<span class='op'>=</span><span class='fu'>pwr.t.test</span><span class='op'>(</span><span class='va'>input</span><span class='op'>$</span><span class='va'>N</span>, power<span class='op'>=</span><span class='fl'>.8</span><span class='op'>)</span><span class='op'>$</span><span class='va'>d</span>, color<span class='op'>=</span><span class='st'>"blue"</span><span class='op'>)</span><span class='op'>+</span></span>
-<span>    <span class='fu'>scale_x_continuous</span><span class='op'>(</span>name<span class='op'>=</span><span class='st'>"Std. Effect Size"</span>, </span>
-<span>    limits<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>input</span><span class='op'>$</span><span class='va'>del</span><span class='op'>[[</span><span class='fl'>1</span><span class='op'>]</span><span class='op'>]</span>, <span class='va'>input</span><span class='op'>$</span><span class='va'>del</span><span class='op'>[[</span><span class='fl'>2</span><span class='op'>]</span><span class='op'>]</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
-<span>    <span class='fu'>scale_y_continuous</span><span class='op'>(</span>name<span class='op'>=</span><span class='st'>"Power"</span>, limits<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>1.0</span><span class='op'>)</span>, breaks<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span><span class='op'>(</span><span class='fl'>0</span>,<span class='fl'>1</span>,<span class='fl'>.1</span><span class='op'>)</span><span class='op'>)</span><span class='op'>+</span></span>
-<span>    <span class='fu'>theme_bw</span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span></span>
-<span>  <span class='va'>eff</span> <span class='op'>=</span>  <span class='fu'>renderText</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/Round.html'>round</a></span><span class='op'>(</span><span class='fu'>pwr.t.test</span><span class='op'>(</span><span class='va'>input</span><span class='op'>$</span><span class='va'>N</span>, power<span class='op'>=</span><span class='fl'>.8</span><span class='op'>)</span><span class='op'>$</span><span class='va'>d</span>,<span class='fl'>3</span><span class='op'>)</span><span class='op'>)</span></span>
-<span>  <span class='va'>output</span><span class='op'>$</span><span class='va'>eff</span> <span class='op'>&lt;-</span> <span class='fu'>renderText</span><span class='op'>(</span></span>
-<span>       <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span><span class='op'>(</span><span class='st'>"Effect detectable with power 80% = "</span>, <span class='fu'>eff</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>)</span><span class='op'>)</span></span>
-<span><span class='op'>}</span></span>
-<span><span class='fu'>shinyApp</span><span class='op'>(</span><span class='va'>ui</span>, <span class='va'>server</span><span class='op'>)</span></span></code></pre>
+<p><img src="shinyapppower0.png" width="300px" /></p>
 </div>
+<div class="layout-chunk" data-layout="l-body">
+
 </div>
 <p>We are interested in hosting the app on a server to allow others to
 share in its wonderfulness There are many ways to accomplish this. First
@@ -1585,25 +1560,295 @@ Taylor</a> on
 <p>Here is our dockerfile:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>FROM rocker<span class="sc">/</span>shiny<span class="sc">:</span><span class="dv">4</span>.<span class="fl">2.0</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>RUN R <span class="sc">-</span>e <span class="st">&#39;install.packages(c(&quot;pacman&quot;,  &quot;ggplot2&quot;, &quot;pwr&quot; ), \ </span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="st">  repos=&quot;https://packagemanager.rstudio.com/cran/__linux__/focal/2022-07-15&quot;)&#39;</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>COPY app.R <span class="sc">/</span>srv<span class="sc">/</span>shiny<span class="sc">-</span>server<span class="sc">/</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>USER shiny</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>CMD [<span class="st">&quot;/usr/bin/shiny-server&quot;</span>]</span></code></pre></div>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>COPY app.R <span class="sc">/</span>srv<span class="sc">/</span>shiny<span class="sc">-</span>server<span class="sc">/</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>CMD [<span class="st">&quot;/usr/bin/shiny-server&quot;</span>]</span></code></pre></div>
 </div>
 <h1 id="methods">Methods</h1>
-<h1 id="results">Results</h1>
-<p>My most common usage of the todonotes package, is to insert an
-uncustomized todonotes somewhere in a latex document. An example of this
-usage is the command</p>
+<h1 id="hosting">Hosting</h1>
+<p>Once we have a production ready dockerized shiny app available, we’ll
+want to host it on the internet. To do that we’ll need the following
+:</p>
+<ol type="1">
+<li>a virtual server with a static IP address,</li>
+<li>a domain name</li>
+<li>an SSL certificate (encrypted communication)</li>
+<li>an authentication method (password protection)</li>
+<li>a reverse proxy method</li>
+<li>an index file (landing page)</li>
+</ol>
+<p>This can all be done at no cost if you have your own (self-hosted)
+server and domain name, or at minimal cost using a cloud-hosting service
+(e.g. Amazon’s EC2 or Digital Ocean) and a “leased” domain name from,
+e.g. GoDaddy.</p>
+<h2 id="on-custom-ec2-instance">On custom EC2 instance</h2>
+<p>See the details of setting up the server are <a
+href="file:///Users/zenn/Dropbox/prj/blog/_posts/spinupserveraws/spinupserveraws.html">here</a></p>
+<ul>
+<li>Open EC2 console.</li>
+</ul>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>   <span class="ex">https://aws.amazon.com/console</span></span></code></pre></div>
+<p>or</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>   <span class="ex">https://us-west-1.console.aws.amazon.com/ec2/v2/home?region=us-west-1#</span></span></code></pre></div>
+<ul>
+<li>log in</li>
+<li>side panel, click “ec2”</li>
+<li>side panel, click “Instances”</li>
+<li>from top bar, click “Launch Instances”</li>
+</ul>
+<ol start="2" type="1">
+<li>From “Quick Start” click Ubuntu button.</li>
+</ol>
+<ul>
+<li>Name the server say shiny-july22</li>
+<li><pre><code> Choose an AMI (instance template, operating system):</code></pre></li>
+</ul>
+<p>Suggest choose “Ubuntu Server 22.04 LTS”, but other linux
+distributions can be utilized, e.g.  Red Hat, or SUSE.)</p>
+<p>e.g. ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-20220609</p>
+<ol start="3" type="1">
+<li>Next choose an instance <strong>type</strong>, e.g. “t2-micro”.
+(different instances are mixtures of size, processors, memory, instance
+storage, network performance) click “Next: Configure Instance
+Details”</li>
+</ol>
+<p>*. choose Key pair (use in place aws18.pem) or set up new pair</p>
+<p>Add security group, e.g. ‘shiny’ (sg-0f37c94ac1e1b6250) allowing
+ports 80 (http), 22 (ssh), 443 (https), and 3838 (shiny). and 8787</p>
+<p>choose 30 GB of EBS General Purpose (SSD) or Magnetic storage</p>
+<p>click Launch Instance</p>
+<p>Use elastic IP (to allow server to be run “on-demand”) * click on
+elastic IP in left panel * select associate Elastic IP 13.57.139.31
+choose an instance (shiny-july22) to associate with.</p>
+<p>Log into new instance with ssh from local</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh</span> <span class="at">-i</span> ~/.ssh/aws18.pem ubuntu@13.57.139.31</span></code></pre></div>
+<p>or</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh</span> ec2 </span></code></pre></div>
+<p>set up the environment on server</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">HOST</span><span class="op">=</span><span class="st">&quot;134.122.40.112&quot;</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh</span> root@<span class="va">$HOST</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="ex">apt-get</span> <span class="at">-y</span> update</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="ex">apt-get</span> <span class="at">-y</span> upgrade</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="ex">apt-get</span> install <span class="at">-y</span> <span class="dt">\</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    docker <span class="dt">\</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    docker-compose</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="ex">systemctl</span> enable docker</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="co"># or use homebrew for linux</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> pull registry.gitlab.com/analythium/shinyproxy-hello/hello:latest</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> pull analythium/covidapp-shiny:minimal</span></code></pre></div>
+<p>if you’ve set up a <code>config</code> file in <code>~/.ssh</code>
+(see Tips at the end of the blog)</p>
+<p>Go to godaddy or Amazon route 53 to associate a domain name with the
+Elastic IP in EC2.</p>
+<p>To associate domain name rgtlab.org. in Route 53: * click on ‘hosted
+zones’ in side panel * click on rgtlab.org in center panel * click on
+checkbox for rgtlab.org type=A line * then click on edit record in right
+panel * change ip address to 13.57.139.31</p>
+<ol start="3" type="1">
+<li>Install Docker on server. sudo apt update sudo apt install
+apt-transport-https ca-certificates curl software-properties-common curl
+-fsSL <a href="https://download.docker.com/linux/ubuntu/gpg"
+class="uri">https://download.docker.com/linux/ubuntu/gpg</a> | sudo gpg
+–dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg echo “deb
+[arch=$(dpkg –print-architecture)
+signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] <a
+href="https://download.docker.com/linux/ubuntu"
+class="uri">https://download.docker.com/linux/ubuntu</a> $(lsb_release
+-cs) stable” | sudo tee /etc/apt/sources.list.d/docker.list &gt;
+/dev/null sudo apt update apt-cache policy docker-ce sudo apt install
+docker-ce sudo systemctl status docker sudo docker run -d -p 80:80 –name
+test4 -p 443:443 -v ~/mywebsite:/usr/share/caddy/ -v
+~/Caddyfile:/etc/caddy/Caddyfile -v caddy_<a href="data:/data"
+class="uri">data:/data</a> caddy:2</li>
+</ol>
+<p>to debug</p>
+<p>sudo docker logs test4</p>
+<p>cat Caddyfile (bob/utter credentials)</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">rgtlab.org</span> {</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="ex">basicauth</span> <span class="pp">*</span> {</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>        <span class="ex">bob</span> JDJhJDE0JEw4Zk5MQi5nYndEaHRjVTFVeGl2a2VBZTVPcFI0THhEZUd0OEJkOTR2d0VjRUxsMDBsQUg2</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="er">}</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="ex">respond</span> <span class="st">&quot;It works!&quot;</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="ex">root</span> <span class="pp">*</span> /var/www/html</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="er">}</span></span></code></pre></div>
+<ol start="4" type="1">
+<li></li>
+<li></li>
+</ol>
+<div class="sourceCode" id="cb9"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt install <span class="at">-y</span> debian-keyring debian-archive-keyring apt-transport-https <span class="at">-y</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-1sLf</span> <span class="st">&#39;https://dl.cloudsmith.io/public/caddy/stable/gpg.key&#39;</span> <span class="kw">|</span> <span class="fu">sudo</span> gpg <span class="at">--dearmor</span> <span class="at">-o</span> /usr/share/keyrings/caddy-stable-archive-keyring.gpg</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-1sLf</span> <span class="st">&#39;https://dl.cloudsmith.io/public/caddy/stable/debian.deb.txt&#39;</span> <span class="kw">|</span> <span class="fu">sudo</span> tee /etc/apt/sources.list.d/caddy-stable.list</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt-get update</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt-get install caddy <span class="at">-y</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> systemctl enable <span class="at">--now</span> caddy</span></code></pre></div>
+<ol start="6" type="1">
+<li>run container of image with parameters:</li>
+</ol>
+<ol type="a">
+<li>background: -d</li>
+<li>name=appX (X between 1 and 9)</li>
+<li>restart=always</li>
+<li>p 400X:3838 (X between 1 and 9) -p 4001:3838 ec2&gt; sudo docker run
+-d –name=app2 –restart=always -p 4002:3838 rgt47/app2:latest</li>
+</ol>
+<ol start="7" type="1">
+<li>edit /etc/caddy/Caddyfile to provide reverse proxy from port
+container ec2&gt; cd etc/caddy ec2&gt; sudo vim Caddyfile running on
+port 4002</li>
+</ol>
+<p>handle_path /app2/* { reverse_proxy 0.0.0.0:4002 }</p>
+<ol start="8" type="1">
+<li><p>edit /var/www/html/index.html to provide link to the container
+name (app2) Call it “demo app” ec2&gt; cd /var/www/html ec2&gt; sudo vim
+index.html &lt;!DOCTYPE html&gt;</p>
+<html>
+<body>
+<h1>
+<p>rgthomas lab apps</p>
+</h1>
+<ul>
+<li>
+<p><a href="./app2/">demo app</a></p>
+</li>
+</ul>
+</body>
+</html></li>
+<li><p>restart web server ec2&gt; sudo systemctl restart caddy</p></li>
+<li><p>Run the shiny app from the apps subdomain of rgthomaslab.com <a
+href="https://apps.rgthomaslab.com"
+class="uri">https://apps.rgthomaslab.com</a> \end{verbatim}</p></li>
+<li><p>Add zenn as a user and include in sudo list. all members of admin
+group have sudo privileges. copy private key from ubuntu user to zenn
+home directory and set correct permissions.</p></li>
+</ol>
+<p>After Launch and login run the following to add Shiny and new user
+zenn</p>
+<p>testing with Shiny3 might not need the following if ubuntu_startup.sh
+works</p>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode sh"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> R <span class="at">-e</span> <span class="st">&quot;install.packages(&#39;shiny&#39;, repos=&#39;http://cran.rstudio.com/&#39;)&quot;</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt-get install gdebi-core</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">wget</span> https://download3.rstudio.org/ubuntu-14.04/x86_64/shiny-server-1.5.16.958-amd64.deb</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> gdebi shiny-server-1.5.16.958-amd64.deb</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="co"># not sure about this example: </span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="co"># sudo /opt/shiny-server/bin/deploy-example default</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> adduser <span class="at">--home</span> /home/zenn <span class="at">--shell</span> /bin/bash<span class="dt">\</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">--ingroup</span> admin <span class="at">--disabled-password</span> zenn</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="co"># passwd zenn</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> cp <span class="at">-R</span> /home/ubuntu/.ssh /home/zenn/.ssh</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> chown <span class="at">-R</span> zenn:admin /home/zenn/.ssh</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> chmod 600 /home/zenn/.ssh/<span class="pp">*</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> chmod 700 /home/zenn/.ssh</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode sh"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="ex">view</span> app at </span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="ex">http://ec2-13.57.139.31.us-west-1.compute.amazonaws.com:3838/zenn/hello/</span></span></code></pre></div>
+<h1 id="security-set-up">Security Set-up</h1>
+<ol type="1">
+<li><p>Get domain name, e.g. from Godaddy.com. Mine is
+inferencex.com</p></li>
+<li><p>get an elastic IP, reserved for your personal use. Needed for
+security certificate use, e.g. my elastic IP is 13.57.139.31</p></li>
+</ol>
+<h1 id="add-encryption-to-server">Add encryption to server</h1>
+<h2 id="get-lets-encrypt-certificate">get lets encrypt certificate</h2>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode sh"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt install apache2</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> ufw enable</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> ufw allow <span class="st">&#39;Apache Full&#39;</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> snap install core<span class="kw">;</span> <span class="fu">sudo</span> snap refresh core</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> snap install <span class="at">--classic</span> certbot</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> ln <span class="at">-s</span> /snap/bin/certbot /usr/bin/certbot</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> certbot <span class="at">--apache</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="ex">IMPORTANT</span> NOTES:</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a> <span class="ex">-</span> Congratulations! Your certificate and chain have been saved at:</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>   <span class="ex">/etc/letsencrypt/live/rgthomaslab.com/fullchain.pem</span></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>   <span class="ex">Your</span> key file has been saved at:</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>   <span class="ex">/etc/letsencrypt/live/rgthomaslab.com/privkey.pem</span></span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>   <span class="ex">Your</span> certificate will expire on 2021-04-15. To obtain a new or</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>   <span class="ex">tweaked</span> version of this certificate in the future, simply run</span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>   <span class="ex">certbot</span> again with the <span class="st">&quot;certonly&quot;</span> option. To non-interactively</span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>   <span class="ex">renew</span> <span class="pp">*</span>all<span class="pp">*</span> of your certificates, run <span class="st">&quot;certbot renew&quot;</span></span></code></pre></div>
+<p>Modify apache configuration file to find add certificate</p>
+<h2 id="on-digital-ocean">On digital ocean</h2>
+<p>on EC2 instance pull image from docker hub local&gt; ssh ec2 ec2&gt;
+sudo docker pull rgt47/app2:latest</p>
+<p>Up next …</p>
+<p>and move it to an inplace ec2 instance (<a
+href="https:apps.rgthomaslab.com"
+class="uri">https:apps.rgthomaslab.com</a>) existing web server: caddy
+(ssl certificates) security model (ssh, https, shiny, rstudio) elastic
+IP docker installed</p>
 <h1 id="references">References</h1>
 <h2 id="tips">Tips</h2>
 <p>Build and run instance (call it four) open in shell for
 exploration</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> build <span class="at">-t</span> four .</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> run <span class="at">-it</span> <span class="at">--rm</span> four /bin/bash</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span></code></pre></div>
-<div class="sourceCode" id="cb3"><pre
+<div class="sourceCode" id="cb13"><pre
+class="sourceCode sh"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> build <span class="at">-t</span> four .</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> run <span class="at">-it</span> <span class="at">--rm</span> four /bin/bash</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span></code></pre></div>
+<p>Construct a config file in ~/.ssh as:</p>
+<div class="sourceCode" id="cb14"><pre
+class="sourceCode sh"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Host</span> ec2</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>    <span class="ex">HostName</span> 13.57.139.31</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    <span class="ex">User</span> ubuntu</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    <span class="ex">Port</span> 22</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    <span class="ex">IdentityFile</span> ~/.ssh/aws18.pem</span></code></pre></div>
+<p>then you ssh into new server with</p>
+<div class="sourceCode" id="cb15"><pre
+class="sourceCode sh"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sh</span><span class="op">&gt;</span> ssh ec2</span></code></pre></div>
+<p>The Caddyfile and docker-compose.yml file are</p>
+<p>Caddyfile</p>
+<div class="sourceCode" id="cb16"><pre
+class="sourceCode sh"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="ex">rgtlab.org</span> {</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>    <span class="ex">root</span> <span class="pp">*</span> /srv</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>    <span class="ex">handle_path</span> /power0/<span class="pp">*</span> {</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>        <span class="ex">reverse_proxy</span> power0:3838</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>    <span class="er">}</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>    <span class="ex">file_server</span></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a><span class="er">}</span></span></code></pre></div>
+<p>docker-compose.yml</p>
+<div class="sourceCode" id="cb17"><pre
+class="sourceCode sh"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="ex">version:</span> <span class="st">&quot;3.7&quot;</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="ex">services:</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>  <span class="ex">power0:</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>    <span class="ex">image:</span> rgt47/power0:latest</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>  <span class="ex">caddy:</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>    <span class="ex">image:</span> caddy:2.3.0-alpine</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>    <span class="ex">ports:</span></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>      <span class="ex">-</span> <span class="st">&quot;443:443&quot;</span></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>    <span class="ex">volumes:</span></span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>      <span class="ex">-</span> <span class="va">$PWD</span>/Caddyfile:/etc/caddy/Caddyfile</span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>      <span class="ex">-</span> <span class="va">$PWD</span>/site:/srv</span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>      <span class="ex">-</span> caddy_data:/data</span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>      <span class="ex">-</span> caddy_config:/config</span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a><span class="ex">volumes:</span></span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>  <span class="ex">caddy_data:</span></span>
+<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a>  <span class="ex">caddy_config:</span></span>
+<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a></span></code></pre></div>
+<p>The index.html file</p>
+<div class="sourceCode" id="cb18"><pre
+class="sourceCode sh"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>!DOCTYPE <span class="ex">html</span><span class="op">&gt;</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>html<span class="op">&gt;</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>  <span class="op">&lt;</span>body<span class="op">&gt;</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>      <span class="op">&lt;</span>a <span class="va">href</span><span class="op">=</span><span class="st">&quot;./power0/&quot;</span><span class="op">&gt;</span>Power0<span class="op">&lt;</span>/a<span class="op">&gt;</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>  <span class="op">&lt;</span>/body<span class="op">&gt;</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>/html<span class="op">&gt;</span> </span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre
 class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
