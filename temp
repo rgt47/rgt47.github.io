@@ -1,0 +1,3 @@
+
+ Rscript -e "zz.cp('webserver-tutorial')"
+ v _posts/webserver-tutorial/webserver-tutorial.Rmd

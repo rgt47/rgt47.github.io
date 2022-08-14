@@ -1,0 +1,17 @@
+Add a paragraph about running as Shiny (as opposed to root) 
+https://medium.com/@mccode/processes-in-containers-should-not-run-as-root-2feae3f0df3b
+maybe find a discussion in the Shiny-server install docs. 
+
+add a comment about ports why is 3838 the default port and doesnt need to
+EXPOSed. 
+
+why copy app.R to non-user space? .. don't need any additional users. 
+
+2022-08-05
+see if docker-compose.yml requires the two caddy file volumes. 
+
+can we add the dockerfile info to the dockercompose.yml. maybe pull the shiny
+app from github. 
+
+can the root and file_server command be dropped from Caddyfile? 
+

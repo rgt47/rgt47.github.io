@@ -7,3 +7,11 @@ EXPOSed.
 
 why copy app.R to non-user space? .. don't need any additional users. 
 
+2022-08-05
+see if docker-compose.yml requires the two caddy file volumes. 
+
+can we add the dockerfile info to the dockercompose.yml. maybe pull the shiny
+app from github. 
+
+can the root and file_server command be dropped from Caddyfile? 
+

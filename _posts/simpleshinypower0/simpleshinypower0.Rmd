@@ -1,0 +1,71 @@
+---
+title: "Simple shiny app: power0"
+description: |
+    A simple but useful shiny app.
+author:
+  - name: Ronald Glenn Thomas
+    url: https://focusonR.org
+date: 2022-08-05
+#output:
+#  distill::distill_article:
+#    self_contained: false
+geometry: "left=3cm,right=3in,top=2cm,bottom=2cm"
+output:
+  pdf_document:
+#draft: true
+---
+
+
+
+```{r init, include=FALSE}
+
+options(dplyr.print_max = 1e9)
+library(pacman)
+
+p_load(rmarkdown, tidyverse,  broom,  tidyr,  purrr,readr,
+       dplyr,  lubridate, zoo,  ggplot2, printr, lsmeans, ggthemes,  knitr,
+       nlme, pwr)
+
+opts_chunk$set(warning = F, message = F, echo=F, fig.width=3.2,
+	       fig.height=3,  results='asis', dev='pdf')
+source('~/shr/zz.tools.R')
+options(scipen = 1, digits = 2)
+``` 
+
+# Introduction
+
+Consider an app that is a balance of simple and functional -- one that calculates
+the power for a 2-sample t-test as a function of the standardized effect size. 
+Here is our shiny app ``power0.R``: 
+
+```{r, eval=F, echo=T}
+ui <- fluidPage(
+titlePanel("Power Calculator for Two Group Parallel Designs"),
+sliderInput("N", "Total Sample Size:", min = 0, max = 300, value = 100),
+plotOutput("plot"),
+verbatimTextOutput("eff"))
+
+server <- function(input, output, session) {
+  delta = seq(0, 1.5,.05)
+  pow = reactive(sapply(delta, function(x) power.t.test(input$N, d=x)$power ))
+  eff =  renderText(power.t.test(input$N, power=.8)$d)
+  output$plot <- renderPlot({
+  plot(delta, pow(), cex=1.5, ylab="power")
+  abline(h = .8,  col = "red", lwd =2.5, lty = 4)
+  abline(v = eff(), col = "blue",lwd =2.5, lty = 4)})  
+  output$eff <- renderText(
+    paste0("Std. effect detectable with power 80% = ", eff()) )
+}
+shinyApp(ui, server)
+
+```
+
+In most cases data scientists will develop their shiny apps 'locally' on their
+personal laptops or desktops, but the coding could also be done directly on the
+server. Wherever you're working you just need to have R and shiny (and any
+required R libraries) installed. 
+
+
+``APPS/app3> Rscript -e
+"runApp("myapp.R",launch.browser=T)"``.
+

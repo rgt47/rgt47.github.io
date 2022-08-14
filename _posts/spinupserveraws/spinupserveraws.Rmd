@@ -1,0 +1,157 @@
+---
+title: "Spin-up virtual server on AWS"
+description: |
+  Details for selecting and starting a small server on AWS. 
+author:
+  - name: R (Rhye) Glenn Thomas-Thorne
+    url: https://focusonR.org
+date: 2022-08-05
+geometry: "left=3cm,right=3in,top=2cm,bottom=2cm"
+output:
+  pdf_document:
+#output:
+#  distill::distill_article:
+#    self_contained: false
+#draft: true
+---
+
+
+
+```{r init, include=FALSE}
+
+options(dplyr.print_max = 1e9)
+library(pacman)
+
+p_load(rmarkdown, tidyverse,  broom,  tidyr,  purrr,readr,
+       dplyr,  lubridate, zoo,  ggplot2, printr, lsmeans, ggthemes,  knitr,
+       nlme, pwr)
+
+opts_chunk$set(warning = F, message = F, echo=F, fig.width=3.2,
+	       fig.height=3,  results='asis', dev='pdf')
+source('~/shr/zz.tools.R')
+options(scipen = 1, digits = 2)
+``` 
+
+# Introduction
+This post provides a detailed description of creating a low-cost* virtual server
+on Amazon AWS. 
+
+* AWS offers a free set of servers for the first 12 months. 
+
+* Open EC2 console. 
+```sh
+   https://aws.amazon.com/console
+```
+   or
+```sh
+   https://us-west-1.console.aws.amazon.com/ec2/v2/home?region=us-west-1#
+```
+
+```{r out.width = "300px"}
+include_graphics("ec2a.png")
+
+```
+
+* log in
+
+
+After logging in to AWS start by setting up a working environment. In particular
+
+* ssh
+* Domain Name 
+* Static IP
+
+* side panel, click "ec2"
+* side panel, click "Instances"
+* from top bar, click "Launch Instances"
+
+2. From "Quick Start" click Ubuntu button. 
+* Name the server say shiny-july22
+*      Choose an AMI (instance template, operating system):
+
+Suggest choose "Ubuntu Server 22.04 LTS", but other linux distributions can be utilized, e.g.u 
+Red Hat, or SUSE.)
+
+e.g. ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-20220609
+
+3. Next choose an instance **type**, e.g. "t2-micro". (different instances are
+   mixtures of size, processors, memory, instance storage, network performance) 
+click "Next: Configure Instance Details"
+
+*. choose Key pair (use in place aws18.pem) or set up new pair
+
+The first time you create an AWS account you need to exchange an SSH key pair
+with AWS.
+
+You can generate an ssh key pair locally and upload public key to EC2. 
+
+Create a directory to hold the keys. e.g. ~/.ssh.
+
+From inside .ssh generate the keys with the command
+
+> ssh-gen -PEM ???
+name keys something like ssh-rsa.
+
+On EC2 select security/keys and upload the import the public key.
+
+Add security group, e.g. 'shiny' (sg-0f37c94ac1e1b6250) 
+allowing ports 80 (http), 22 (ssh), 443 (https), and 3838 (shiny). 
+and 8787 
+
+choose  30 GB of EBS General Purpose (SSD) or Magnetic storage   
+
+click Launch Instance
+
+
+Use elastic IP (to allow server to be run "on-demand")
+* click on elastic IP in left panel
+* select associate Elastic IP  13.57.139.31
+  choose an instance (shiny-july22) to associate with. 
+
+Log into new instance with ssh from local
+
+```sh
+ssh -i ~/.ssh/aws18.pem ubuntu@13.57.139.31
+```
+or 
+```sh
+ssh ec2 
+
+```
+if you've set up a ``config`` file in ``~/.ssh`` (see Tips at the end of the
+blog)
+
+
+set up the environment on server. There is only one piece of software to
+install: Docker. 
+
+```sh
+apt-get -y update
+apt-get -y upgrade
+
+apt-get install -y \
+    docker \
+    docker-compose
+
+systemctl enable docker
+# or use homebrew for linux
+
+
+```
+Add ubuntu to the docker group
+
+get domain name from Route 53. 
+
+Go to godaddy or Amazon route 53 to associate a domain name with the Elastic IP
+in EC2. 
+
+(screenshot) 
+
+To associate domain name rgtlab.org.
+in Route 53: 
+
+* click on 'hosted zones' in side panel
+* click on rgtlab.org in center panel
+* click on checkbox for rgtlab.org type=A line
+* then click on edit record in right panel
+* change ip address to 13.57.139.31

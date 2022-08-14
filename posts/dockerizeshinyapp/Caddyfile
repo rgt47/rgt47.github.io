@@ -1,0 +1,8 @@
+rgtlab.org {
+basicauth * {
+		bob JDJhJDE0JElCQmRGaTA0ajY3bkZTLjRiWUZ4enVoZnVSQzVXVGVUMHlVcXJTaTRGYmpRQVFHLnYzN0tx
+	}
+	handle_path /power0/* {
+		reverse_proxy power0:3838
+	}
+}
