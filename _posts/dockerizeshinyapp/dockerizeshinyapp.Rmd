@@ -235,21 +235,38 @@ caddy hash-password --plaintext bar
 Pull the power.R file from rgt47 gist
 
 ```sh
-curl https://gist.githubusercontent.com/rgt47/ae58ec9aab928793929a74f20b0fd8ce/raw/power0.R
+
+ui <- fluidPage(
+titlePanel("Power Calculator for Two Group Parallel Designs"),
+sliderInput("N", "Total Sample Size:", min = 0, max = 300, value = 100),
+plotOutput("plot"),
+verbatimTextOutput("eff"))
+
+server <- function(input, output, session) {
+  delta = seq(0, 1.5,.05)
+  pow = reactive(sapply(delta, function(x) power.t.test(input$N, d=x)$power ))
+  eff =  renderText(power.t.test(input$N, power=.8)$d)
+  output$plot <- renderPlot({
+  plot(delta, pow(), cex=1.5, ylab="power")
+  abline(h = .8,  col = "red", lwd =2.5, lty = 4)
+  abline(v = eff(), col = "blue",lwd =2.5, lty = 4)})  
+  output$eff <- renderText(
+    paste0("Std. effect detectable with power 80% = ", eff()) )
+}
+shinyApp(ui, server)
+
 ```
 
 # Appendix2 
 
 
-* AWS offers a free set of servers for the first 12 months. 
+AWS is a reasonable choice for setting up a small custom server. AWS offers a
+free set of servers for the first 12 months. 
 
-* Open EC2 console. 
+
+To start open EC2 console. 
 ```sh
    https://aws.amazon.com/console
-```
-   or
-```sh
-   https://us-west-1.console.aws.amazon.com/ec2/v2/home?region=us-west-1#
 ```
 
 ```{r out.width = "300px"}
@@ -257,31 +274,42 @@ include_graphics("ec2a.png")
 
 ```
 
-* log in
+Create an account or sign in then before choosing the server template set up a
+working environment. Specifically you'll want to set up four components of the environment
 
+1. ssh key pair
+1. firewall 
+1. Domain Name 
+1. Static IP
+  
+1. 
 
-After logging in to AWS start by setting up a working environment. In particular
+The first time you create an AWS account you need to exchange an SSH key pair
+with AWS.
+You can generate an ssh key pair locally and upload public key to EC2. 
+Create a directory to hold the keys. e.g. ~/.ssh.
+From inside .ssh generate the keys with the command
 
-* ssh
+```sh
+sh> ssh-keygen -m PEM
+```
+name key prefix something like `ssh-rsa`.
 
+Back On EC2 select security/keys and  import the public key.
 
-Construct a config file in ~/.ssh as:
+Construct a `config` file in `~/.ssh` as:
 ```sh
 Host ec2
-    HostName 13.57.139.31
-    User ubuntu
-    Port 22
-    IdentityFile ~/.ssh/aws18.pem
+    HostName 13.57.139.31 # static IP
+    User ubuntu # default user on ubuntu server
+    Port 22  # the default port ssh uses
+    IdentityFile ~/.ssh/ssh-rsa.pem
 ```
-then you ssh into new server with 
+then you can ssh into new server with 
 ```sh
-
 sh> ssh ec2
-
 ```
 
-* Domain Name 
-* Static IP
 
 Use elastic IP (to allow server to be run "on-demand")
      * click on elastic IP in left panel
@@ -307,19 +335,6 @@ click "Next: Configure Instance Details"
 
 *. choose Key pair (use in place aws18.pem) or set up new pair
 
-The first time you create an AWS account you need to exchange an SSH key pair
-with AWS.
-
-You can generate an ssh key pair locally and upload public key to EC2. 
-
-Create a directory to hold the keys. e.g. ~/.ssh.
-
-From inside .ssh generate the keys with the command
-
-> ssh-gen -PEM ???
-name keys something like ssh-rsa.
-
-On EC2 select security/keys and upload the import the public key.
 
 Add security group, e.g. 'shiny' (sg-0f37c94ac1e1b6250) 
 allowing ports 80 (http), 22 (ssh), 443 (https), and 3838 (shiny). 
@@ -361,7 +376,7 @@ apt-get install -y \
     docker-compose
 
 systemctl enable docker
-# or use homebrew for linux
+# or use homebrew for lin
 
 
 ```
@@ -382,3 +397,37 @@ in Route 53:
 * click on checkbox for rgtlab.org type=A line
 * then click on edit record in right panel
 * change ip address to 13.57.139.31
+
+
+
+# appendix x (joe data version)
+
+ok! got my shiny app running. Works great! Now how do I get it up on the web and
+shared with my client Bob?  
+
+Start by creating a repo for the app on github. 
+
+* login to github (screenshot) 
+
+
+```{r out.width = "300px"}
+include_graphics("git1.png")
+
+```
+
+
+*  click  on `new` in `repo name` and enter `power1`. (Make the repo private we
+  only want to share with Bob at this point). 
+* create repo
+* on workstation: clone the repo 
+```sh
+git clone https://github.com/rgt47/power1.git
+```
+* copy `power1.R` in `power1` repo directory. 
+* update remote repo
+    * git add . 
+    * git commit -m 'add shiny code'
+    * git push
+
+Now we need a (virtual) server to host the app. Let use Amazon AWS. 
+
