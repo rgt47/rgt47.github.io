@@ -5,7 +5,7 @@ description: |
 author:
   - name: Ronald Glenn Thomas
     url: https://focusonR.org
-date: 2022-07-09
+date: "`r Sys.Date()`"
 geometry: "left=3cm,right=3in,top=2cm,bottom=2cm"
 output:
   pdf_document:
@@ -43,18 +43,18 @@ include_graphics("rshiny.png")
 
 # Introduction
 
-This is the first in a series of posts offering suggested strategies for leveraging
-a set of open source  technologies to provide  solutions to one
-of the central challenges in the practice of data science, i.e. how to
-effectively communicate analysis results to clients and collaborators. 
-The group of technologies (or stack) we'll employ is: linux, R, Shiny, Caddy,
-and Docker. 
+This is the first in a series of posts offering suggested strategies for
+leveraging a set of open source  technologies to provide  solutions to one of
+the central challenges in the practice of data science, i.e. how to effectively
+communicate analysis results to clients and collaborators.  The group of
+technologies (or stack) we'll employ is: linux, R, Shiny, Caddy, git, and
+Docker. We'll make use of the cloud services github and AWS. 
 
 This initial post provides a minimal, proof-of-concept example of applying these
-technologies for the development and hosting an interactive application for conducting
+technologies for the development and hosting of an interactive application for conducting
 a statistical power analysis. 
 
-We start with a simple, but hopefully still useful, stand-alone shiny app and end with a secure
+We start with a simple, but hopefully useful, stand-alone shiny app and end with a secure
 (encrypted  and authenticated) web site with a custom domain name hosting our
 app.  
 
@@ -63,8 +63,9 @@ app.
 Lets assume we're just
 finished developing a 'shiny' new shiny app, named ``power0`` .
 
-See the code for the power0 shiny app 
-[here](#appendix1) in appendix 1. 
+Power0 in this post can be shiny app. To provide a concrete example we've
+created our own app. See the code for our power0 shiny app [here](#appendix1) in
+appendix 1. 
 
 A screenshot of the finished product shows a shiny app with a widget to select the
 sample size and a visualization (2D plot) of the power as a function of the
@@ -120,41 +121,59 @@ Photo by <a href="https://unsplash.com/@carrier_lost?utm_source=unsplash&utm_med
 Once we have a production ready dockerized shiny app available, we'll want to
 host it on the internet. To do that we'll need the following :
 
-1. a virtual server
+1. a virtual server (connected via ssh)
 2. a static IP address
 2. a domain name
 2. a web server
 3. an SSL certificate (encrypted communication)
 4. an authentication method (password protection)
 5. a reverse proxy method
+5. a containerized version of app. 
+6. a method for power0 container to communicate with containerized web-server.
+
+Let's walk through each of these items. 
 
 This can all be done at no cost if you have your own (self-hosted) server and
 domain name, or at minimal cost using a cloud-hosting service (e.g. Amazon's EC2
-or Digital Ocean) and a "leased" domain name from, e.g. via GoDaddy, or Amazon's
+or Digital Ocean) and a "leased" domain name from, e.g. GoDaddy, or Amazon's
 Route 53. 
 
 There are a number of cloud based server options: Microsoft Azure, Google Cloud,
-Amazon AWS, Digital Ocean to name a few. 
-
-Specific instructions for AWS EC2 are here
-or [here](#appendix2) in appendix 2. 
+Amazon AWS, Digital Ocean to name a few. Each has their own approach to setting
+up a custom virtual server. 
 
 
+Install docker and git.
+
+Specific instructions for AWS EC2 are [here](#appendix2) in appendix 2.
+
+Once the hosting process is complete items 1, 2, and 3 will be taken care of. 
+
+# Web-site
 
 
-To construct the web site we need four files in the home directory for default
-user ubuntu. Lets clone them in from github. 
+To construct the web site we need three files to go along with our shiny app in
+the home directory for default user ubuntu. 
 
-```sh
-git clone http:// ???
-```
+* a Caddyfile
+* a Dockerfile
+* a docker-compose.yml file
 
-We'll use Caddy as our web server
-To allow the automation of one of the most complicated parts of this exercise,
-the i.e. acquiring and installing an SSL certificate. 
+Lets discuss each and add them to the power0 repo on our workstation. 
+Once the files are present in the repo we can push copies to github and from there
+we can access them from our server.
 
-The second file is the Caddyfile configuration file. The caddyfile provides
-three things. 
+We'll use Caddy as our web server. Caddy is an open-source tool that has the
+awesome feature of allowing  automating of, acquiring and installing an SSL
+certificate, one of the most complicated parts of this exercise. 
+
+Caddy is configures with a file named  `Caddyfile` configuration file. The
+caddyfile provides three things.  We can accomplish what we need for items 4, 5
+and 6 through the Caddyfile. 
+
+First we provide with our servers domain name,e.g rgtlab.org and that is
+sufficient to initiate an exchange with `letsencrypt` with the goal of
+generating an SSL certificate. 
 
 1. the site domain name. 
 2. the authentication pair login/hash-password, and 
@@ -210,12 +229,6 @@ USER shiny
 CMD ["/usr/bin/shiny-server"]
 
 ```
-Thats it. With the dockerfile and the app.R fine in the same directory we can
-first build the docker image, and then push it to Docker hub as a convenient
-repository. (Alternatively we could copy it directly to the server or to another
-site, e.g github.com. )
-
-Details are [ here ](file)
 
 
 to add authentication to the web site use basic auth supplied by caddy
@@ -229,6 +242,18 @@ docker run -it --rm caddy:2.3.0-alpine /bin/sh
 caddy hash-password --plaintext bar
 ```
 
+Thats it. With the dockerfile and the app.R fine in the same directory we can
+first build the docker image, and then push it to Docker hub as a convenient
+repository. (Alternatively we could copy it directly to the server or to another
+site, e.g github.com. )
+
+Details are [ here ](file)
+
+Lets clone them into the server from github. 
+
+```sh
+git clone https:// ???
+```
 
 # Appendix1 
 
