@@ -38,6 +38,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 # Introduction
 
+
 I've been using R for a while now and I have (like many of my colleagues)
 wrestled with factors frequently. I have on occasion found them useful
 particulary in defining an order among categorical variables. see example 2
