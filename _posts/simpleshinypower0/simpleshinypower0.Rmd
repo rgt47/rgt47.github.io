@@ -6,12 +6,12 @@ author:
   - name: Ronald Glenn Thomas
     url: https://focusonR.org
 date: 2022-08-05
-#output:
-#  distill::distill_article:
-#    self_contained: false
-geometry: "left=3cm,right=3in,top=2cm,bottom=2cm"
 output:
-  pdf_document:
+  distill::distill_article:
+    self_contained: false
+#geometry: "left=3cm,right=3in,top=2cm,bottom=2cm"
+#output:
+#  pdf_document:
 #draft: true
 ---
 

@@ -128,7 +128,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["simpleshinypower0_files/anchor-4.2.2/anchor.min.js","simpleshinypower0_files/bowser-1.9.3/bowser.min.js","simpleshinypower0_files/distill-2.2.21/template.v2.js","simpleshinypower0_files/header-attrs-2.14/header-attrs.js","simpleshinypower0_files/jquery-3.6.0/jquery-3.6.0.js","simpleshinypower0_files/jquery-3.6.0/jquery-3.6.0.min.js","simpleshinypower0_files/jquery-3.6.0/jquery-3.6.0.min.map","simpleshinypower0_files/popper-2.6.0/popper.min.js","simpleshinypower0_files/tippy-6.2.7/tippy-bundle.umd.min.js","simpleshinypower0_files/tippy-6.2.7/tippy-light-border.css","simpleshinypower0_files/tippy-6.2.7/tippy.css","simpleshinypower0_files/tippy-6.2.7/tippy.umd.min.js","simpleshinypower0_files/webcomponents-2.0.0/webcomponents.js"]}
+  {"type":"character","attributes":{},"value":["sessionmanager-bundle/bin/session-manager-plugin","sessionmanager-bundle/install","sessionmanager-bundle/LICENSE","sessionmanager-bundle/NOTICE","sessionmanager-bundle/README.md","sessionmanager-bundle/RELEASENOTES.md","sessionmanager-bundle/seelog.xml.template","sessionmanager-bundle/THIRD-PARTY","sessionmanager-bundle/VERSION","sessionmanager-bundle.zip","simpleshinypower0.pdf"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
 <meta name="distill:offset" content="../.."/>
@@ -2509,6 +2509,11 @@ standardized effect size. Here is our shiny app
 <span><span class='fu'>shinyApp</span><span class='op'>(</span><span class='va'>ui</span>, <span class='va'>server</span><span class='op'>)</span></span></code></pre>
 </div>
 </div>
+<p>In most cases data scientists will develop their shiny apps ‘locally’
+on their personal laptops or desktops, but the coding could also be done
+directly on the server. Wherever you’re working you just need to have R
+and shiny (and any required R libraries) installed.</p>
+<p><code>APPS/app3&gt; Rscript -e "runApp("myapp.R",launch.browser=T)"</code>.</p>
 <div class="sourceCode" id="cb1"><pre
 class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
