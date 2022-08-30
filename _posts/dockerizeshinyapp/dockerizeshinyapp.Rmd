@@ -6,17 +6,16 @@ author:
   - name: Ronald Glenn Thomas
     url: https://focusonR.org
 date: "`r Sys.Date()`"
-geometry: "left=3cm,right=3in,top=2cm,bottom=2cm"
-output:
-  pdf_document:
+#geometry: "left=3cm,right=3in,top=2cm,bottom=2cm"
 #output:
-#  distill::distill_article:
-#    self_contained: false
+#  pdf_document:
+output:
+  distill::distill_article:
+    self_contained: false
 #draft: true
 bibliography: /Users/zenn/shr/library.bib
 ---
 
-[go to appendix](#appendix1)
 
 
 ```{r init, include=FALSE}
@@ -44,26 +43,26 @@ include_graphics("rshiny.png")
 # Introduction
 
 This is the first in a series of posts offering suggested strategies for
-leveraging a set of open source  technologies to provide  solutions to one of
+leveraging open source  technologies to provide straight-forward  solutions to one of
 the central challenges in the practice of data science, i.e. how to effectively
 communicate analysis results to clients and collaborators.  The group of
 technologies (or stack) we'll employ is: linux, R, Shiny, Caddy, git, and
-Docker. We'll make use of the cloud services github and AWS. 
+Docker. We'll make use of two cloud services github and AWS. 
 
 This initial post provides a minimal, proof-of-concept example of applying these
 technologies for the development and hosting of an interactive application for conducting
 a statistical power analysis. 
 
-We start with a simple, but hopefully useful, stand-alone shiny app and end with a secure
-(encrypted  and authenticated) web site with a custom domain name hosting our
-app.  
+We start with a simple, but hopefully useful, stand-alone shiny app and end with
+a secure (encrypted  and authenticated) web site with a custom domain name
+hosting our app.  The approach described here is minimalist.  
 
 # Methods
 
-Lets assume we're just
+To begin lets assume we're just
 finished developing a 'shiny' new shiny app, named ``power0`` .
 
-Power0 in this post can be shiny app. To provide a concrete example we've
+The methods described here apply to any shiny app, but  to provide a concrete example we've
 created our own app. See the code for our power0 shiny app [here](#appendix1) in
 appendix 1. 
 
@@ -71,14 +70,15 @@ A screenshot of the finished product shows a shiny app with a widget to select t
 sample size and a visualization (2D plot) of the power as a function of the
 standardized effect size: 
 
-```{r out.width = "300px"}
-include_graphics("shinyapppower0.png")
-``` 
 
-```{r, eval=F, echo=F}
 Consider an app that is a balance of simple and functional -- one that calculates
 the power for a 2-sample t-test as a function of the standardized effect size. 
-re is our shiny app ``myapp.R``: 
+re is our shiny app `power0.R`: 
+
+
+The app is discussed further is [appendix 1](#appendix1)
+
+```sh
 ui <- fluidPage(
 titlePanel("Power Calculator for Two Group Parallel Designs"),
 sliderInput("N", "Total Sample Size:", min = 0, max = 300, value = 100),
@@ -98,95 +98,107 @@ server <- function(input, output, session) {
 }
 shinyApp(ui, server)
 
-``` Once we determine the app is working as designed.  We are interested in
+``` 
+
+Once we determine the app is working as designed we are interested in
 hosting the app on a (virtual) server to allow others to share in its
 utility. There are many ways to accomplish this. First off we'll
-demonstrate one of the most straightforward and efficient: a docker based
-approach. 
+demonstrate one of the most straightforward and efficient: spinning up a server
+on AWS and using docker containers for both our app and web server. 
 
-The first step is to dockerize (or more specifically a docker-compose) our app.
-This provides a whole host of advantages. Lets discuss. 
-
-```{r out.width = "300px"}
-include_graphics("docker1.jpg")
+```{r out.width="200px"}
+include_graphics("shinyapppower0.png")
 ```
-<font size="2"> 
-Photo by <a href="https://unsplash.com/@carrier_lost?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Ian Taylor</a> on <a href="https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-</font> 
-
-
 
 # Hosting
 
-Once we have a production ready dockerized shiny app available, we'll want to
+Once we have a production ready  shiny app available, we'll want to
 host it on the internet. To do that we'll need the following :
 
 1. a virtual server (connected via ssh)
-2. a static IP address
-2. a domain name
-2. a web server
+2. a static IP address (to identify the server online)
+2. a domain name (human readable name for IP address) 
+2. a web server (software to recognize https protocol requests and respond)
 3. an SSL certificate (encrypted communication)
 4. an authentication method (password protection)
-5. a reverse proxy method
-5. a containerized version of app. 
+5. a reverse proxy method (translate port 443 requests to port 3838 for shiny)
+5. a containerized version of app. (bundled app and requisite software) 
 6. a method for power0 container to communicate with containerized web-server.
 
-Let's walk through each of these items. 
+At first glance these 9 requirements can appear daunting, but on closer
+inspection all can be met with minimal expertise and minimal or no cost. 
 
-This can all be done at no cost if you have your own (self-hosted) server and
-domain name, or at minimal cost using a cloud-hosting service (e.g. Amazon's EC2
-or Digital Ocean) and a "leased" domain name from, e.g. GoDaddy, or Amazon's
-Route 53. 
+This can all be done at no cost if you have your own (self-hosted) server with
+IP address, and domain name, or at minimal cost using a cloud-hosting service
+(e.g. Amazon's EC2 or Digital Ocean) and a "leased" domain name from, e.g.
+ GoDaddy, or Amazon's Route 53. 
 
 There are a number of cloud based server options: Microsoft Azure, Google Cloud,
 Amazon AWS, Digital Ocean to name a few. Each has their own approach to setting
-up a custom virtual server. 
+up a custom virtual server.  Several have free or low-cost service tiers
+available. 
 
 
-Install docker and git.
+
+
+
+
 
 Specific instructions for AWS EC2 are [here](#appendix2) in appendix 2.
+
+Once the server is available connect via ssh, login, and Install docker,
+docker-compose and git.
+with the following command:
+
+```sh
+sudo apt install -y git docker docker-compose
+```
 
 Once the hosting process is complete items 1, 2, and 3 will be taken care of. 
 
 # Web-site
 
 
-To construct the web site we need three files to go along with our shiny app in
-the home directory for default user ubuntu. 
+To configure the web server and containerize our app we need to add three
+ files to the server, to go along with our shiny app in the `power0`
+directory (in the home directory for default user `ubuntu`). 
+
+The easiest way to do this is to add the three files to the power0 directory on
+our workstation and then "push" a copy to github. 
+
+
+
+These three configuation files are:
 
 * a Caddyfile
 * a Dockerfile
 * a docker-compose.yml file
 
-Lets discuss each and add them to the power0 repo on our workstation. 
-Once the files are present in the repo we can push copies to github and from there
+Lets discuss each and initially add them to the power0 directory on our workstation. 
+Once the three files are in place in the directory we can push copies to github and from there
 we can access them from our server.
 
 We'll use Caddy as our web server. Caddy is an open-source tool that has the
-awesome feature of allowing  automating of, acquiring and installing an SSL
-certificate, one of the most complicated parts of this exercise. 
+very useful feature of  automating the acquiring and installing of an SSL
+certificate, which is required to use the encrypted communication protocol https. 
 
-Caddy is configures with a file named  `Caddyfile` configuration file. The
-caddyfile provides three things.  We can accomplish what we need for items 4, 5
-and 6 through the Caddyfile. 
 
-First we provide with our servers domain name,e.g rgtlab.org and that is
-sufficient to initiate an exchange with `letsencrypt` with the goal of
-generating an SSL certificate. 
+Caddy is configured with a file named  `Caddyfile`.  The
+caddyfile configures three things.  
 
 1. the site domain name. 
 2. the authentication pair login/hash-password, and 
 3. the 'reverse proxy' map that
    redirects requests to port 443 (ssl port) to port 3838 (shiny port). 
 
-The Caddyfile is 
+The Caddyfile in our example is:
 
 
 auth info bob/utter
 
 ```sh
 rgtlab.org {
+#auth credentials: bob/utter
 basicauth * {
 		bob JDJhJDE0JElCQmRGaTA0ajY3bkZTLjRiWUZ4enVoZnVSQzVXVGVUMHlVcXJTaTRGYmpRQVFHLnYzN0tx
 	}
@@ -196,10 +208,48 @@ basicauth * {
 }
 
 ```
-And the third file is the docker compose file that pulls our shiny app, and the
-caddy server and create a local network for them to communicate in.
+We can accomplish what we need for items 4, 5
+and 6 through the Caddyfile. 
 
-docker-compose.yml
+For your project replace: 
+
+* rgtlab.org with your domain name
+* Bob JDJ... with user names and hash-passwords 
+* power0 with you app's name
+
+Providing  our servers domain name, `rgtlab.org` is
+sufficient to initiate an exchange with `letsencrypt` to
+generates an SSL certificate. 
+
+
+The second file is the dockerfile. In its simplest form it instructs Docker to build
+a container based on a Rocker/Shiny image then copy in the app.R code and
+launch shiny on (default) port 3838. 
+
+```{r out.width = "150px"}
+include_graphics("docker1.jpg")
+```
+<font size="2"> 
+Photo by <a href="https://unsplash.com/@carrier_lost?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Ian Taylor</a> on <a href="https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+</font> 
+
+Here is our dockerfile: 
+
+```{r, eval=F, echo=T}
+
+FROM rocker/shiny:4.2.0
+COPY app.R /srv/shiny-server/
+USER shiny
+CMD ["/usr/bin/shiny-server"]
+
+```
+
+
+And the third file is the docker compose file that containerizes our shiny app,
+and pulls a caddy server image from Docker Hub and create a local network for
+the two containers to communicate in.
+
+The docker-compose.yml file:
 
 ```sh
 
@@ -219,35 +269,14 @@ volumes:
     caddy_data:
 ```
 
-Here is our dockerfile: 
+To generate a password for say foobar. 
 
-```{r, eval=F, echo=T}
-
-FROM rocker/shiny:4.2.0
-COPY app.R /srv/shiny-server/
-USER shiny
-CMD ["/usr/bin/shiny-server"]
-
-```
-
-
-to add authentication to the web site use basic auth supplied by caddy
-first to get access to the command line interface (CLI) for caddy issue the
-docker command to load a caddy container from Docker Hub
 ```sh	
-docker-compose run caddy caddy hash-password
+docker-compose run caddy caddy hash-password foobar
 
-
-docker run -it --rm caddy:2.3.0-alpine /bin/sh
-caddy hash-password --plaintext bar
 ```
 
-Thats it. With the dockerfile and the app.R fine in the same directory we can
-first build the docker image, and then push it to Docker hub as a convenient
-repository. (Alternatively we could copy it directly to the server or to another
-site, e.g github.com. )
-
-Details are [ here ](file)
+Once in place push power0 to github and then clone repo to server.
 
 Lets clone them into the server from github. 
 
@@ -255,9 +284,22 @@ Lets clone them into the server from github.
 git clone https:// ???
 ```
 
+cd to power0 directory and run
+
+```sh
+docker-compose up -d
+```
+
+and you're good to go!
+The app `power0` can be accessed by 'bob' at the url
+```sh
+https://rgtlab.org/power0
+```
+with password 'utter'
+
 # Appendix1 
 
-Pull the power.R file from rgt47 gist
+Consider the power0.R file:  
 
 ```sh
 
@@ -282,6 +324,10 @@ shinyApp(ui, server)
 
 ```
 
+The app is designed to be maximally minimal. Using only base R functions, with a
+minimum of reactive widgets and layout commands to keep it simple while still
+performing a useful function. 
+
 # Appendix2 
 
 
@@ -289,7 +335,7 @@ AWS is a reasonable choice for setting up a small custom server. AWS offers a
 free set of servers for the first 12 months. 
 
 
-To start open EC2 console. 
+To start open the EC2 console. 
 ```sh
    https://aws.amazon.com/console
 ```
@@ -299,81 +345,77 @@ include_graphics("ec2a.png")
 
 ```
 
-Create an account or sign in then before choosing the server template set up a
-working environment. Specifically you'll want to set up four components of the environment
+Create an account or sign in. Next set up a working environment. Specifically
+you'll want to set up four components of the environment:
 
-1. ssh key pair
-1. firewall 
-1. Domain Name 
+1. Ssh key pair
+1. Firewall 
 1. Static IP
-  
-1. 
+1. Domain Name 
 
 The first time you create an AWS account you need to exchange an SSH key pair
-with AWS.
-You can generate an ssh key pair locally and upload public key to EC2. 
-Create a directory to hold the keys. e.g. ~/.ssh.
-From inside .ssh generate the keys with the command
+with AWS.  You can generate the ssh key pair locally on you workstation and
+upload the public key to EC2. 
+
+Create a directory to hold the keys. e.g. `~/.ssh`. Change directory into
+`.ssh`.
+ Generate the keys with the command
 
 ```sh
-sh> ssh-keygen -m PEM
+ssh-keygen -m PEM
 ```
-name key prefix something like `ssh-rsa`.
+name the key prefix something like `ssh-rsa`.
 
-Back On EC2 select security/keys and  import the public key.
+On EC2 select `security/keys`, browse to the `.ssh` directory and  import the
+public key `ssh-rsa.pub`.
 
-Construct a `config` file in `~/.ssh` as:
+For convenience, construct a `config` file in `~/.ssh` as:
 ```sh
 Host ec2
-    HostName 13.57.139.31 # static IP
-    User ubuntu # default user on ubuntu server
-    Port 22  # the default port ssh uses
-    IdentityFile ~/.ssh/ssh-rsa.pem
+HostName 13.57.139.31 # static IP
+User ubuntu # default user on ubuntu server
+Port 22  # the default port ssh uses
+IdentityFile ~/.ssh/ssh-rsa
 ```
-then you can ssh into new server with 
+then you can ssh into the new server with 
 ```sh
 sh> ssh ec2
 ```
 
 
-Use elastic IP (to allow server to be run "on-demand")
-     * click on elastic IP in left panel
-     * select associate Elastic IP  13.57.139.31
-  choose an instance (shiny-july22) to associate with. 
+Use "elastic IP" to get a static IP that can be assigned to the server
 
+* click on elastic IP in left panel
+* select associate Elastic IP  13.57.139.31
+  choose an instance (shiny-july22) to associate with. 
 * side panel, click "ec2"
 * side panel, click "Instances"
 * from top bar, click "Launch Instances"
 
 2. From "Quick Start" click Ubuntu button. 
-* Name the server say shiny-july22
-*      Choose an AMI (instance template, operating system):
+* Name the server, say shiny-july22
+* Choose an AMI (instance template, operating system):
 
 Suggest choose "Ubuntu Server 22.04 LTS", but other linux distributions can be utilized, e.g.u 
 Red Hat, or SUSE.)
 
-e.g. ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-20220609
 
-3. Next choose an instance **type**, e.g. "t2-micro". (different instances are
+3. Next choose an instance **type**, e.g. "t2-micro". (different instance types are
    mixtures of size, processors, memory, instance storage, network performance) 
 click "Next: Configure Instance Details"
 
-*. choose Key pair (use in place aws18.pem) or set up new pair
+4. choose Key pair (use in place aws18.pem) or set up new pair
 
 
-Add security group, e.g. 'shiny' (sg-0f37c94ac1e1b6250) 
+5. Add security group, e.g. 'shiny' (sg-0f37c94ac1e1b6250) 
 allowing ports 80 (http), 22 (ssh), 443 (https), and 3838 (shiny). 
 and 8787 
 
-choose  30 GB of EBS General Purpose (SSD) or Magnetic storage   
+6. choose  30 GB of EBS General Purpose (SSD) or Magnetic storage   
 
-click Launch Instance
+7. click Launch Instance
 
 
-Use elastic IP (to allow server to be run "on-demand")
-* click on elastic IP in left panel
-* select associate Elastic IP  13.57.139.31
-  choose an instance (shiny-july22) to associate with. 
 
 Log into new instance with ssh from local
 
@@ -385,36 +427,19 @@ or
 ssh ec2 
 
 ```
-if you've set up a ``config`` file in ``~/.ssh`` (see Tips at the end of the
-blog)
+if you've set up a ``config`` file in ``~/.ssh`` 
 
 
-set up the environment on server. There is only one piece of software to
-install: Docker. 
+Tip: Add ubuntu to the docker group to allow docker to run without sudo. 
 
-```sh
-apt-get -y update
-apt-get -y upgrade
-
-apt-get install -y \
-    docker \
-    docker-compose
-
-systemctl enable docker
-# or use homebrew for lin
-
-
-```
-Add ubuntu to the docker group
-
-get domain name from Route 53. 
 
 Go to godaddy or Amazon route 53 to associate a domain name with the Elastic IP
 in EC2. 
 
 (screenshot) 
 
-To associate domain name rgtlab.org.
+To associate domain name rgtlab.org with elastic IP.
+
 in Route 53: 
 
 * click on 'hosted zones' in side panel

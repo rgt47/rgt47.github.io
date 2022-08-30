@@ -7,7 +7,16 @@
     <description>The primary goal is to Focus on R and its underpinnings. 
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Fri, 05 Aug 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 29 Aug 2022 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Dockerize Shiny Apps</title>
+      <dc:creator>Ronald Glenn Thomas</dc:creator>
+      <link>https://focusonR.org/posts/dockerizeshinyapp</link>
+      <description>A step-by-step walkthrough of developing a dockerfile for an R shiny app.</description>
+      <guid>https://focusonR.org/posts/dockerizeshinyapp</guid>
+      <pubDate>Mon, 29 Aug 2022 00:00:00 +0000</pubDate>
+      <media:content url="https://focusonR.org/posts/dockerizeshinyapp/rshiny.png" medium="image" type="image/png" width="1200" height="482"/>
+    </item>
     <item>
       <title>Simple shiny app: power0</title>
       <dc:creator>Ronald Glenn Thomas</dc:creator>
@@ -15,15 +24,6 @@
       <description>A simple but useful shiny app.</description>
       <guid>https://focusonR.org/posts/simpleshinypower0</guid>
       <pubDate>Fri, 05 Aug 2022 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>Dockerize Shiny Apps</title>
-      <dc:creator>Ronald Glenn Thomas</dc:creator>
-      <link>https://focusonR.org/posts/dockerizeshinyapp</link>
-      <description>A step-by-step walkthrough of developing a dockerfile for an R shiny app.</description>
-      <guid>https://focusonR.org/posts/dockerizeshinyapp</guid>
-      <pubDate>Sat, 09 Jul 2022 00:00:00 +0000</pubDate>
-      <media:content url="https://focusonR.org/posts/dockerizeshinyapp/rshiny.png" medium="image" type="image/png" width="1200" height="482"/>
     </item>
     <item>
       <title>Factors are confusing.</title>
