@@ -1,0 +1,5 @@
+rgtlab.org {
+    handle_path /power0/* {
+        reverse_proxy power0:3838
+    }
+}
